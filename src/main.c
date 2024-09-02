@@ -6,7 +6,7 @@
 /*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 03:00:21 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/09/02 03:24:55 by aabdulmecit      ###   ########.fr       */
+/*   Updated: 2024/09/02 04:05:37 by aabdulmecit      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int main()
     while (j++ < 40)
         while (i++ < 500)
             mlx_pixel_put(mlx, win, i, i, 0xFFFFFF);
-    mlx_string_put(mlx, win, 150, 100, 0xFFFFFF, "New The Alpaca");
+    mlx_string_put(mlx, win, 150, 100, 0xFFFFFF, "Hi from aabdulmecitz :)");
     mlx_loop(mlx);
     return 0;
 }
