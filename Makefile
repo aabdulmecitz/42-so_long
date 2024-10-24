@@ -1,29 +1,31 @@
 NAME = so_long
-
+SRCS = main.c
+OBJS = $(SRCS:.c=.o)
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
+MLX = -Lminilibx-linux -lmlx -lXext -lX11 -lm -lz
+RM = rm -f
 
-SRC = src/main.c # Diğer kaynak dosyalarınızı da buraya ekleyin
-OBJ = $(SRC:.c=.o)
+# Projeyi derleyen hedef
+$(NAME): $(OBJS)
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(MLX)
 
-MLX_DIR = ./minilibx-linux
-MLX_LIB = $(MLX_DIR)/libmlx.a
-MLX_FLAGS = -L$(MLX_DIR) -lmlx -L/usr/lib -lXext -lX11
-
+# Varsayılan hedef
 all: $(NAME)
 
-$(NAME): $(OBJ)
-	$(MAKE) -C $(MLX_DIR)
-	$(CC) $(CFLAGS) $(OBJ) $(MLX_LIB) $(MLX_FLAGS) -o $(NAME)
-
+# Object dosyalarını ve geçici dosyaları temizle
 clean:
-	rm -f $(OBJ)
-	$(MAKE) -C $(MLX_DIR) clean
+	$(RM) $(OBJS)
 
+# Bütün dosyaları (çalıştırılabilir dosya dahil) temizle
 fclean: clean
-	rm -f $(NAME)
-	$(MAKE) -C $(MLX_DIR) fclean
+	$(RM) $(NAME)
 
+# Yeniden derleme
 re: fclean all
 
-.PHONY: all clean fclean re
+# Programı yeniden derleyip çalıştırma hedefi
+run: re
+	./so_long
+
+.PHONY: all clean fclean re run
