@@ -1,9 +1,10 @@
 NAME = so_long
 SRCS = main.c
 OBJS = $(SRCS:.c=.o)
-CC = gcc
+CC = cc
 CFLAGS = -Wall -Wextra -Werror
-MLX = -Lminilibx-linux -lmlx -lXext -lX11 -lm -lz
+MLX_DIR = ./minilibx-linux
+MLX = -L$(MLX_DIR) -lmlx -lXext -lX11 -lm -lz
 RM = rm -f
 
 # Projeyi derleyen hedef
