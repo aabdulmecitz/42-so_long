@@ -6,11 +6,13 @@
 /*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 03:00:21 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/11/13 21:11:14 by aozkaya          ###   ########.fr       */
+/*   Updated: 2024/11/14 18:08:46 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./minilibx-linux/mlx.h"
+#include "gnl/get_next_line.h"
+#include "so_long.h"
 #include <stdlib.h>
 #include <stdio.h>
 
@@ -21,7 +23,23 @@ int close_window(void *param)
     return (0);
 }
 
-int main()
+char **ber_to_map_arr(t_data data, int fd)
+{
+    int i;
+    int k;
+    char **map;
+    i = 0;
+    k = 1;
+    while (k > 0)
+    {
+        map[i] = get_next_line(fd);
+        k = ft_strlen(map[i]);
+        i++;
+    }
+    return (map);
+}
+
+int main(int argc, char **argv)
 {
     void *mlx;
     void *win;
@@ -32,7 +50,7 @@ int main()
     
     int h = 64;
     int w = 64;
-
+    
     mlx = mlx_init();
     if (!mlx) {
         printf("MiniLibX başlatılamadı!\n");
@@ -48,7 +66,9 @@ int main()
     mlx_mouse_show(mlx, win);
     mlx_hook(win, 17, 0, close_window, NULL);
 
-    image = mlx_xpm_file_to_image(mlx, "./textures/techwall.xpm", &w, &h);
+    image = mlx_xpm_file_to_image(mlx, ".//vikings.xpm", &w, &h);
+    void *image2 = mlx_xpm_file_to_image(mlx, ".//vikings.xpm", &w + 32 , &h + 32);
+    
     if (!image) {
         printf("XPM dosyasi yüklenemedi!\n");
         return 1;
@@ -60,10 +80,14 @@ int main()
     }
    
     mlx_put_image_to_window(mlx, win, image, 0, 0);
-    mlx_put_image_to_window(mlx, win, image, 32, 0);
+    mlx_put_image_to_window(mlx, win, image2, 32, 0);
+    /* mlx_put_image_to_window(mlx, win, image, 32, 32);
+    mlx_put_image_to_window(mlx, win, image, 32, 64);
+    mlx_put_image_to_window(mlx, win, image, 64, 64);
+    mlx_put_image_to_window(mlx, win, image, 64, 128);
     mlx_put_image_to_window(mlx, win, image, 64, 0);
     mlx_put_image_to_window(mlx, win, image, 96, 0);
-    mlx_put_image_to_window(mlx, win, image, 128, 0);
+    mlx_put_image_to_window(mlx, win, image, 128, 0); */
     
     mlx_put_image_to_window(mlx, win, player, 64, 32);
 
