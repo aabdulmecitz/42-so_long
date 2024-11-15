@@ -27,35 +27,32 @@ SRCS 			= $(addprefix $(SRCS_DIR),\
 				ft_intit_game.c \
 				so_long.c)
 
-# Default target to build the program
 all:			${NAME} ${LIBFT} 
 
-# Rule to create the executable
 ${NAME}: 		
 				${CC} ${STANDARD_FLAGS} ${SRCS} ${LIBFT} -L./lib/minilibx-linux ${MLX} ${MINILIBX_FLAGS} -o ${NAME}
 				@echo "$(NAME): $(GREEN)$(NAME) was compiled.$(RESET)"
 				@echo
 
-# Rule to build libft
 ${LIBFT}:
 				@echo
 				make bonus -C lib/libft
 
-# Clean rule to remove object files
 clean:
 				make clean -C lib/libft
 				@echo
 
-# Full clean rule
 fclean:
 				${REMOVE} ${NAME} ${NAME_BONUS}
 				@echo "${NAME}: ${RED}${NAME} and ${NAME_BONUS} were deleted${RESET}"
 				@echo
+push:
+	git add .
+	git commit -m "commit"
+	git push
 
-# Rebuild rule
 re:				fclean all
 
-# Run the program with valgrind
 run:			${NAME}
 				${VALGRIND} ./${NAME} assets/maps/valid/map4.ber
 
