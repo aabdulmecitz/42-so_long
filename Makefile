@@ -53,7 +53,7 @@ push:
 
 re:				fclean all
 
-run:			${NAME}
-				${VALGRIND} ./${NAME} assets/maps/valid/map4.ber
+run:			re
+				./${NAME} assets/maps/valid/map4.ber
 
 .PHONY:			all clean fclean re rebonus valgrind run run_bonus makefile
