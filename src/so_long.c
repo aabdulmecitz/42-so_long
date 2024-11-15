@@ -1,28 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_bonus.h                              :+:      :+:    :+:   */
+/*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/31 13:52:01 by aozkaya           #+#    #+#             */
-/*   Updated: 2024/11/15 11:21:43 by aabdulmecit      ###   ########.fr       */
+/*   Created: 2024/09/02 03:00:21 by aabdulmecit       #+#    #+#             */
+/*   Updated: 2024/11/16 02:16:43 by aabdulmecit      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_BONUS_H
-# define GET_NEXT_LINE_BONUS_H
+#include "so_long.h"
 
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 42
-# endif
+int main(int argc, char const *argv[])
+{
+    t_game *game;
 
-# include <stdlib.h>
-
-const char	*ft_strchr(const char *s, int c);
-char		*ft_strdup(const char *s);
-char		*ft_substr(const char *s, unsigned int start, size_t len);
-char		*get_next_line(int fd);
-char		*ft_append_to_left_one(int fd, char *buf);
-
-#endif
+    game = malloc(sizeof(t_game));
+    ft_check_command_line_args(argc, argv, game);
+    ft_init_map(game, argv[1]);
+    
+    return 0;   
+}

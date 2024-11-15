@@ -6,11 +6,13 @@
 /*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 05:19:00 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/11/15 11:10:28 by aabdulmecit      ###   ########.fr       */
+/*   Updated: 2024/11/16 02:16:08 by aabdulmecit      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+void ft_check_empty_line(char *map, t_game *game);
 
 void ft_init_map(t_game *game, char const *argv)
 {
@@ -18,7 +20,7 @@ void ft_init_map(t_game *game, char const *argv)
     char *line_tmp;
     int fd;
     
-    fd = open(argv[1], O_RDONLY);
+    fd = open(argv, O_RDWR, 0777);
     map_tmp = ft_strdup("");
     if(fd < 0)
         ft_error_msg("Something gone wrong about file descriptor", game);
@@ -48,7 +50,7 @@ void ft_check_empty_line(char *map, t_game *game)
         free(map);
         ft_error_msg("The map has empty line at start", game);
     }
-    else if (map[ft_strlen(map) - 1] != '\n')
+    else if (map[ft_strlen(map) - 1] == '\n')
     {
         free(map);
         ft_error_msg("The map has empty line at finish", game);

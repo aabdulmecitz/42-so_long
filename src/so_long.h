@@ -6,7 +6,7 @@
 /*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 15:16:28 by aozkaya           #+#    #+#             */
-/*   Updated: 2024/11/15 11:40:05 by aabdulmecit      ###   ########.fr       */
+/*   Updated: 2024/11/16 01:38:11 by aabdulmecit      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,7 @@
 # define SO_LONG_H
 
 #include "../lib/minilibx-linux/mlx.h"
-#include "../lib/gnl/get_next_line_bonus.h"
 #include "../lib/libft/libft.h"
-#include "../lib/ft_printf/ft_printf.h"
 # include <unistd.h>
 # include <fcntl.h>
 # include <X11/X.h>
@@ -118,6 +116,7 @@ void ft_check_command_line_args(int argc, char const *argv[], t_game *game);
 int ft_error_msg(char *msg, t_game *game);
 void ft_init_map(t_game *game, char const *argv);
 void ft_init_game(t_game *game);
+void    ft_free_map(t_game *game);
 
 
 

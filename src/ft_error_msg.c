@@ -6,7 +6,7 @@
 /*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 03:50:53 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/11/15 04:10:16 by aabdulmecit      ###   ########.fr       */
+/*   Updated: 2024/11/16 02:13:12 by aabdulmecit      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,6 @@ int ft_error_msg(char *msg, t_game *game)
     if (game->map_alloc == 1)
         ft_free_map(game);
     free (game);
-    ft_printf(RED"ERROR:\n%s"RESET, msg);
+    ft_printf(RED"ERROR:\n%s\n"RESET, msg);
     exit(EXIT_FAILURE);
 }

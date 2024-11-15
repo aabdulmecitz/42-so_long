@@ -1,57 +1,62 @@
-# Program adı
-NAME = so_long
+NAME			= so_long
+NAME_BONUS		= so_long_bonus
 
-# Kaynak ve nesne dosyaları
-SRCS = src/main.c src/ft_init_game.c src/ft_error_msg.c src/ft_check_command_line_args.c src/ft_init_map.c
-OBJS = $(SRCS:.c=.o)
+GREEN			= \033[0;32m
+RED				= \033[0;31m
+RESET			= \033[0m
 
-# Kütüphaneler
-LIBFT_DIR = lib/libft
-LIBFT = $(LIBFT_DIR)/libft.a
-PRINTF_DIR = lib/ft_printf
-PRINTF = $(PRINTF_DIR)/libftprintf.a
+LIBFT 			= lib/libft/libft.a
 
-# MinilibX kütüphanesi
-MLX_DIR = ./minilibx-linux
-MLX_LIB = -L$(MLX_DIR) -lmlx -lXext -lX11 -lm -lz
+CC 				= cc
 
-# Komutlar ve bayraklar
-CC = cc
-CFLAGS = -Wall -Wextra -Werror -I$(MLX_DIR) -I./src -I$(LIBFT_DIR) -I$(PRINTF_DIR)
-RM = rm -f
+STANDARD_FLAGS 	= -Wall -Werror -Wextra
+MINILIBX_FLAGS	= -lXext -lX11
+MLX = ./lib/minilibx-linux/libmlx.a
 
-# Varsayılan hedef
-all: $(LIBFT) $(PRINTF) $(NAME)
+VALGRIND		= @valgrind --leak-check=full --show-leak-kinds=all \
+--track-origins=yes --quiet --tool=memcheck --keep-debuginfo=yes
 
-# so_long programını derleme
-$(NAME): $(OBJS) $(LIBFT) $(PRINTF)
-	$(CC) $(CFLAGS) $(OBJS) $(MLX_LIB) $(LIBFT) $(PRINTF) -o $(NAME)
+REMOVE 			= rm -f
 
-# Libft ve ft_printf kütüphanelerini derleme
-$(LIBFT):
-	$(MAKE) -C $(LIBFT_DIR)
+SRCS_DIR		= ./src/
 
-$(PRINTF):
-	$(MAKE) -C $(PRINTF_DIR)
+SRCS 			= $(addprefix $(SRCS_DIR),\
+				ft_check_command_line_args.c \
+				ft_error_msg.c  ft_free_map.c \
+				ft_init_map.c \
+				ft_intit_game.c \
+				so_long.c)
 
-# Nesne dosyalarını temizleme
+# Default target to build the program
+all:			${NAME} ${LIBFT} 
+
+# Rule to create the executable
+${NAME}: 		
+				${CC} ${STANDARD_FLAGS} ${SRCS} ${LIBFT} -L./lib/minilibx-linux ${MLX} ${MINILIBX_FLAGS} -o ${NAME}
+				@echo "$(NAME): $(GREEN)$(NAME) was compiled.$(RESET)"
+				@echo
+
+# Rule to build libft
+${LIBFT}:
+				@echo
+				make bonus -C lib/libft
+
+# Clean rule to remove object files
 clean:
-	$(RM) $(OBJS)
-	$(MAKE) -C $(LIBFT_DIR) clean
-	$(MAKE) -C $(PRINTF_DIR) clean
+				make clean -C lib/libft
+				@echo
 
-# Bütün dosyaları temizleme
-fclean: clean
-	$(RM) $(NAME)
-	$(MAKE) -C $(LIBFT_DIR) fclean
-	$(MAKE) -C $(PRINTF_DIR) fclean
+# Full clean rule
+fclean:
+				${REMOVE} ${NAME} ${NAME_BONUS}
+				@echo "${NAME}: ${RED}${NAME} and ${NAME_BONUS} were deleted${RESET}"
+				@echo
 
-# Yeniden derleme
-re: fclean all
+# Rebuild rule
+re:				fclean all
 
-# Programı yeniden derleyip çalıştırma hedefi
-run: re
-	./$(NAME)
+# Run the program with valgrind
+run:			${NAME}
+				${VALGRIND} ./${NAME} assets/maps/valid/map4.ber
 
-# .PHONY hedefleri
-.PHONY: all clean fclean re run
+.PHONY:			all clean fclean re rebonus valgrind run run_bonus makefile
