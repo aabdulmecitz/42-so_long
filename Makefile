@@ -1,5 +1,5 @@
 NAME = so_long
-SRCS = main.c
+SRCS = src/main.c src/ft_init_game.c
 OBJS = $(SRCS:.c=.o)
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
