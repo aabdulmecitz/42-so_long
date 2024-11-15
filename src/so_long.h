@@ -6,7 +6,7 @@
 /*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 15:16:28 by aozkaya           #+#    #+#             */
-/*   Updated: 2024/11/15 04:10:57 by aabdulmecit      ###   ########.fr       */
+/*   Updated: 2024/11/15 11:40:05 by aabdulmecit      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,6 +115,10 @@ typedef struct s_game
 }	t_game;
 
 void ft_check_command_line_args(int argc, char const *argv[], t_game *game);
+int ft_error_msg(char *msg, t_game *game);
+void ft_init_map(t_game *game, char const *argv);
+void ft_init_game(t_game *game);
+
 
 
 
