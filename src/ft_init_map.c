@@ -6,13 +6,40 @@
 /*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 05:19:00 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/11/16 06:43:26 by aabdulmecit      ###   ########.fr       */
+/*   Updated: 2024/11/16 07:57:36 by aabdulmecit      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void ft_check_empty_line(char *map, t_game *game);
+int ft_count_coins(t_game *game);
+
+void ft_check_empty_line(char *map, t_game *game)
+{
+    int i;
+
+    i = 0;
+    if (map[0] == '\n')
+    {
+        ft_error_msg("The map has empty line at start", game);
+        return;
+    }
+    else if (map[ft_strlen(map) - 1] == '\n')
+    {
+        ft_error_msg("The map has empty line at finish", game);
+        return;
+    }
+    while (map[i + 1])
+    {
+        if (map[i] == '\n' && map[i + 1] == '\n')
+        {
+            ft_error_msg("The map includes empty line.", game);
+            return;
+        }
+        i++;
+    }
+    free(map);
+}
 
 void ft_init_map(t_game *game, char const *argv)
 {
@@ -20,10 +47,11 @@ void ft_init_map(t_game *game, char const *argv)
     char *line_tmp;
     int fd;
     
-    fd = open(argv, O_RDWR, 0777);
+    fd = open(argv, O_RDONLY); // Dosya yalnızca okuma için açılmalı
+    if (fd < 0)
+        ft_error_msg("Something went wrong with file descriptor", game);
+
     map_tmp = ft_strdup("");
-    if(fd < 0)
-        ft_error_msg("Something gone wrong about file descriptor", game);
     while (1)
     {
         line_tmp = get_next_line(fd);
@@ -40,33 +68,7 @@ void ft_init_map(t_game *game, char const *argv)
     free(map_tmp);
 }
 
-void ft_check_empty_line(char *map, t_game *game)
-{
-    int i;
-
-    i = 0;
-    if (map[0] == '\n')
-    {
-        free(map);
-        ft_error_msg("The map has empty line at start", game);
-    }
-    else if (map[ft_strlen(map) - 1] == '\n')
-    {
-        free(map);
-        ft_error_msg("The map has empty line at finish", game);
-    }
-    while (map[i + 1])
-    {
-        if (map[i] == '\n' && map[i + 1] == '\n')
-        {
-            free(map);
-            ft_error_msg("That is a problem man. This map include empt line.", game);
-        }
-        i++;
-    }
-}
-
-void    ft_draw_map(t_game *game)
+void ft_draw_map(t_game *game)
 {
     int i;
     int j;
@@ -77,11 +79,11 @@ void    ft_draw_map(t_game *game)
         j = 0;
         while (game->map.full[i][j])
         {
-            if (game->map.full[i][j] == 1)
+            if (game->map.full[i][j] == '1')
             {
                 mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->wall.xpm_ptr, game->wall.x * (IMG_WIDTH * i), game->wall.y * (IMG_HEIGHT * j));
             }
-            else if(game->map.full[i][j] == '0')
+            else if (game->map.full[i][j] == '0')
             {
                 mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->floor.xpm_ptr, game->floor.x * (IMG_WIDTH * i), game->floor.y * (IMG_HEIGHT * j));
             }
@@ -102,14 +104,10 @@ void    ft_draw_map(t_game *game)
             }
             else
                 mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->undefined_image.xpm_ptr, game->undefined_image.x * (IMG_WIDTH * i), game->undefined_image.y * (IMG_HEIGHT * j));
-            
-            
             j++;
         }
-        
         i++;
     }
-    
 }
 
 int ft_count_coins(t_game *game)
