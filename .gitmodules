@@ -5,4 +5,4 @@
 [submodule "lib/libft"]
 	path = lib/libft
 	url = https://github.com/aabdulmecitz/42-Libft.git
-	branch = main
+	branch = lft4solong

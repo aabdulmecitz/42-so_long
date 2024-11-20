@@ -53,6 +53,9 @@ push:
 
 re:				fclean all
 
+update:
+	git submodule update --init --recursive --remote
+
 run:			re
 				./${NAME} assets/maps/valid/map4.ber
 
