@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
+/*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 15:16:28 by aozkaya           #+#    #+#             */
-/*   Updated: 2024/11/19 22:36:56 by aabdulmecit      ###   ########.fr       */
+/*   Updated: 2024/11/20 16:37:09 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,7 +142,7 @@ void    ft_draw_map(t_game *game);
 int ft_count_coins(t_game *game);
 int close_window(void *param);
 void ft_init_map(t_game *game, char const *argv);
-
-
+void    ft_render_sprite(t_game *game, int x, int y);
+void    ft_configure_game(t_game *game);
 
 #endif

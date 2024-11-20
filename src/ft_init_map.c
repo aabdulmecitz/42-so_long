@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_init_map.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
+/*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 05:19:00 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/11/19 16:03:17 by aabdulmecit      ###   ########.fr       */
+/*   Updated: 2024/11/20 16:38:40 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void ft_check_empty_line(char *map, t_game *game)
         free(map);
         ft_error_msg("The map has empty line at start", game);
     }
-    else if (map[ft_strlen(map) - 1] == '\n')
+    else if (map[ft_strlen(map) - 1] == '\n')   
     {
         free(map);
         ft_error_msg("The map has empty line at finish", game);
@@ -46,11 +46,11 @@ void ft_init_map(t_game *game, char const *argv)
     char *line_tmp;
     int fd;
     
-    fd = open(argv, O_RDONLY); // Dosya yalnızca okuma için açılmalı
+    fd = open(argv, O_RDONLY);
     if (fd < 0)
         ft_error_msg("Something went wrong with file descriptor", game);
-
     map_tmp = ft_strdup("");
+    game->map.rows = 0;
     while (1)
     {
         line_tmp = get_next_line(fd);
@@ -68,56 +68,19 @@ void ft_init_map(t_game *game, char const *argv)
 }
 void ft_draw_map(t_game *game)
 {
-    int i;
-    int j;
+    int x;
+    int y;
 
-    i = 0;
-    while (game->map.full && game->map.full[i])
+    y = 0;
+    while (y < game->map.columns)
     {
-        j = 0;
-        while (game->map.full[i][j])
+        x = 0;
+        while (x < game->map.columns)
         {
-            if (game->map.full[i][j] == WALL)
-            {
-                if (game->wall.xpm_ptr)
-                    mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->wall.xpm_ptr, game->wall.x * IMG_WIDTH * j, game->wall.y * IMG_HEIGHT * i);
-            }
-            else if (game->map.full[i][j] == '0')
-            {
-                if (game->floor.xpm_ptr)
-                    mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->floor.xpm_ptr, game->floor.x * IMG_WIDTH * j, game->floor.y * IMG_HEIGHT * i);
-            }
-            else if (game->map.full[i][j] == 'C')
-            {
-                if (game->coins.xpm_ptr)
-                    mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->coins.xpm_ptr, game->coins.x * IMG_WIDTH * j, game->coins.y * IMG_HEIGHT * i);
-            }
-            else if (game->map.full[i][j] == 'P')
-            {
-                if (game->player_front.xpm_ptr)
-                    mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->player_front.xpm_ptr, game->player_front.x * IMG_WIDTH * j, game->player_front.y * IMG_HEIGHT * i);
-            }
-            else if (game->map.full[i][j] == 'E')
-            {
-                if (game->map.coins == ft_count_coins(game))
-                {
-                    if (game->open_exit.xpm_ptr)
-                        mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->open_exit.xpm_ptr, game->open_exit.x * IMG_WIDTH * j, game->open_exit.y * IMG_HEIGHT * i);
-                }
-                else
-                {
-                    if (game->exit_closed.xpm_ptr)
-                        mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->exit_closed.xpm_ptr, game->exit_closed.x * IMG_WIDTH * j, game->exit_closed.y * IMG_HEIGHT * i);
-                }
-            }
-            else
-            {
-                if (game->undefined_image.xpm_ptr)
-                    mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->undefined_image.xpm_ptr, game->undefined_image.x * IMG_WIDTH * j, game->undefined_image.y * IMG_HEIGHT * i);
-            }
-            j++;
+            ft_render_sprite(game, x, y);
+            x++;
         }
-        i++;
+        y++;
     }
 }
 
@@ -143,8 +106,26 @@ int ft_count_coins(t_game *game)
     }
     return (res);
 }
-void	ft_render_sprite(t_game *game, t_image sprite, int line, int column)
+void    ft_render_sprite(t_game *game, int x, int y)
 {
-	mlx_put_image_to_window (game->mlx_ptr, game->win_ptr, \
-	sprite.xpm_ptr, column * sprite.x, line * sprite.y);
+    char param;
+    param = game->map.full[y][x];
+    if (param == WALL)
+        mlx_put_image_to_window (game->mlx_ptr, game->win_ptr, game->wall.xpm_ptr, x, y);
+    else if (param == FLOOR)
+        mlx_put_image_to_window (game->mlx_ptr, game->win_ptr, game->floor.xpm_ptr, x, y);
+    else if (param == COINS)
+        mlx_put_image_to_window (game->mlx_ptr, game->win_ptr, game->coins.xpm_ptr, x, y);
+    else if (param == MAP_EXIT)
+    {
+        if (game->map.coins == 0)
+        {
+            mlx_put_image_to_window (game->mlx_ptr, game->win_ptr, game->open_exit.xpm_ptr, x, y);
+        }
+        else
+            mlx_put_image_to_window (game->mlx_ptr, game->win_ptr, game->exit_closed.xpm_ptr, x, y);
+    }
+    else
+        mlx_put_image_to_window (game->mlx_ptr, game->win_ptr, game->player_front.xpm_ptr, x, y);
+    
 }
