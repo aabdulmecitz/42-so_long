@@ -53,6 +53,12 @@ push:
 
 re:				fclean all
 
+compile_libs:
+	@make -sC lib/libft
+	@make -sC lib/minilibx-linux
+	@make clean -sC lib/libft
+	@make clean -sC lib/get_next_line
+
 update:
 	git submodule update --init --recursive --remote
 
