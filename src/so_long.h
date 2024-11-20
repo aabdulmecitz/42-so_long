@@ -6,7 +6,7 @@
 /*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 15:16:28 by aozkaya           #+#    #+#             */
-/*   Updated: 2024/11/16 07:03:23 by aabdulmecit      ###   ########.fr       */
+/*   Updated: 2024/11/19 22:36:56 by aabdulmecit      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@
 
 # define IMG_HEIGHT			32
 # define IMG_WIDTH			32
+
+# define ANIM_SPEED			1000
 
 # define WIN_H				1080
 # define WIN_W				1920
@@ -116,23 +118,30 @@ typedef struct s_game
 	t_image		player_back;
 }	t_game;
 
-typedef struct s_anim
+typedef struct s_sprite
 {
-	unsigned int current_frame;
-	unsigned int num_of_frames;
-	unsigned int speed;
-	t_image **image_list;
+	void *sprite_image;
+	int sprite_columns;
+} t_sprite;
+
+// typedef struct s_anim
+// {
+// 	unsigned int current_frame;
+// 	unsigned int num_of_frames;
+// 	unsigned int speed;
+// 	t_image **image_list;
 	
-} t_anim;
+// } t_anim;
 
 void ft_check_command_line_args(int argc, char const *argv[], t_game *game);
-int ft_error_msg(char *msg, t_game *game);
+void ft_error_msg(char *msg, t_game *game);
 void ft_init_map(t_game *game, char const *argv);
 void ft_init_game(t_game *game, char *argv);
 void    ft_free_map(t_game *game);
 void    ft_draw_map(t_game *game);
 int ft_count_coins(t_game *game);
 int close_window(void *param);
+void ft_init_map(t_game *game, char const *argv);
 
 
 

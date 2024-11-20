@@ -6,7 +6,7 @@
 /*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 01:45:25 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/11/16 00:56:53 by aabdulmecit      ###   ########.fr       */
+/*   Updated: 2024/11/16 16:53:52 by aabdulmecit      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,4 @@ void ft_check_command_line_args(int argc, char const *argv[], t_game *game)
     map_len = ft_strlen(argv[1]);
     if (ft_strnstr(argv[1], ".ber", map_len - 4))
         ft_error_msg("Map file is not valid. You can enter just .ber file.", game);
-    
 }

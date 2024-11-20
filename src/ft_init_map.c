@@ -6,7 +6,7 @@
 /*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 05:19:00 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/11/16 07:57:36 by aabdulmecit      ###   ########.fr       */
+/*   Updated: 2024/11/19 16:03:17 by aabdulmecit      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,24 +21,23 @@ void ft_check_empty_line(char *map, t_game *game)
     i = 0;
     if (map[0] == '\n')
     {
+        free(map);
         ft_error_msg("The map has empty line at start", game);
-        return;
     }
     else if (map[ft_strlen(map) - 1] == '\n')
     {
+        free(map);
         ft_error_msg("The map has empty line at finish", game);
-        return;
     }
     while (map[i + 1])
     {
         if (map[i] == '\n' && map[i + 1] == '\n')
         {
+            free(map);
             ft_error_msg("The map includes empty line.", game);
-            return;
         }
         i++;
     }
-    free(map);
 }
 
 void ft_init_map(t_game *game, char const *argv)
@@ -67,49 +66,62 @@ void ft_init_map(t_game *game, char const *argv)
     game->map_alloc = true;
     free(map_tmp);
 }
-
 void ft_draw_map(t_game *game)
 {
     int i;
     int j;
 
     i = 0;
-    while (game->map.full[i])
+    while (game->map.full && game->map.full[i])
     {
         j = 0;
         while (game->map.full[i][j])
         {
-            if (game->map.full[i][j] == '1')
+            if (game->map.full[i][j] == WALL)
             {
-                mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->wall.xpm_ptr, game->wall.x * (IMG_WIDTH * i), game->wall.y * (IMG_HEIGHT * j));
+                if (game->wall.xpm_ptr)
+                    mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->wall.xpm_ptr, game->wall.x * IMG_WIDTH * j, game->wall.y * IMG_HEIGHT * i);
             }
             else if (game->map.full[i][j] == '0')
             {
-                mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->floor.xpm_ptr, game->floor.x * (IMG_WIDTH * i), game->floor.y * (IMG_HEIGHT * j));
+                if (game->floor.xpm_ptr)
+                    mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->floor.xpm_ptr, game->floor.x * IMG_WIDTH * j, game->floor.y * IMG_HEIGHT * i);
             }
             else if (game->map.full[i][j] == 'C')
             {
-                mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->coins.xpm_ptr, game->coins.x * (IMG_WIDTH * i), game->coins.y * (IMG_HEIGHT * j));
+                if (game->coins.xpm_ptr)
+                    mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->coins.xpm_ptr, game->coins.x * IMG_WIDTH * j, game->coins.y * IMG_HEIGHT * i);
             }
             else if (game->map.full[i][j] == 'P')
             {
-                mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->player_front.xpm_ptr, game->player_front.x * (IMG_WIDTH * i), game->player_front.y * (IMG_HEIGHT * j));
+                if (game->player_front.xpm_ptr)
+                    mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->player_front.xpm_ptr, game->player_front.x * IMG_WIDTH * j, game->player_front.y * IMG_HEIGHT * i);
             }
             else if (game->map.full[i][j] == 'E')
             {
                 if (game->map.coins == ft_count_coins(game))
-                    mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->open_exit.xpm_ptr, game->open_exit.x * (IMG_WIDTH * i), game->open_exit.y * (IMG_HEIGHT * j));
+                {
+                    if (game->open_exit.xpm_ptr)
+                        mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->open_exit.xpm_ptr, game->open_exit.x * IMG_WIDTH * j, game->open_exit.y * IMG_HEIGHT * i);
+                }
                 else
-                    mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->exit_closed.xpm_ptr, game->exit_closed.x * (IMG_WIDTH * i), game->exit_closed.y * (IMG_HEIGHT * j));
+                {
+                    if (game->exit_closed.xpm_ptr)
+                        mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->exit_closed.xpm_ptr, game->exit_closed.x * IMG_WIDTH * j, game->exit_closed.y * IMG_HEIGHT * i);
+                }
             }
             else
-                mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->undefined_image.xpm_ptr, game->undefined_image.x * (IMG_WIDTH * i), game->undefined_image.y * (IMG_HEIGHT * j));
+            {
+                if (game->undefined_image.xpm_ptr)
+                    mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->undefined_image.xpm_ptr, game->undefined_image.x * IMG_WIDTH * j, game->undefined_image.y * IMG_HEIGHT * i);
+            }
             j++;
         }
         i++;
     }
 }
 
+ 
 int ft_count_coins(t_game *game)
 {
     int i;
@@ -130,4 +142,9 @@ int ft_count_coins(t_game *game)
         i++;
     }
     return (res);
+}
+void	ft_render_sprite(t_game *game, t_image sprite, int line, int column)
+{
+	mlx_put_image_to_window (game->mlx_ptr, game->win_ptr, \
+	sprite.xpm_ptr, column * sprite.x, line * sprite.y);
 }

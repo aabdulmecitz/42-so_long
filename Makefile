@@ -30,7 +30,7 @@ SRCS 			= $(addprefix $(SRCS_DIR),\
 all:			${NAME} ${LIBFT} 
 
 ${NAME}: 		
-				${CC} ${STANDARD_FLAGS} ${SRCS} ${LIBFT} -L./lib/minilibx-linux ${MLX} ${MINILIBX_FLAGS} -g -o ${NAME}
+				${CC} ${SRCS} ${LIBFT} -L./lib/minilibx-linux ${MLX} ${MINILIBX_FLAGS} -g -o ${NAME}
 				@echo "$(NAME): $(GREEN)$(NAME) was compiled.$(RESET)"
 				@echo
 
@@ -55,5 +55,9 @@ re:				fclean all
 
 run:			re
 				./${NAME} assets/maps/valid/map4.ber
+
+valgrind: $(NAME)
+	$(VALGRIND) ./${NAME} assets/maps/valid/map4.ber 
+
 
 .PHONY:			all clean fclean re rebonus valgrind run run_bonus makefile
