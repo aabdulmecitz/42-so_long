@@ -6,7 +6,7 @@
 /*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 01:30:15 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/11/21 16:13:58 by aabdulmecit      ###   ########.fr       */
+/*   Updated: 2024/11/21 20:39:54 by aabdulmecit      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,16 +85,19 @@ void ft_init_game(t_game *game)
 
 void    ft_configure_game(t_game *game)
 {
-    game->undefined_image = (t_image){"../textures/lava.xpm", 0, 0};
-    game->wall = (t_image){"../textures/wall.xpm", 0, 0};
-    game->floor = (t_image){"../textures/way.xpm", 0, 0};
-    game->coins = (t_image){"../textures/coin.xpm", 0, 0};
-    game->open_exit = (t_image){"../textures/opened_door.xpm", 0, 0};
-    game->exit_closed = (t_image){"../textures/closed_door.xpm", 0, 0};
-    game->player_front = (t_image){"../textures/player.xpm", 0, 0};
-    game->player_left = (t_image){"../textures/wall.xpm", 0, 0};
-    game->player_right = (t_image){"../textures/wall.xpm", 0, 0};
-    game->player_back = (t_image){"../textures/wall.xpm", 0, 0};
+    int a;
+
+    a = 32;
+    game->undefined_image = (t_image){mlx_xpm_file_to_image(game->mlx_ptr, "../textures/lava.xpm", &a, &a), 0, 0};
+    game->wall = (t_image){mlx_xpm_file_to_image(game->mlx_ptr, "../textures/techwall.xpm", &a , &a ), 0, 0};
+    game->floor = (t_image){mlx_xpm_file_to_image(game->mlx_ptr,"../textures/way.xpm", &a , &a ), 0, 0};
+    game->coins = (t_image){mlx_xpm_file_to_image(game->mlx_ptr,"../textures/coin.xpm", &a , &a ), 0, 0};
+    game->open_exit = (t_image){mlx_xpm_file_to_image(game->mlx_ptr,"../textures/opened_door.xpm", &a , &a ), 0, 0};
+    game->exit_closed = (t_image){mlx_xpm_file_to_image(game->mlx_ptr,"../textures/closed_door.xpm", &a , &a ), 0, 0};
+    game->player_front = (t_image){mlx_xpm_file_to_image(game->mlx_ptr,"../textures/player.xpm", &a , &a ), 0, 0};
+    game->player_left = (t_image){mlx_xpm_file_to_image(game->mlx_ptr, "../textures/techwall.xpm", &a , &a ), 0, 0};
+    game->player_right = (t_image){mlx_xpm_file_to_image(game->mlx_ptr, "../textures/techwall.xpm", &a , &a ), 0, 0};
+    game->player_back = (t_image){mlx_xpm_file_to_image(game->mlx_ptr, "../textures/techwall.xpm", &a , &a ), 0, 0};
 }
 
 

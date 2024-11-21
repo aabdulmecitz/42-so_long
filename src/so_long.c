@@ -6,7 +6,7 @@
 /*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 03:00:21 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/11/21 16:38:11 by aabdulmecit      ###   ########.fr       */
+/*   Updated: 2024/11/21 20:41:14 by aabdulmecit      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int main(int argc, char const *argv[])
     ft_init_map(game, argv[1]);
     ft_printf("map initiated\n");
     ft_validate_map(game);
-    // ft_draw_map(game);
+    ft_draw_map(game);
     ft_printf("map drawn\n");
 
     // Pencere kapatma ve tuş basma olaylarını yakalama
@@ -59,7 +59,7 @@ int main(int argc, char const *argv[])
     // mlx_key_hook(game->win_ptr, key_hook, game);
 
     mlx_loop(game->mlx_ptr);
-
+    free(game);
 
     return 0;
 }

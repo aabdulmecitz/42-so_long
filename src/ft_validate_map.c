@@ -6,7 +6,7 @@
 /*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 16:22:29 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/11/21 16:28:50 by aabdulmecit      ###   ########.fr       */
+/*   Updated: 2024/11/21 19:31:01 by aabdulmecit      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,20 +16,17 @@ void ft_validate_map(t_game *game)
 {
     int i;
     int j;
-
     if (!game->map.full || !game->map.full[0])
         ft_error_msg("Harita yüklenemedi veya boş!", game);
-
     int row_length = ft_strlen(game->map.full[0]);
-    for (i = 0; i < game->map.rows; i++)
+    for (i = 0; i < game->map.rows - 1; i++)
     {
         if ((int)ft_strlen(game->map.full[i]) != row_length)
-            ft_error_msg("Harita dikdörtgen değil!", game);
+           ft_error_msg("Harita dikdörtgen değil!", game);
     }
-
-    for (i = 0; i < game->map.rows; i++)
+    for (i = 0; i < game->map.rows - 1; i++)
     {
-        for (j = 0; j < game->map.columns; j++)
+        for (j = 0; j < game->map.columns - 1; j++)
         {
             if ((i == 0 || i == game->map.rows - 1 || j == 0 || j == game->map.columns - 1)
                 && game->map.full[i][j] != WALL)
@@ -40,10 +37,10 @@ void ft_validate_map(t_game *game)
     game->map.coins = 0;
     game->map.exit = 0;
     game->map.players = 0;
-
-    for (i = 0; i < game->map.rows; i++)
+    game->map.columns = ft_strlen(game->map.full[0]);
+    for (i = 0; i < game->map.rows - 1; i++)
     {
-        for (j = 0; j < game->map.columns; j++)
+        for (j = 0; j < game->map.columns - 1; j++)
         {
             char c = game->map.full[i][j];
             if (c == PLAYER)
@@ -60,7 +57,6 @@ void ft_validate_map(t_game *game)
                 ft_error_msg("Geçersiz karakter bulundu!", game);
         }
     }
-
     if (game->map.players != 1)
         ft_error_msg("Haritada tek bir oyuncu olmalı!", game);
     if (game->map.coins < 1)

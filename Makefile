@@ -31,7 +31,7 @@ SRCS 			= $(addprefix $(SRCS_DIR),\
 all:			${NAME} ${LIBFT} 
 
 ${NAME}: 		
-				${CC} ${SRCS} ${LIBFT} -L./lib/minilibx-linux ${MLX} ${MINILIBX_FLAGS} -g -o ${NAME}
+				${CC} -Wall -Wextra -Werror ${SRCS} ${LIBFT} -L./lib/minilibx-linux ${MLX} ${MINILIBX_FLAGS} -g3 -o ${NAME}
 				@echo "$(NAME): $(GREEN)$(NAME) was compiled.$(RESET)"
 				@echo
 
