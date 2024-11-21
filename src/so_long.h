@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
+/*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 15:16:28 by aozkaya           #+#    #+#             */
-/*   Updated: 2024/11/20 16:37:09 by aozkaya          ###   ########.fr       */
+/*   Updated: 2024/11/20 22:31:47 by aabdulmecit      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@
 
 # define ANIM_SPEED			1000
 
-# define WIN_H				1080
-# define WIN_W				1920
+# define WIN_H				540
+# define WIN_W				960
 
 # define WALL				'1'
 # define FLOOR 				'0'
@@ -136,7 +136,7 @@ typedef struct s_sprite
 void ft_check_command_line_args(int argc, char const *argv[], t_game *game);
 void ft_error_msg(char *msg, t_game *game);
 void ft_init_map(t_game *game, char const *argv);
-void ft_init_game(t_game *game, char *argv);
+void ft_init_game(t_game *game);
 void    ft_free_map(t_game *game);
 void    ft_draw_map(t_game *game);
 int ft_count_coins(t_game *game);
