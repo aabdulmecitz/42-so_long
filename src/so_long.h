@@ -6,7 +6,7 @@
 /*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 15:16:28 by aozkaya           #+#    #+#             */
-/*   Updated: 2024/11/20 22:31:47 by aabdulmecit      ###   ########.fr       */
+/*   Updated: 2024/11/21 16:31:28 by aabdulmecit      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <fcntl.h>
 # include <X11/X.h>
 # include <X11/keysym.h>
+# include <stdio.h>
 
 # define IMG_HEIGHT			32
 # define IMG_WIDTH			32
@@ -144,5 +145,7 @@ int close_window(void *param);
 void ft_init_map(t_game *game, char const *argv);
 void    ft_render_sprite(t_game *game, int x, int y);
 void    ft_configure_game(t_game *game);
+void ft_validate_map(t_game *game);
+
 
 #endif

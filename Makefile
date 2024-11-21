@@ -24,6 +24,7 @@ SRCS 			= $(addprefix $(SRCS_DIR),\
 				ft_check_command_line_args.c \
 				ft_error_msg.c  ft_free_map.c \
 				ft_init_map.c \
+				ft_validate_map.c\
 				ft_intit_game.c \
 				so_long.c)
 
