@@ -6,7 +6,7 @@
 /*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 03:00:21 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/11/21 21:05:35 by aabdulmecit      ###   ########.fr       */
+/*   Updated: 2024/11/21 21:07:53 by aabdulmecit      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,23 @@
 //     return (0);
 // }
 
-int main(int argc, char const *argv[])
+int main()
 {
+
+	void	*mlx;
+	void	*win;
+	void	*image_wall;
+	int		hgt = 1;
+	int		wgt = 1;
+
+	mlx = mlx_init();
+	win = mlx_new_window(mlx, 500, 500, "so_long");
+	image_wall = mlx_xpm_file_to_image(mlx, "/techwall.xpm", &wgt, &hgt);
+	mlx_put_image_to_window(mlx, win, image_wall, 0, 0);
+	mlx_put_image_to_window(mlx, win, image_wall, 32, 0);
+
+	mlx_loop(mlx);
+    /*
     t_game *game;
     void *image;
     int a;
@@ -67,7 +82,7 @@ int main(int argc, char const *argv[])
     //mlx_loop(game->mlx_ptr);
     free(game);
 
-    return 0;
+    return 0;*/
 }
 
 
