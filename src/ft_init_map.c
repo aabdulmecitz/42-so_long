@@ -6,55 +6,16 @@
 /*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 19:39:02 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/11/23 07:14:09 by aabdulmecit      ###   ########.fr       */
+/*   Updated: 2024/11/23 16:55:58 by aabdulmecit      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void    remove_carriage_return(char *str)
-{
-    char    *src;
-    char    *dst;
+void	print_split_result(char **split_res);
+void	remove_carriage_return(char *line);
+void    ft_check_for_empty_line(char *map, t_game *game);
 
-    src = str;
-    dst = str;
-    while (*src != '\0')
-    {
-        if (*src != '\t')
-        {
-            *dst = *src;
-            dst++;
-        }
-        src++;
-    }
-    *dst = '\0';
-}
-
-// void replace_newline_with_null(char **words)
-// {
-//     int i;
-//     int len;
-
-//     i = 0;
-//     while (words[i])
-//     {
-//         len = ft_strlen(words[i]);
-//         if (words[i][len - 1] == '\n')
-//             words[i][len - 1] = '\0';
-//         i++;
-//     }
-// }
-
-// void print_split_result(char **split_res)
-// {
-//     int i = 0;
-//     while (split_res[i])
-//     {
-//         printf("Word %d: '%s'\n", i, split_res[i]);
-//         i++;
-//     }
-// }
 
 void	ft_init_map(t_game *game, char *argv)
 {
@@ -70,18 +31,81 @@ void	ft_init_map(t_game *game, char *argv)
 	while (true)
 	{
 		line_temp = get_next_line(map_fd);
-		printf(CYAN"%s|len : %d|\n"RESET, line_temp, (int)ft_strlen(line_temp));
+
 		if (line_temp == NULL)
 			break ;
+
+		remove_carriage_return(line_temp);
 		map_temp = ft_strjoin(map_temp, line_temp);
 		free(line_temp);
 		game->map.rows++;
 	}
 	close(map_fd);
-	ft_check_for_empty_line(map_temp, game);
 	game->map.full = ft_split(map_temp, '\n');
-
-	//print_split_result(game->map.full);
+	
+	print_split_result(game->map.full);
 	game->map_alloc = true;
 	free(map_temp);
 }
+
+void	print_split_result(char **split_res)
+{
+    int i = 0;
+    while (split_res[i]) {
+        printf(CYAN"|Word %d: |%s||\n"RESET, i, split_res[i]);
+		if (ft_strchr(split_res[i], '\r'))
+		{
+			printf("%s includes r|", ft_strchr(split_res[i], '\r'));
+		}
+		
+        i++;
+    }
+}
+
+void	remove_carriage_return(char *line)
+{
+    int start;
+    int end;
+
+	start = 0;
+	end = ft_strlen(line) - 1;
+    while (line[start] == '\r' || line[start] == '\n')
+        start++;
+    while (end >= 0 && (line[end] == '\r' || line[end] == '\n'))
+	{
+        line[end] = '\n';
+		line[end + 1] = '\0';
+        end--;
+	}
+    ft_memmove(line, line + start, end - start + 2);
+}
+
+void    ft_check_for_empty_line(char *map, t_game *game)
+{
+	int	i;
+
+	i = 0;
+	if (map[0] == '\n')
+	{
+		free(map);
+		ft_error_msg("Invalid map.\
+The map have an empty line right at the beginning.", game);
+	}
+	else if (map[ft_strlen(map) - 1] == '\n')
+	{
+		free (map);
+		ft_error_msg("Invalid map. \
+The map have an empty line at the end.", game);
+	}
+	while (map[i + 1])
+	{
+		if (map[i] == '\n' && map[i + 1] == '\n')
+		{
+			free(map);
+			ft_error_msg("Invalid map. \
+The map have an empty line at the middle.", game);
+		}
+		i++;
+	}
+}
+

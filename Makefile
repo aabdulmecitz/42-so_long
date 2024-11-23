@@ -29,7 +29,7 @@ SRCS 			= $(addprefix $(SRCS_DIR),\
 all:			${NAME} ${LIBFT} 
 
 ${NAME}: 		
-				${CC} -Wall -Wextra -Werror ${SRCS} ${LIBFT} -L./lib/minilibx-linux ${MLX} ${MINILIBX_FLAGS} -g3 -o ${NAME} | cat -e
+				${CC} -Wall -Wextra -Werror ${SRCS} ${LIBFT} -L./lib/minilibx-linux ${MLX} ${MINILIBX_FLAGS} -g3 -o ${NAME}
 				@echo "$(NAME): $(GREEN)$(NAME) was compiled.$(RESET)"
 				@echo
 
@@ -62,7 +62,7 @@ update:
 	git submodule update --init --recursive --remote
 
 run:			re
-				./${NAME} assets/maps/valid/map4.ber
+				./${NAME} assets/maps/invalid/map-missing-W.ber
 
 valgrind: $(NAME)
 	$(VALGRIND) ./${NAME} assets/maps/valid/map4.ber 
