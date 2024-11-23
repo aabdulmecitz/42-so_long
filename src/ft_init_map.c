@@ -5,115 +5,83 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/15 05:19:00 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/11/21 20:28:11 by aabdulmecit      ###   ########.fr       */
+/*   Created: 2024/11/22 19:39:02 by aabdulmecit       #+#    #+#             */
+/*   Updated: 2024/11/23 07:14:09 by aabdulmecit      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int ft_count_coins(t_game *game);
-
-void ft_check_empty_line(char *map, t_game *game)
+void    remove_carriage_return(char *str)
 {
-    int i;
+    char    *src;
+    char    *dst;
 
-    i = 0;
-    if (map[0] == '\n')
+    src = str;
+    dst = str;
+    while (*src != '\0')
     {
-        free(map);
-        ft_error_msg("The map has empty line at start", game);
-    }
-    else if (map[ft_strlen(map) - 1] == '\n')   
-    {
-        free(map);
-        ft_error_msg("The map has empty line at finish", game);
-    }
-    while (map[i + 1])
-    {
-        if (map[i] == '\n' && map[i + 1] == '\n')
+        if (*src != '\t')
         {
-            free(map);
-            ft_error_msg("The map includes empty line.", game);
+            *dst = *src;
+            dst++;
         }
-        i++;
+        src++;
     }
+    *dst = '\0';
 }
 
-void ft_init_map(t_game *game, char const *argv)
-{
-    char *map_tmp;
-    char *line_tmp;
-    int fd;
-    
-    fd = open(argv, O_RDONLY);
-    if (fd < 0)
-        ft_error_msg("Something went wrong with file descriptor", game);
-    map_tmp = ft_strdup("");
-    game->map.rows = 0;
-    while (1)
-    {
-        line_tmp = get_next_line(fd);
-        if (line_tmp == NULL)
-            break;
-        map_tmp = ft_strjoin(map_tmp, line_tmp);
-        free(line_tmp);
-        game->map.rows++;
-    }
-    close(fd);
-    ft_check_empty_line(map_tmp, game);
-    game->map.full = ft_split(map_tmp, '\n');
-    game->map_alloc = true;
-    free(map_tmp);
-}
-void ft_draw_map(t_game *game)
-{
-    int x;
-    int y;
+// void replace_newline_with_null(char **words)
+// {
+//     int i;
+//     int len;
 
-    y = 0;
-    while (y < game->map.rows)
-    { 
-        x = 0;
-        while (x < game->map.columns)
-        {
-            ft_render_sprite(game, x, y);
-            x++;
-        }
-        printf("\n");
-        y++;
-    }
-}
+//     i = 0;
+//     while (words[i])
+//     {
+//         len = ft_strlen(words[i]);
+//         if (words[i][len - 1] == '\n')
+//             words[i][len - 1] = '\0';
+//         i++;
+//     }
+// }
 
- 
-int ft_count_coins(t_game *game)
-{
-    int i;
-    int j;
-    int res;
+// void print_split_result(char **split_res)
+// {
+//     int i = 0;
+//     while (split_res[i])
+//     {
+//         printf("Word %d: '%s'\n", i, split_res[i]);
+//         i++;
+//     }
+// }
 
-    i = 0;
-    res = 0;
-    while (game->map.full[i])
-    {
-        j = 0;
-        while (game->map.full[i][j])
-        {
-            if (game->map.full[i][j] == 'c')
-                res++;
-            j++;
-        }
-        i++;
-    }
-    return (res);
-}
-void    ft_render_sprite(t_game *game, int x, int y)
+void	ft_init_map(t_game *game, char *argv)
 {
-    /*char param; 
-    param = game->map.full[y][x];*/
-    printf("%d, %d, %s\n", x, y, (char *)game->wall.xpm_ptr);
-    //printf ("%p, %p, %p %d, %d\n", game->mlx_ptr, game->win_ptr, mlx_xpm_file_to_image(game->mlx_ptr, game->wall.xpm_ptr, 0,0), x, y);
-   /* if (param == WALL)
-        mlx_put_image_to_window (game->mlx_ptr, game->win_ptr, mlx_xpm_file_to_image(game->mlx_ptr, "../textures/techwall.xpm", 0,0), x, y);
-    */
+	char	*map_temp;
+	char	*line_temp;
+	int		map_fd;
+
+	map_fd = open(argv, O_RDONLY);
+	if (map_fd == -1)
+		ft_error_msg("The Map couldn't be opened. Does the Map exist?", game);
+	map_temp = ft_strdup("");
+	game->map.rows = 0;
+	while (true)
+	{
+		line_temp = get_next_line(map_fd);
+		printf(CYAN"%s|len : %d|\n"RESET, line_temp, (int)ft_strlen(line_temp));
+		if (line_temp == NULL)
+			break ;
+		map_temp = ft_strjoin(map_temp, line_temp);
+		free(line_temp);
+		game->map.rows++;
+	}
+	close(map_fd);
+	ft_check_for_empty_line(map_temp, game);
+	game->map.full = ft_split(map_temp, '\n');
+
+	//print_split_result(game->map.full);
+	game->map_alloc = true;
+	free(map_temp);
 }

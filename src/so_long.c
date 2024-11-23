@@ -6,83 +6,54 @@
 /*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 03:00:21 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/11/21 21:07:53 by aabdulmecit      ###   ########.fr       */
+/*   Updated: 2024/11/23 06:52:58 by aabdulmecit      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 #include <stdio.h>
 
-// int close_window(void *param)
-// {
-//     t_game *game = (t_game *)param;
-
-//     printf("Pencere kapatılıyor...\n"); // Test amaçlı
-//     if (game->win_ptr)
-//     {
-//         mlx_destroy_window(game->mlx_ptr, game->win_ptr);
-//         game->win_ptr = NULL;
-//     }
-//     exit(0);
-//     return (0);
-// }
-
-// int key_hook(int keycode, t_game *game)
-// {
-//     printf("Tuş basıldı: %d\n", keycode); // Test amaçlı
-//     if (keycode == KEY_ESC || keycode == KEY_Q)
-//         close_window(game);
-//     return (0);
-// }
-
-int main()
+int	ft_close_game(t_game *game)
 {
-
-	void	*mlx;
-	void	*win;
-	void	*image_wall;
-	int		hgt = 1;
-	int		wgt = 1;
-
-	mlx = mlx_init();
-	win = mlx_new_window(mlx, 500, 500, "so_long");
-	image_wall = mlx_xpm_file_to_image(mlx, "/techwall.xpm", &wgt, &hgt);
-	mlx_put_image_to_window(mlx, win, image_wall, 0, 0);
-	mlx_put_image_to_window(mlx, win, image_wall, 32, 0);
-
-	mlx_loop(mlx);
-    /*
-    t_game *game;
-    void *image;
-    int a;
-    int b;
-
-    // a = 32;
-    game = (t_game *)malloc(sizeof(t_game));
-    if (!game)
-        return (1);
-
-    ft_check_command_line_args(argc, argv, game);
-    ft_init_game(game);
-    ft_printf("game initiated\n");
-    ft_configure_game(game);
-    ft_printf("game configured\n");
-    ft_init_map(game, argv[1]);
-    ft_printf("map initiated\n");
-    ft_validate_map(game);
-    image = mlx_xpm_file_to_image(game->mlx_ptr, "textures/techwall.xpm", &a, &b);
-    mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, image, 0, 0);
-    // //ft_draw_map(game);
-    ft_printf("map drawn\n");
-
-    // Pencere kapatma ve tuş basma olaylarını yakalama
-    // mlx_hook(game->win_ptr, 33, 1L << 17, close_window, game); // 33 -> DestroyNotify için
-    // mlx_key_hook(game->win_ptr, key_hook, game);
-
-    //mlx_loop(game->mlx_ptr);
-    free(game);
-
-    return 0;*/
+	ft_free_all_allocated_memory(game);
+	ft_printf(GREEN"Game closed successfully.\n"RESET);
+	exit(0);
+	return (0);
 }
+
+// void ft_print_map_full(t_game *game)
+// {
+//     int i;
+
+//     // Haritanın her bir satırını yazdır
+//     for (i = 0; i < game->map.rows; i++)
+//     {
+//         ft_printf("%s\n", game->map.full[i]);  // Her satırı yazdır
+//     }
+// }
+
+int	main(int argc, const char *argv[])
+{
+	t_game	*game;
+
+    game = malloc(sizeof(t_game));
+	if (!game)
+		ft_error_msg("Memory allocation failed for game", game);
+    ft_check_command_line_args(argc, argv, game);
+	ft_init_map(game, (char *)argv[1]);
+	ft_init_game(game);
+	//printf(CYAN"***here***\n"RESET);
+	//ft_print_map_full(game);
+	ft_check_map(game);
+
+	
+	
+
+    // mlx_hook(game->win_ptr, DestroyNotify, 0, ft_close_game, &game);
+	// mlx_key_hook(game->win_ptr, ft_key, &game);
+	// mlx_loop(game->mlx_ptr);
+	return (0);
+}
+
 
 

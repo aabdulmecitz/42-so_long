@@ -6,13 +6,13 @@
 /*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 01:45:25 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/11/16 16:53:52 by aabdulmecit      ###   ########.fr       */
+/*   Updated: 2024/11/23 02:27:09 by aabdulmecit      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void ft_check_command_line_args(int argc, char const *argv[], t_game *game)
+void    ft_check_command_line_args(int argc, char const *argv[], t_game *game)
 {
     int map_len;
     

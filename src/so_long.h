@@ -6,7 +6,7 @@
 /*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 15:16:28 by aozkaya           #+#    #+#             */
-/*   Updated: 2024/11/21 16:31:28 by aabdulmecit      ###   ########.fr       */
+/*   Updated: 2024/11/23 03:04:50 by aabdulmecit      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,18 +134,15 @@ typedef struct s_sprite
 	
 // } t_anim;
 
-void ft_check_command_line_args(int argc, char const *argv[], t_game *game);
-void ft_error_msg(char *msg, t_game *game);
-void ft_init_map(t_game *game, char const *argv);
-void ft_init_game(t_game *game);
-void    ft_free_map(t_game *game);
-void    ft_draw_map(t_game *game);
-int ft_count_coins(t_game *game);
-int close_window(void *param);
-void ft_init_map(t_game *game, char const *argv);
-void    ft_render_sprite(t_game *game, int x, int y);
-void    ft_configure_game(t_game *game);
-void ft_validate_map(t_game *game);
+void    ft_check_command_line_args(int argc, char const *argv[], t_game *game);
+void    ft_check_map(t_game *game);
+void    ft_check_for_empty_line(char *map, t_game *game);
+void    ft_error_msg(char *msg, t_game *game);
+void	ft_init_game(t_game *game);
+void	ft_init_map(t_game *game, char *argv);
+void	ft_free_all_allocated_memory(t_game *game);
+void	ft_free_map(t_game *game);
+
 
 
 #endif

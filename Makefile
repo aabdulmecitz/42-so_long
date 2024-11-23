@@ -22,16 +22,14 @@ SRCS_DIR		= ./src/
 
 SRCS 			= $(addprefix $(SRCS_DIR),\
 				ft_check_command_line_args.c \
-				ft_error_msg.c  ft_free_map.c \
-				ft_init_map.c \
-				ft_validate_map.c\
-				ft_intit_game.c \
-				so_long.c)
+				ft_error_msg.c ft_init_game.c\
+				ft_check_map.c ft_init_map.c\
+				so_long.c ft_mem_free.c)
 
 all:			${NAME} ${LIBFT} 
 
 ${NAME}: 		
-				${CC} -Wall -Wextra -Werror ${SRCS} ${LIBFT} -L./lib/minilibx-linux ${MLX} ${MINILIBX_FLAGS} -g3 -o ${NAME}
+				${CC} -Wall -Wextra -Werror ${SRCS} ${LIBFT} -L./lib/minilibx-linux ${MLX} ${MINILIBX_FLAGS} -g3 -o ${NAME} | cat -e
 				@echo "$(NAME): $(GREEN)$(NAME) was compiled.$(RESET)"
 				@echo
 

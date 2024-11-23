@@ -6,13 +6,13 @@
 /*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 03:50:53 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/11/21 17:23:40 by aabdulmecit      ###   ########.fr       */
+/*   Updated: 2024/11/23 02:28:37 by aabdulmecit      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void ft_error_msg(char *msg, t_game *game)
+void    ft_error_msg(char *msg, t_game *game)
 {
     if (game)
     {
