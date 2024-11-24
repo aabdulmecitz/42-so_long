@@ -6,7 +6,7 @@
 /*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/24 21:33:43 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/11/24 22:13:19 by aabdulmecit      ###   ########.fr       */
+/*   Updated: 2024/11/24 22:21:49 by aabdulmecit      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,46 +14,27 @@
 
 static void flood_fill(t_game *game, int x, int y, int *collected)
 {
-    // Harita sınırlarını kontrol et
     if (x < 0 || x >= game->map.columns || y < 0 || y >= game->map.rows || 
-        game->map.full[y][x] == WALL || game->map.full[y][x] == 'V')
+        game->map.full[y][x] == WALL || game->map.full[y][x] == 'F')
         return;
-    
-    // Koleksiyonları topla
     if (game->map.full[y][x] == COINS)
         (*collected)++;
-
-    // Bu hücreyi ziyaret edilmiş olarak işaretle
-    game->map.full[y][x] = 'V';
-
-    // 4 yönü kontrol et
-    flood_fill(game, x + 1, y, collected);  // Sağ
-    flood_fill(game, x - 1, y, collected);  // Sol
-    flood_fill(game, x, y + 1, collected);  // Aşağı
-    flood_fill(game, x, y - 1, collected);  // Yukarı
+    game->map.full[y][x] = 'F';
+    flood_fill(game, x + 1, y, collected);
+    flood_fill(game, x - 1, y, collected);
+    flood_fill(game, x, y + 1, collected);
+    flood_fill(game, x, y - 1, collected);
 }
 
 static int ft_check_all_collectables(t_game *game)
 {
-    int collected = 0;
-    int collectable_count = 0;
-    int x = 0;
-    int y = 0;
+    int x;
+    int y;
+    int collected;
+    int collectable_count;
 
-    // Haritayı tarayarak collectable (COINS) ve player'ı say
-    while (y < game->map.rows)
-    {
-        x = 0;
-        while (x < game->map.columns)
-        {
-            if (game->map.full[y][x] == COINS)
-                collectable_count++;
-            x++;
-        }
-        y++;
-    }
-
-    // Player'ı bul ve flood fill işlemi başlat
+    collectable_count = game->map.coins;
+    collected = 0;
     y = 0;
     while (y < game->map.rows)
     {
@@ -62,8 +43,8 @@ static int ft_check_all_collectables(t_game *game)
         {
             if (game->map.full[y][x] == PLAYER)
             {
-                flood_fill(game, x, y, &collected);  // Player'ın bulunduğu yerden flood fill başlat
-                break;  // Flood fill başlatıldı, bu yüzden döngüyü kır
+                flood_fill(game, x, y, &collected);
+                break;
             }
             x++;
         }
@@ -71,8 +52,6 @@ static int ft_check_all_collectables(t_game *game)
             break;
         y++;
     }
-
-    // Tüm koleksiyonların toplandığını kontrol et
     return collected == collectable_count;
 }
 
