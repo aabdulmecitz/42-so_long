@@ -6,7 +6,7 @@
 /*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 02:15:50 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/11/23 04:35:08 by aabdulmecit      ###   ########.fr       */
+/*   Updated: 2024/11/24 21:17:29 by aabdulmecit      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,6 @@ t_image ft_new_sprite(void *mlx, char *path, t_game *game)
     sprite.xpm_ptr = mlx_xpm_file_to_image(mlx, path, &sprite.x, &sprite.y);
     if (!sprite.xpm_ptr)
         ft_error_msg("Couldn't find a sprite. Does it exist?", game);
-
     return sprite;
 }
 

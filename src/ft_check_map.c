@@ -6,7 +6,7 @@
 /*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 19:32:02 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/11/24 21:14:45 by aabdulmecit      ###   ########.fr       */
+/*   Updated: 2024/11/24 21:20:23 by aabdulmecit      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,14 @@
 void    ft_check_rectanglular(t_game *game);
 void    ft_check_elements(t_game *game);
 void    ft_element_counter(t_game *game);
-void    ft_check_rows(t_game *game);
-void	ft_check_columns(t_game *game);
+void    ft_check_rows_and_columns(t_game *game);
+
 
 void    ft_check_map(t_game *game)
 {
     ft_check_rectanglular(game);
     printf("columns %d, rows %d\n", game->map.columns, game->map.rows);
-    ft_check_columns(game);
-    ft_check_rows(game);
+    ft_check_rows_and_columns(game);
     ft_check_elements(game);    
     ft_printf(GREEN"Map validation passed!\n"RESET);
 }
@@ -91,7 +90,7 @@ void    ft_element_counter(t_game *game)
     }
 }
 
-void    ft_check_rows(t_game *game)
+void    ft_check_rows_and_columns(t_game *game)
 {
     int i;
 
@@ -106,12 +105,6 @@ void    ft_check_rows(t_game *game)
             ft_error_msg("Invalid Map. There's a Wall missing from the last row.\nThe Map must be surrounded by walls!.", game);
         i++;
     }
-}
-
-void    ft_check_columns(t_game *game)
-{
-    int i;
-
     i = 0;
     printf("Checking columns...\n");
     while (i < game->map.columns)
