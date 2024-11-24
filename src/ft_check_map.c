@@ -6,7 +6,7 @@
 /*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 19:32:02 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/11/24 21:20:23 by aabdulmecit      ###   ########.fr       */
+/*   Updated: 2024/11/24 22:10:22 by aabdulmecit      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,17 @@
 void    ft_check_rectanglular(t_game *game);
 void    ft_check_elements(t_game *game);
 void    ft_element_counter(t_game *game);
-void    ft_check_rows_and_columns(t_game *game);
-
 
 void    ft_check_map(t_game *game)
 {
     ft_check_rectanglular(game);
     printf("columns %d, rows %d\n", game->map.columns, game->map.rows);
-    ft_check_rows_and_columns(game);
-    ft_check_elements(game);    
+    
+    printf(CYAN"***here***\n"RESET);
+
+    ft_check_elements(game);
+    printf("rows %d, columns %d\n", game->map.rows, game->map.columns);
+    check_as_a_hero(game);
     ft_printf(GREEN"Map validation passed!\n"RESET);
 }
 
@@ -49,6 +51,7 @@ void    ft_check_rectanglular(t_game *game)
         }
         i++;
     }
+    game->map.columns++;
     ft_printf(GREEN "Map is rectangular!\n" RESET);
 }
 
@@ -75,6 +78,8 @@ void    ft_element_counter(t_game *game)
         x = 0;
         while (x < game->map.columns)
         {
+            if ((y == 0 || y == game->map.rows - 1 || x == 0 || x == game->map.columns - 1) && game->map.full[y][x] != WALL)
+                ft_error_msg("Invalid Map.", game);
             if (game->map.full[y][x] == PLAYER)
                 game->map.players++;
             else if (game->map.full[y][x] == MAP_EXIT)
@@ -89,35 +94,3 @@ void    ft_element_counter(t_game *game)
         y++;
     }
 }
-
-void    ft_check_rows_and_columns(t_game *game)
-{
-    int i;
-
-    i = 0;
-    printf("Checking rows...\n");
-    while (i < game->map.rows)
-    {
-        printf("Row %d: |%s| size: %d\n", i, game->map.full[i + 1], (int)ft_strlen(game->map.full[i]));
-        if (game->map.full[i][0] != WALL)
-            ft_error_msg("Invalid Map. There's a Wall missing from the first row.\nThe Map must be surrounded by walls!.", game);
-        else if (game->map.full[i][game->map.columns] != WALL)
-            ft_error_msg("Invalid Map. There's a Wall missing from the last row.\nThe Map must be surrounded by walls!.", game);
-        i++;
-    }
-    i = 0;
-    printf("Checking columns...\n");
-    while (i < game->map.columns)
-    {
-        printf("Top Row Column %d: %c\n", i, game->map.full[0][i]);
-        printf("Bottom Row Column %d: %c\n", i, game->map.full[game->map.rows - 1][i]);
-        if (game->map.full[0][i] != WALL)
-            ft_error_msg("Invalid Map. There's a Wall missing from the first column.\nThe Map must be surrounded by walls!.", game);
-        else if (game->map.full[game->map.rows - 1][i + 1] != WALL)
-            ft_error_msg("Invalid Map. There's a Wall missing from the last column.\nThe Map must be surrounded by walls!.", game);
-        i++;
-    }
-}
-
-
-

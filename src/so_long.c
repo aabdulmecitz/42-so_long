@@ -6,7 +6,7 @@
 /*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 03:00:21 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/11/24 21:23:37 by aabdulmecit      ###   ########.fr       */
+/*   Updated: 2024/11/24 22:01:39 by aabdulmecit      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ int	main(int argc, const char *argv[])
 	ft_init_map(game, (char *)argv[1]);
 	ft_init_game(game);
 	ft_check_map(game);
-	printf(CYAN"***here***\n"RESET);
 
     // mlx_hook(game->win_ptr, DestroyNotify, 0, ft_close_game, &game);
 	// mlx_key_hook(game->win_ptr, ft_key, &game);
