@@ -6,7 +6,7 @@
 /*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/24 21:33:43 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/11/24 22:21:49 by aabdulmecit      ###   ########.fr       */
+/*   Updated: 2024/11/24 22:42:22 by aabdulmecit      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,6 @@ static int ft_check_all_collectables(t_game *game)
     }
     return collected == collectable_count;
 }
-
 
 void    check_as_a_hero(t_game *game)
 {
