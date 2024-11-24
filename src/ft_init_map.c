@@ -6,16 +6,14 @@
 /*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 19:39:02 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/11/23 16:55:58 by aabdulmecit      ###   ########.fr       */
+/*   Updated: 2024/11/24 22:38:50 by aabdulmecit      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	print_split_result(char **split_res);
 void	remove_carriage_return(char *line);
 void    ft_check_for_empty_line(char *map, t_game *game);
-
 
 void	ft_init_map(t_game *game, char *argv)
 {
@@ -43,23 +41,8 @@ void	ft_init_map(t_game *game, char *argv)
 	close(map_fd);
 	game->map.full = ft_split(map_temp, '\n');
 	
-	print_split_result(game->map.full);
 	game->map_alloc = true;
 	free(map_temp);
-}
-
-void	print_split_result(char **split_res)
-{
-    int i = 0;
-    while (split_res[i]) {
-        printf(CYAN"|Word %d: |%s||\n"RESET, i, split_res[i]);
-		if (ft_strchr(split_res[i], '\r'))
-		{
-			printf("%s includes r|", ft_strchr(split_res[i], '\r'));
-		}
-		
-        i++;
-    }
 }
 
 void	remove_carriage_return(char *line)
