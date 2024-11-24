@@ -62,7 +62,7 @@ update:
 	git submodule update --init --recursive --remote
 
 run:			re
-				./${NAME} assets/maps/invalid/map-missing-W.ber
+				./${NAME} assets/maps/valid/map4.ber 
 
 valgrind: $(NAME)
 	$(VALGRIND) ./${NAME} assets/maps/valid/map4.ber 

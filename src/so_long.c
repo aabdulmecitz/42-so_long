@@ -6,7 +6,7 @@
 /*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 03:00:21 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/11/23 16:17:35 by aabdulmecit      ###   ########.fr       */
+/*   Updated: 2024/11/24 21:16:37 by aabdulmecit      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	main(int argc, const char *argv[])
 
     // mlx_hook(game->win_ptr, DestroyNotify, 0, ft_close_game, &game);
 	// mlx_key_hook(game->win_ptr, ft_key, &game);
-	// mlx_loop(game->mlx_ptr);
+	mlx_loop(game->mlx_ptr);
 	return (0);
 }
 

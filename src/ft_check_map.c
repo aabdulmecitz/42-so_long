@@ -6,7 +6,7 @@
 /*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 19:32:02 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/11/23 17:21:46 by aabdulmecit      ###   ########.fr       */
+/*   Updated: 2024/11/24 21:14:45 by aabdulmecit      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,10 @@ void    ft_element_counter(t_game *game);
 void    ft_check_rows(t_game *game);
 void	ft_check_columns(t_game *game);
 
-
-
-
 void    ft_check_map(t_game *game)
 {
     ft_check_rectanglular(game);
+    printf("columns %d, rows %d\n", game->map.columns, game->map.rows);
     ft_check_columns(game);
     ft_check_rows(game);
     ft_check_elements(game);    
@@ -93,38 +91,6 @@ void    ft_element_counter(t_game *game)
     }
 }
 
-void    ft_check_surrounding_walls(t_game *game) {
-    int x, y;
-    for (y = 0; y < game->map.rows; y++) {
-        for (x = 0; x < game->map.columns; x++) {
-            // Haritanın etrafını kontrol et
-            if (game->map.full[0][x] != WALL || 
-                game->map.full[y][0] != WALL || 
-                game->map.full[y][game->map.columns - 1] != WALL || 
-                game->map.full[game->map.rows - 1][x] != WALL)
-                {
-                
-                // Hangi durumda hata olduğunu belirlemek için ayrı ayrı hata mesajları
-                if (game->map.full[0][x] != WALL) {
-                    printf("Error at top row, column %d: Character is '%c', expected '%c'\n", x, game->map.full[0][x], WALL);
-                }
-                if (game->map.full[y][0] != WALL) {
-                    printf("Error at row %d, first column: Character is '%c', expected '%c'\n", y, game->map.full[y][0], WALL);
-                }
-                if (game->map.full[y][game->map.columns - 1] != WALL) {
-                    printf("Error at row %d, last column: Character is '%c', expected '%c'\n", y, game->map.full[y][game->map.columns - 1], WALL);
-                }
-                if (game->map.full[game->map.rows - 1][x] != WALL) {
-                    printf("Error at bottom row, column %d: Character is '%c', expected '%c'\n", x, game->map.full[game->map.rows - 1][x], WALL);
-                }
-
-                ft_error_msg("Map is not surrounded by walls", game);
-            }
-        }
-    }
-}
-
-
 void    ft_check_rows(t_game *game)
 {
     int i;
@@ -133,10 +99,10 @@ void    ft_check_rows(t_game *game)
     printf("Checking rows...\n");
     while (i < game->map.rows)
     {
-        printf("Row %d: |%s| size: %d\n", i, game->map.full[i], (int)ft_strlen(game->map.full[i]));
+        printf("Row %d: |%s| size: %d\n", i, game->map.full[i + 1], (int)ft_strlen(game->map.full[i]));
         if (game->map.full[i][0] != WALL)
             ft_error_msg("Invalid Map. There's a Wall missing from the first row.\nThe Map must be surrounded by walls!.", game);
-        else if (game->map.full[i][game->map.columns - 1] != WALL)
+        else if (game->map.full[i][game->map.columns] != WALL)
             ft_error_msg("Invalid Map. There's a Wall missing from the last row.\nThe Map must be surrounded by walls!.", game);
         i++;
     }
@@ -154,7 +120,7 @@ void    ft_check_columns(t_game *game)
         printf("Bottom Row Column %d: %c\n", i, game->map.full[game->map.rows - 1][i]);
         if (game->map.full[0][i] != WALL)
             ft_error_msg("Invalid Map. There's a Wall missing from the first column.\nThe Map must be surrounded by walls!.", game);
-        else if (game->map.full[game->map.rows - 1][i] != WALL)
+        else if (game->map.full[game->map.rows - 1][i + 1] != WALL)
             ft_error_msg("Invalid Map. There's a Wall missing from the last column.\nThe Map must be surrounded by walls!.", game);
         i++;
     }
