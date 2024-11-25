@@ -6,7 +6,7 @@
 /*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 02:11:01 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/11/25 23:35:25 by aabdulmecit      ###   ########.fr       */
+/*   Updated: 2024/11/26 00:06:41 by aabdulmecit      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,4 +60,18 @@ void	ft_free_map(t_game *game)
 	while (i < game->map.rows)
 		free(game->map.full[i++]);
 	free(game->map.full);
+}
+
+void	ft_free_just_map(t_map *map)
+{
+    int i;
+
+    i = 0;
+    while (i < map->rows)
+    {
+        free(map->full[i]);
+        i++;
+    }
+    free(map->full);
+    free(map);
 }
