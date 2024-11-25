@@ -6,7 +6,7 @@
 /*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 15:51:50 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/11/25 17:11:44 by aabdulmecit      ###   ########.fr       */
+/*   Updated: 2024/11/25 23:36:16 by aabdulmecit      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@ int key_hook(int keycode, t_game *game)
         ft_free_all_allocated_memory(game);
         exit(0);
     }
+    ft_print_map_full(game);
+
     printf("Oyuncunun yeni pozisyonu: (%d, %d)\n", game->map.player.x, game->map.player.y);
     // Ekranı yeniden çizme fonksiyonunu burada çağırabilirsiniz.
     // örneğin: ft_draw_map(game);
