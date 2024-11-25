@@ -25,7 +25,7 @@ SRCS 			= $(addprefix $(SRCS_DIR),\
 				ft_error_msg.c ft_init_game.c\
 				ft_check_map.c ft_init_map.c\
 				so_long.c ft_mem_free.c\
-				ft_flood_fill.c)
+				ft_flood_fill.c ft_handle_buttons.c)
 
 all:			${NAME} ${LIBFT} 
 

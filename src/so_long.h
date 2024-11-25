@@ -6,7 +6,7 @@
 /*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 15:16:28 by aozkaya           #+#    #+#             */
-/*   Updated: 2024/11/24 21:52:33 by aabdulmecit      ###   ########.fr       */
+/*   Updated: 2024/11/25 17:10:11 by aabdulmecit      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -143,8 +143,9 @@ void	ft_init_map(t_game *game, char *argv);
 void	ft_free_all_allocated_memory(t_game *game);
 void	ft_free_map(t_game *game);
 void    check_as_a_hero(t_game *game);
+int		key_hook(int keycode, t_game *game);
 
-
+void ft_print_map_full(t_game *game);
 
 
 
