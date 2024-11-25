@@ -6,7 +6,7 @@
 /*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 15:51:50 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/11/26 00:23:11 by aabdulmecit      ###   ########.fr       */
+/*   Updated: 2024/11/26 00:34:12 by aabdulmecit      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,13 @@ void    ft_player_move(t_game *game);
 
 int key_hook(int keycode, t_game *game)
 {
-    if (keycode == KEY_W || keycode == KEY_UP)
+    if ((keycode == KEY_W || keycode == KEY_UP) && game->map.player.y - 1 != WALL)
         game->map.player.y -= 1;
-    else if (keycode == KEY_S || keycode == KEY_DOWN)
+    else if ((keycode == KEY_S || keycode == KEY_DOWN) && game->map.player.y + 1 != WALL)
         game->map.player.y += 1;
-    else if (keycode == KEY_A || keycode == KEY_LEFT)
+    else if ((keycode == KEY_A || keycode == KEY_LEFT) && game->map.player.x - 1 != WALL)
         game->map.player.x -= 1;
-    else if (keycode == KEY_D || keycode == KEY_RIGHT)
+    else if ((keycode == KEY_D || keycode == KEY_RIGHT) && game->map.player.x + 1 != WALL)
         game->map.player.x += 1;
     else if (keycode == KEY_ESC || KEY_Q)
     {
