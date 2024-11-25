@@ -6,7 +6,7 @@
 /*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 15:51:50 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/11/25 23:36:16 by aabdulmecit      ###   ########.fr       */
+/*   Updated: 2024/11/26 00:23:11 by aabdulmecit      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int key_hook(int keycode, t_game *game)
         game->map.player.x -= 1;
     else if (keycode == KEY_D || keycode == KEY_RIGHT)
         game->map.player.x += 1;
-    else if (keycode == KEY_ESC)
+    else if (keycode == KEY_ESC || KEY_Q)
     {
         mlx_destroy_window(game->mlx_ptr, game->win_ptr);
         ft_free_all_allocated_memory(game);
