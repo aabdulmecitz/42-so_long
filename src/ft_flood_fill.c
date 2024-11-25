@@ -6,7 +6,7 @@
 /*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/24 21:33:43 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/11/26 00:08:15 by aabdulmecit      ###   ########.fr       */
+/*   Updated: 2024/11/26 02:37:41 by aabdulmecit      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,29 +53,17 @@ static void flood_fill(t_map *map, int x, int y, int *collected)
     flood_fill(map, x, y - 1, collected);
 }
 
-static int ft_check_all_collectables(t_map *map)
+int ft_check_all_collectables(t_map *map, t_game *game)
 {
     int x;
     int y;
     int collected;
     
+    x = game->map.player.x;
+    y = game->map.player.y;
     collected = 0;
-    y = 0;
-    while (y < map->rows)
-    {
-        x = 0;
-        while (x < map->columns)
-        {
-            if (map->full[y][x] == PLAYER)
-            {
-                flood_fill(map, x, y, &collected);
-                return collected == map->coins;
-            }
-            x++;
-        }
-        y++;
-    }
-    return 0;
+    flood_fill(map, x, y, &collected);
+    return collected == map->coins;
 }
 
 void check_as_a_hero(t_game *game)
@@ -89,7 +77,7 @@ void check_as_a_hero(t_game *game)
         ft_error_msg("Map copy failed.", game);
         return;
     }
-    result = ft_check_all_collectables(clone_map);
+    result = ft_check_all_collectables(clone_map, game);
     if (result)
         ft_printf(GREEN"Passed from flood fill\n"RESET);
     else
