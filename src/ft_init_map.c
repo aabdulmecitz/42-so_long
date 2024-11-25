@@ -6,7 +6,7 @@
 /*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 19:39:02 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/11/24 22:42:48 by aabdulmecit      ###   ########.fr       */
+/*   Updated: 2024/11/25 15:40:46 by aabdulmecit      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ void	ft_init_map(t_game *game, char *argv)
 	while (true)
 	{
 		line_temp = get_next_line(map_fd);
-
 		if (line_temp == NULL)
 			break ;
 
