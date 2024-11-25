@@ -6,7 +6,7 @@
 /*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 03:00:21 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/11/25 23:43:57 by aabdulmecit      ###   ########.fr       */
+/*   Updated: 2024/11/26 00:21:44 by aabdulmecit      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int	main(int argc, const char *argv[])
 	ft_init_map(game, (char *)argv[1]);
 	ft_init_game(game);
 	ft_check_map(game);
-
+	ft_printf("player's x = %d, player's y = %d\n", game->map.player.x, game->map.player.y);
 	mlx_key_hook(game->win_ptr, key_hook, game);
 	
 	mlx_loop(game->mlx_ptr);

@@ -6,7 +6,7 @@
 /*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 19:32:02 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/11/25 23:16:42 by aabdulmecit      ###   ########.fr       */
+/*   Updated: 2024/11/26 00:20:11 by aabdulmecit      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,11 @@ void    ft_element_counter(t_game *game)
             if ((y == 0 || y == game->map.rows - 1 || x == 0 || x == game->map.columns - 1) && game->map.full[y][x] != WALL)
                 ft_error_msg("Invalid Map.", game);
             if (game->map.full[y][x] == PLAYER)
+            {
                 game->map.players++;
+                game->map.player.y = y;
+                game->map.player.x = x;
+            }
             else if (game->map.full[y][x] == MAP_EXIT)
                 game->map.exit++;
             else if (game->map.full[y][x] == COINS)
