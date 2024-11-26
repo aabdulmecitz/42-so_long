@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_handle_buttons.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
+/*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 15:51:50 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/11/26 16:32:19 by aozkaya          ###   ########.fr       */
+/*   Updated: 2024/11/27 00:28:01 by aabdulmecit      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,14 +52,15 @@ void ft_check_object(t_game *game, int x, int y)
     else if (game->map.full[y][x] == MAP_EXIT && game->map.coins == 0)
     {
         ft_congrats_message();
-        ft_destroy_window(KEY_ESC, game);
+        ft_destroy_window(game);
     }
 }
 
 int key_hook(int keycode, t_game *game)
-{    
+{   
+    if (keycode == KEY_ESC || keycode == KEY_Q)
+        ft_destroy_window(game);
     ft_player_move(keycode, game);
-    ft_destroy_window(keycode, game);
     ft_print_map_full(game);
     ft_printf(CYAN"The player's new position: (%d, %d)\nAll of coins: %d, Movements: %d\n"RESET, game->map.player.x, game->map.player.y, game->map.coins, game->movements);
     return 0;
@@ -68,6 +69,8 @@ int key_hook(int keycode, t_game *game)
 void ft_handle_buttons(t_game *game)
 {
     mlx_hook(game->win_ptr, KeyPress, KeyPressMask, key_hook, game);
+    mlx_hook(game->win_ptr, DestroyNotify, 0, ft_destroy_window, game);
+    mlx_hook(game->win_ptr, Expose, 0, ft_render_frame, game);
 }
 
 
@@ -129,3 +132,5 @@ void ft_handle_buttons(t_game *game)
 // Mask: 0
 
 // Açıklama: Pencere kapandığında tetiklenir.
+
+//Focus In de bonus kisminda kullanabiliriz.

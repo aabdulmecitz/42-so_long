@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_init_game.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
+/*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 02:15:50 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/11/26 19:20:02 by aozkaya          ###   ########.fr       */
+/*   Updated: 2024/11/26 23:31:56 by aabdulmecit      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void ft_init_mlx(t_game *game)
         ft_error_msg("Couldn't find mlx pointer. Try it using a VNC.", game);
     game->win_ptr = mlx_new_window(
         game->mlx_ptr,
-        game->map.columns * IMG_WIDTH,
+        (game->map.columns + 1) * IMG_WIDTH,
         game->map.rows * IMG_HEIGHT,
         "so_long"
     );
