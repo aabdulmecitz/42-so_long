@@ -6,7 +6,7 @@
 /*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 02:11:01 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/11/26 05:33:49 by aabdulmecit      ###   ########.fr       */
+/*   Updated: 2024/11/26 06:00:29 by aabdulmecit      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,4 +74,13 @@ void	ft_free_just_map(t_map *map)
     }
     free(map->full);
     free(map);
+}
+
+void ft_destroy_window(int keycode, t_game *game)
+{
+    if (keycode == KEY_ESC || keycode == KEY_Q)
+    {
+        ft_free_all_allocated_memory(game);
+        exit(0);
+    }
 }

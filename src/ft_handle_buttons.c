@@ -6,92 +6,61 @@
 /*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 15:51:50 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/11/26 05:33:35 by aabdulmecit      ###   ########.fr       */
+/*   Updated: 2024/11/26 06:01:21 by aabdulmecit      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void ft_destroy_window(int keycode, t_game *game)
-{
-    if (keycode == KEY_ESC || keycode == KEY_Q)
-    {
-        ft_free_all_allocated_memory(game);
-        exit(0);
-    }
-}
+void ft_check_object(t_game *game, int x, int y);
+void ft_player_move(int keycode, t_game *game);
+void ft_move_direction(t_game *game, int dx, int dy);
+int key_hook(int keycode, t_game *game);
 
 void ft_player_move(int keycode, t_game *game)
 {
+    if (keycode == KEY_W || keycode == KEY_UP)
+        ft_move_direction(game, 0, -1);
+    else if (keycode == KEY_S || keycode == KEY_DOWN)
+        ft_move_direction(game, 0, 1);
+    else if (keycode == KEY_A || keycode == KEY_LEFT)
+        ft_move_direction(game, -1, 0);
+    else if (keycode == KEY_D || keycode == KEY_RIGHT)
+        ft_move_direction(game, 1, 0);
+}
+
+void ft_move_direction(t_game *game, int dx, int dy)
+{
     int x = game->map.player.x;
     int y = game->map.player.y;
-    if ((keycode == KEY_W || keycode == KEY_UP) && game->map.full[y - 1][x] != WALL)
-    {
-        if (game->map.full[y - 1][x] == COINS)
-            game->map.coins++;
-        else if (game->map.full[y - 1][x] == MAP_EXIT)
-        {
-            ft_congrats_message();
-            ft_destroy_window(KEY_ESC, game);
-        }
-        game->map.full[y][x] = FLOOR;
-        game->map.player.y -= 1;
-        game->map.full[y - 1][x] = PLAYER;
-        game->movements++;
-    }
-    else if ((keycode == KEY_S || keycode == KEY_DOWN) && game->map.full[y + 1][x] != WALL)
-    {
-        if (game->map.full[y + 1][x] == COINS)
-            game->map.coins++;
-        else if (game->map.full[y + 1][x] == MAP_EXIT)
-        {
-            ft_congrats_message();
-            ft_destroy_window(KEY_ESC, game);
-        }
-        game->map.full[y][x] = FLOOR;
-        game->map.player.y += 1;
-        game->map.full[y + 1][x] = PLAYER;
-        game->movements++;
-    }
-    else if ((keycode == KEY_A || keycode == KEY_LEFT) && game->map.full[y][x - 1] != WALL)
-    {
-        if (game->map.full[y][x - 1] == COINS)
-            game->map.coins++;
-        else if (game->map.full[y][x - 1] == MAP_EXIT)
-        {
-            ft_congrats_message();
-            ft_destroy_window(KEY_ESC, game);
-        }
-        game->map.full[y][x] = FLOOR;
-        game->map.player.x -= 1;
-        game->map.full[y][x - 1] = PLAYER;
-        game->movements++;
 
-    }
-    else if ((keycode == KEY_D || keycode == KEY_RIGHT) && game->map.full[y][x + 1] != WALL)
+    if (game->map.full[y + dy][x + dx] != WALL)
     {
-        if (game->map.full[y][x + 1] == COINS)
-            game->map.coins++;
-        else if (game->map.full[y][x + 1] == MAP_EXIT)
-        {
-            ft_congrats_message();
-            ft_destroy_window(KEY_ESC, game);
-        }
+        ft_check_object(game, x + dx, y + dy);
         game->map.full[y][x] = FLOOR;
-        game->map.player.x += 1;
-        game->map.full[y][x + 1] = PLAYER;
+        game->map.player.x += dx;
+        game->map.player.y += dy;
+        game->map.full[y + dy][x + dx] = PLAYER;
         game->movements++;
     }
 }
 
-
+void ft_check_object(t_game *game, int x, int y)
+{
+    if (game->map.full[y][x] == COINS)
+        game->map.coins++;
+    else if (game->map.full[y][x] == MAP_EXIT)
+    {
+        ft_congrats_message();
+        ft_destroy_window(KEY_ESC, game);
+    }
+}
 
 int key_hook(int keycode, t_game *game)
 {
     ft_player_move(keycode, game);
     ft_destroy_window(keycode, game);
     ft_print_map_full(game);
-
     ft_printf(CYAN"The player's new position: (%d, %d)\nAll of coins: %d, Movements: %d\n"RESET, game->map.player.x, game->map.player.y, game->map.coins, game->movements);
     return 0;
 }
