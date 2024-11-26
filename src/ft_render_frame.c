@@ -6,18 +6,11 @@
 /*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 05:38:38 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/11/27 02:52:53 by aabdulmecit      ###   ########.fr       */
+/*   Updated: 2024/11/27 02:54:21 by aabdulmecit      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-int calculate_offset(int win_size, int map_size)
-{
-    if (map_size >= win_size)
-        return 0;  // Harita pencerenin boyutundan büyükse ofset sıfırlanır
-    return (win_size - map_size) / 2;  // Pencereyi ortalamak için ofset hesapla
-}
 
 int ft_render_frame(t_game *game)
 {
