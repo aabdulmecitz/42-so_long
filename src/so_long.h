@@ -6,7 +6,7 @@
 /*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 15:16:28 by aozkaya           #+#    #+#             */
-/*   Updated: 2024/11/27 00:24:25 by aabdulmecit      ###   ########.fr       */
+/*   Updated: 2024/11/27 00:40:52 by aabdulmecit      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,7 +129,7 @@ typedef struct s_sprite
 // {
 // 	unsigned int current_frame;
 // 	unsigned int num_of_frames;
-// 	unsigned int speed;
+// 	unsigned int speed
 // 	t_image **image_list;
 	
 // } t_anim;

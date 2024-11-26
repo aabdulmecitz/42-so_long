@@ -6,7 +6,7 @@
 /*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 19:32:02 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/11/27 00:34:40 by aabdulmecit      ###   ########.fr       */
+/*   Updated: 2024/11/27 00:46:50 by aabdulmecit      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 
 void    ft_check_rectanglular(t_game *game);
 void    ft_check_elements(t_game *game);
-void    ft_element_counter(t_game *game);
+void    ft_search_elements(t_game *game);
 void    ft_count_elements(t_game *game, int x, int y);
+
 
 void    ft_check_map(t_game *game)
 {
@@ -53,7 +54,7 @@ void    ft_check_rectanglular(t_game *game)
 
 void    ft_check_elements(t_game *game)
 {
-    ft_element_counter(game);
+    ft_search_elements(game);
     if (game->map.players != 1)
         ft_error_msg("Map must contain exactly one starting position ('P')", game);
     if (game->map.exit != 1)
@@ -62,7 +63,7 @@ void    ft_check_elements(t_game *game)
         ft_error_msg("Map must contain at least one collectible ('C')", game);
 }
 
-void    ft_element_counter(t_game *game)
+void    ft_search_elements(t_game *game)
 {
     int y;
     int x;
