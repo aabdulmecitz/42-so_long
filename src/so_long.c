@@ -6,7 +6,7 @@
 /*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 03:00:21 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/11/26 18:40:19 by aozkaya          ###   ########.fr       */
+/*   Updated: 2024/11/26 20:03:53 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,14 +38,15 @@ int	main(int argc, const char *argv[])
     game = malloc(sizeof(t_game));
 	if (!game)
 		ft_error_msg("Memory allocation failed for game", game);
+
     ft_check_command_line_args(argc, argv, game);
 	ft_init_map(game, (char *)argv[1]);
 	ft_init_game(game);
 	ft_check_map(game);
 	ft_printf("player's x = %d, player's y = %d\n", game->map.player.x, game->map.player.y);
+	mlx_loop_hook(game->mlx_ptr, ft_render_frame, game);
 	ft_handle_buttons(game);
-	printf(CYAN"***here***\n"RESET);
-	ft_render_frame(game);
+	ft_printf(CYAN"***here***\n"RESET);
 	mlx_loop(game->mlx_ptr);
 	return (0);
 }

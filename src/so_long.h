@@ -6,7 +6,7 @@
 /*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 15:16:28 by aozkaya           #+#    #+#             */
-/*   Updated: 2024/11/26 19:04:22 by aozkaya          ###   ########.fr       */
+/*   Updated: 2024/11/26 19:58:54 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@
 # define RIGHT				3
 # define BACK				4
 
-# define WALL_XPM			"..assets/sprites/wall.xpm"
+# define WALL_XPM			"assets/sprites/wall.xpm"
 # define FLOOR_XPM			"assets/sprites/floor.xpm"
 # define COINS_XPM			"assets/sprites/coin-bag.xpm"
 # define PLAYER_FRONT_XPM	"assets/sprites/player/front.xpm"
@@ -149,7 +149,8 @@ int 	ft_check_all_collectables(t_map *map, t_game *game);
 void    ft_handle_buttons(t_game *game);
 void	ft_destroy_window(int keycode, t_game *game);
 void    ft_congrats_message();
-void	ft_render_frame(t_game *game);
+int	ft_render_frame(t_game *game);
+int ft_update_frame(t_game *game);
 
 void ft_print_map_full(t_game *game);
 
