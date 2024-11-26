@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_flood_fill.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
+/*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/24 21:33:43 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/11/26 04:55:34 by aabdulmecit      ###   ########.fr       */
+/*   Updated: 2024/11/26 16:40:22 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,9 @@ static t_map *ft_copy_map(const t_map *src_map)
 static void flood_fill(t_map *map, int x, int y, int *collected)
 {
     if (x < 0 || x >= map->columns || y < 0 || y >= map->rows || 
-        map->full[y][x] == WALL || map->full[y][x] == 'F')
+        map->full[y][x] == WALL || 
+        map->full[y][x] == 'F' || 
+        map->full[y][x] == MAP_EXIT)
         return;
     if (map->full[y][x] == COINS)
         (*collected)++;
