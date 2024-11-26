@@ -6,7 +6,7 @@
 /*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 05:38:38 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/11/26 18:33:52 by aozkaya          ###   ########.fr       */
+/*   Updated: 2024/11/26 18:44:02 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void    ft_render_frame(t_game *game)
         while (x < game->map.columns)
         {
             if (game->map.full[y][x] == WALL)
-                mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, WALL_XPM, x * IMG_WIDTH, y * IMG_HEIGHT);
+                mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->wall.xpm_ptr, x * IMG_WIDTH, y * IMG_HEIGHT);
             x++;
         }
         y++;

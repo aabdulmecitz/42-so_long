@@ -6,7 +6,7 @@
 /*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 02:15:50 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/11/26 18:20:08 by aozkaya          ###   ########.fr       */
+/*   Updated: 2024/11/26 19:00:59 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,12 +73,20 @@ void ft_init_sprites(t_game *game)
 
 t_image ft_new_sprite(void *mlx, char *path, t_game *game)
 {
-    t_image sprite;
+    t_image *sprite;
 
-    sprite.xpm_ptr = mlx_xpm_file_to_image(mlx, path, &sprite.x, &sprite.y);
-    if (!sprite.xpm_ptr)
+    sprite = malloc(sizeof(t_image));
+    if (!sprite)
+        ft_error_msg("Memory allocation failed for sprite.", game);
+    sprite->xpm_ptr = mlx_xpm_file_to_image(mlx, path, &sprite->x, &sprite->y);
+    if (!sprite->xpm_ptr)
+    {
+        ft_printf(CYAN"xpm_ptr: %s\n"RESET, sprite->xpm_ptr);
+        free(sprite);
         ft_error_msg("Couldn't find a sprite. Does it exist?", game);
-    return sprite;
+    }
+    return *sprite;
 }
+
 
 
