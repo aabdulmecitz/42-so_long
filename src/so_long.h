@@ -6,7 +6,7 @@
 /*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 15:16:28 by aozkaya           #+#    #+#             */
-/*   Updated: 2024/11/26 02:38:09 by aabdulmecit      ###   ########.fr       */
+/*   Updated: 2024/11/26 04:20:57 by aabdulmecit      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -146,6 +146,7 @@ void	ft_free_just_map(t_map *map);
 void    check_as_a_hero(t_game *game);
 int		key_hook(int keycode, t_game *game);
 int 	ft_check_all_collectables(t_map *map, t_game *game);
+void    ft_handle_buttons(t_game *game);
 
 void ft_print_map_full(t_game *game);
 
