@@ -6,7 +6,7 @@
 /*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 19:32:02 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/11/26 00:20:11 by aabdulmecit      ###   ########.fr       */
+/*   Updated: 2024/11/26 05:32:03 by aabdulmecit      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,10 @@ void    ft_element_counter(t_game *game);
 void    ft_check_map(t_game *game)
 {
     ft_check_rectanglular(game);
-    
-    printf(CYAN"***here***\n"RESET);
-
     ft_check_elements(game);
     check_as_a_hero(game);
     ft_printf("rows %d, columns %d\n", game->map.rows, game->map.columns);
+    game->map.coins = 0;
     ft_printf(GREEN"Map validation passed!\n"RESET);
 }
 

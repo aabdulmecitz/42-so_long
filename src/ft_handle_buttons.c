@@ -6,7 +6,7 @@
 /*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 15:51:50 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/11/26 04:45:13 by aabdulmecit      ###   ########.fr       */
+/*   Updated: 2024/11/26 05:33:35 by aabdulmecit      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ void ft_destroy_window(int keycode, t_game *game)
 {
     if (keycode == KEY_ESC || keycode == KEY_Q)
     {
-        mlx_destroy_window(game->mlx_ptr, game->win_ptr);
         ft_free_all_allocated_memory(game);
         exit(0);
     }
@@ -26,35 +25,65 @@ void ft_player_move(int keycode, t_game *game)
 {
     int x = game->map.player.x;
     int y = game->map.player.y;
-
     if ((keycode == KEY_W || keycode == KEY_UP) && game->map.full[y - 1][x] != WALL)
     {
-        // if (game->map.full[y][x] == COINS)
-        //     game->map.coins
+        if (game->map.full[y - 1][x] == COINS)
+            game->map.coins++;
+        else if (game->map.full[y - 1][x] == MAP_EXIT)
+        {
+            ft_congrats_message();
+            ft_destroy_window(KEY_ESC, game);
+        }
         game->map.full[y][x] = FLOOR;
         game->map.player.y -= 1;
         game->map.full[y - 1][x] = PLAYER;
+        game->movements++;
     }
     else if ((keycode == KEY_S || keycode == KEY_DOWN) && game->map.full[y + 1][x] != WALL)
     {
-        
+        if (game->map.full[y + 1][x] == COINS)
+            game->map.coins++;
+        else if (game->map.full[y + 1][x] == MAP_EXIT)
+        {
+            ft_congrats_message();
+            ft_destroy_window(KEY_ESC, game);
+        }
         game->map.full[y][x] = FLOOR;
         game->map.player.y += 1;
         game->map.full[y + 1][x] = PLAYER;
+        game->movements++;
     }
     else if ((keycode == KEY_A || keycode == KEY_LEFT) && game->map.full[y][x - 1] != WALL)
     {
+        if (game->map.full[y][x - 1] == COINS)
+            game->map.coins++;
+        else if (game->map.full[y][x - 1] == MAP_EXIT)
+        {
+            ft_congrats_message();
+            ft_destroy_window(KEY_ESC, game);
+        }
         game->map.full[y][x] = FLOOR;
         game->map.player.x -= 1;
         game->map.full[y][x - 1] = PLAYER;
+        game->movements++;
+
     }
     else if ((keycode == KEY_D || keycode == KEY_RIGHT) && game->map.full[y][x + 1] != WALL)
     {
+        if (game->map.full[y][x + 1] == COINS)
+            game->map.coins++;
+        else if (game->map.full[y][x + 1] == MAP_EXIT)
+        {
+            ft_congrats_message();
+            ft_destroy_window(KEY_ESC, game);
+        }
         game->map.full[y][x] = FLOOR;
         game->map.player.x += 1;
         game->map.full[y][x + 1] = PLAYER;
+        game->movements++;
     }
 }
+
 
 
 int key_hook(int keycode, t_game *game)
@@ -63,7 +92,7 @@ int key_hook(int keycode, t_game *game)
     ft_destroy_window(keycode, game);
     ft_print_map_full(game);
 
-    printf("Oyuncunun yeni pozisyonu: (%d, %d) All of coins: %d\n", game->map.player.x, game->map.player.y, game->map.coins);
+    ft_printf(CYAN"The player's new position: (%d, %d)\nAll of coins: %d, Movements: %d\n"RESET, game->map.player.x, game->map.player.y, game->map.coins, game->movements);
     return 0;
 }
 

@@ -6,7 +6,7 @@
 /*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 03:50:53 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/11/23 02:28:37 by aabdulmecit      ###   ########.fr       */
+/*   Updated: 2024/11/26 05:22:29 by aabdulmecit      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,3 +30,15 @@ void    ft_error_msg(char *msg, t_game *game)
     exit(EXIT_FAILURE);
 }
 
+void    ft_congrats_message()
+{
+    ft_printf(GREEN"\n");
+    ft_printf(GREEN"===========================================================\n"RESET);
+    ft_printf(GREEN"                   🎉 CONGRATULATIONS! 🎉                 \n"RESET);
+    ft_printf(GREEN"-----------------------------------------------------------\n"RESET);
+    ft_printf(GREEN" You've successfully completed the game! 🏆               \n"RESET);
+    ft_printf(GREEN" Thanks for playing and being an awesome hero. 👑          \n"RESET);
+    ft_printf(GREEN" Remember: the real treasure was the journey all along! 💎 \n"RESET);
+    ft_printf(GREEN"===========================================================\n"RESET);
+    ft_printf(GREEN"\n");
+}
