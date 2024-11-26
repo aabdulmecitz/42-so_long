@@ -22,7 +22,7 @@ SRCS_DIR		= ./src/
 
 SRCS 			= $(addprefix $(SRCS_DIR),\
 				ft_check_command_line_args.c \
-				ft_error_msg.c ft_init_game.c\
+				ft_msg.c ft_init_game.c\
 				ft_check_map.c ft_init_map.c\
 				so_long.c ft_mem_free.c\
 				ft_flood_fill.c ft_handle_buttons.c)
