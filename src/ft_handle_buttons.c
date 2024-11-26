@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_handle_buttons.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
+/*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 15:51:50 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/11/26 06:01:21 by aabdulmecit      ###   ########.fr       */
+/*   Updated: 2024/11/26 16:32:19 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void ft_move_direction(t_game *game, int dx, int dy)
     int x = game->map.player.x;
     int y = game->map.player.y;
 
-    if (game->map.full[y + dy][x + dx] != WALL)
+    if (game->map.full[y + dy][x + dx] != WALL && (game->map.full[y + dy][x + dx] != MAP_EXIT || game->map.coins == 0))
     {
         ft_check_object(game, x + dx, y + dy);
         game->map.full[y][x] = FLOOR;
@@ -48,8 +48,8 @@ void ft_move_direction(t_game *game, int dx, int dy)
 void ft_check_object(t_game *game, int x, int y)
 {
     if (game->map.full[y][x] == COINS)
-        game->map.coins++;
-    else if (game->map.full[y][x] == MAP_EXIT)
+        game->map.coins--;
+    else if (game->map.full[y][x] == MAP_EXIT && game->map.coins == 0)
     {
         ft_congrats_message();
         ft_destroy_window(KEY_ESC, game);
@@ -57,7 +57,7 @@ void ft_check_object(t_game *game, int x, int y)
 }
 
 int key_hook(int keycode, t_game *game)
-{
+{    
     ft_player_move(keycode, game);
     ft_destroy_window(keycode, game);
     ft_print_map_full(game);
@@ -69,7 +69,6 @@ void ft_handle_buttons(t_game *game)
 {
     mlx_hook(game->win_ptr, KeyPress, KeyPressMask, key_hook, game);
 }
-
 
 
 
