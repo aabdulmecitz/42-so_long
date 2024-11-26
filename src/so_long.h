@@ -6,7 +6,7 @@
 /*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 15:16:28 by aozkaya           #+#    #+#             */
-/*   Updated: 2024/11/26 19:58:54 by aozkaya          ###   ########.fr       */
+/*   Updated: 2024/11/26 20:28:57 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,9 +53,9 @@
 # define RIGHT				3
 # define BACK				4
 
-# define WALL_XPM			"assets/sprites/wall.xpm"
+# define WALL_XPM			"assets/sprites/techwall.xpm"
 # define FLOOR_XPM			"assets/sprites/floor.xpm"
-# define COINS_XPM			"assets/sprites/coin-bag.xpm"
+# define COINS_XPM			"assets/sprites/coin/coin1.xpm"
 # define PLAYER_FRONT_XPM	"assets/sprites/player/front.xpm"
 # define PLAYER_LEFT_XPM	"assets/sprites/player/left.xpm"
 # define PLAYER_RIGHT_XPM	"assets/sprites/player/right.xpm"
