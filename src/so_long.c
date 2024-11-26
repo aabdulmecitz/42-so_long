@@ -6,7 +6,7 @@
 /*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 03:00:21 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/11/26 20:03:53 by aozkaya          ###   ########.fr       */
+/*   Updated: 2024/11/26 20:06:03 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void ft_print_map_full(t_game *game)
 
     for (i = 0; i < game->map.rows; i++)
     {
-        ft_printf("%s|size: %d\n", game->map.full[i], (int)ft_strlen(game->map.full[i]));  // Her satırı yazdır
+        ft_printf("%s|size: %d\n", game->map.full[i], (int)ft_strlen(game->map.full[i]));
     }
 }
 
