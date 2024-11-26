@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_check_map.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
+/*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 19:32:02 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/11/26 16:20:37 by aozkaya          ###   ########.fr       */
+/*   Updated: 2024/11/27 00:34:40 by aabdulmecit      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 void    ft_check_rectanglular(t_game *game);
 void    ft_check_elements(t_game *game);
 void    ft_element_counter(t_game *game);
+void    ft_count_elements(t_game *game, int x, int y);
 
 void    ft_check_map(t_game *game)
 {
@@ -73,23 +74,28 @@ void    ft_element_counter(t_game *game)
         x = 0;
         while (x < game->map.columns)
         {
-            if ((y == 0 || y == game->map.rows - 1 || x == 0 || x == game->map.columns - 1) && game->map.full[y][x] != WALL)
-                ft_error_msg("Invalid Map.", game);
-            if (game->map.full[y][x] == PLAYER)
-            {
-                game->map.players++;
-                game->map.player.y = y;
-                game->map.player.x = x;
-            }
-            else if (game->map.full[y][x] == MAP_EXIT)
-                game->map.exit++;
-            else if (game->map.full[y][x] == COINS)
-                game->map.coins++;
-            else if (game->map.full[y][x] != WALL && game->map.full[y][x] != FLOOR &&
-                game->map.full[y][x] != PLAYER && game->map.full[y][x] != MAP_EXIT && game->map.full[y][x] != COINS)
-                ft_error_msg("Invalid character in map", game);
+            ft_count_elements(game, x, y);
             x++;
         }
         y++;
     }
+}
+
+void    ft_count_elements(t_game *game, int x, int y)
+{
+    if ((y == 0 || y == game->map.rows - 1 || x == 0 || x == game->map.columns - 1) && game->map.full[y][x] != WALL)
+        ft_error_msg("Invalid Map.", game);
+    if (game->map.full[y][x] == PLAYER)
+    {
+        game->map.players++;
+        game->map.player.y = y;
+        game->map.player.x = x;
+    }
+    else if (game->map.full[y][x] == MAP_EXIT)
+        game->map.exit++;
+    else if (game->map.full[y][x] == COINS)
+        game->map.coins++;
+    else if (game->map.full[y][x] != WALL && game->map.full[y][x] != FLOOR &&
+        game->map.full[y][x] != PLAYER && game->map.full[y][x] != MAP_EXIT && game->map.full[y][x] != COINS)
+        ft_error_msg("Invalid character in map", game);
 }
