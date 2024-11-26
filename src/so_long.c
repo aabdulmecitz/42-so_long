@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
+/*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 03:00:21 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/11/26 05:34:04 by aabdulmecit      ###   ########.fr       */
+/*   Updated: 2024/11/26 18:40:19 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int	main(int argc, const char *argv[])
 	ft_printf("player's x = %d, player's y = %d\n", game->map.player.x, game->map.player.y);
 	ft_handle_buttons(game);
 	printf(CYAN"***here***\n"RESET);
-
+	ft_render_frame(game);
 	mlx_loop(game->mlx_ptr);
 	return (0);
 }
