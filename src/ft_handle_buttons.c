@@ -6,7 +6,7 @@
 /*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 15:51:50 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/11/26 04:40:38 by aabdulmecit      ###   ########.fr       */
+/*   Updated: 2024/11/26 04:45:13 by aabdulmecit      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,8 @@ void ft_player_move(int keycode, t_game *game)
 
     if ((keycode == KEY_W || keycode == KEY_UP) && game->map.full[y - 1][x] != WALL)
     {
-        if ()
-        {
-            
-        }
+        // if (game->map.full[y][x] == COINS)
+        //     game->map.coins
         game->map.full[y][x] = FLOOR;
         game->map.player.y -= 1;
         game->map.full[y - 1][x] = PLAYER;
@@ -49,7 +47,7 @@ void ft_player_move(int keycode, t_game *game)
         game->map.full[y][x] = FLOOR;
         game->map.player.x -= 1;
         game->map.full[y][x - 1] = PLAYER;
-        }
+    }
     else if ((keycode == KEY_D || keycode == KEY_RIGHT) && game->map.full[y][x + 1] != WALL)
     {
         game->map.full[y][x] = FLOOR;
@@ -65,7 +63,7 @@ int key_hook(int keycode, t_game *game)
     ft_destroy_window(keycode, game);
     ft_print_map_full(game);
 
-    printf("Oyuncunun yeni pozisyonu: (%d, %d)\n", game->map.player.x, game->map.player.y);
+    printf("Oyuncunun yeni pozisyonu: (%d, %d) All of coins: %d\n", game->map.player.x, game->map.player.y, game->map.coins);
     return 0;
 }
 
