@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_init_game.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
+/*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 02:15:50 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/11/26 23:31:56 by aabdulmecit      ###   ########.fr       */
+/*   Updated: 2024/11/27 20:32:50 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void ft_init_vars(t_game *game)
     game->map.columns = ft_strlen(game->map.full[0]) - 1;
     while (game->map.full[game->map.rows])
         game->map.rows++;
-    game->player_sprite = RIGHT;
+    game->player_direction = FRONT;
 }
 
 void ft_init_mlx(t_game *game)

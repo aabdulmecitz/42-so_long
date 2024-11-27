@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_handle_buttons.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
+/*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 15:51:50 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/11/27 00:28:01 by aabdulmecit      ###   ########.fr       */
+/*   Updated: 2024/11/27 20:27:12 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,27 @@ int key_hook(int keycode, t_game *game);
 void ft_player_move(int keycode, t_game *game)
 {
     if (keycode == KEY_W || keycode == KEY_UP)
+    {
+        game->player_direction = BACK;
         ft_move_direction(game, 0, -1);
+    }
     else if (keycode == KEY_S || keycode == KEY_DOWN)
+    {
+        game->player_direction = FRONT;
         ft_move_direction(game, 0, 1);
+    }
     else if (keycode == KEY_A || keycode == KEY_LEFT)
+    {
+        game->player_direction = LEFT;
         ft_move_direction(game, -1, 0);
+    }
     else if (keycode == KEY_D || keycode == KEY_RIGHT)
+    {
+        game->player_direction = RIGHT;
         ft_move_direction(game, 1, 0);
+    }
 }
+
 
 void ft_move_direction(t_game *game, int dx, int dy)
 {

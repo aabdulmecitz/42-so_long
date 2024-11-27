@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_render_frame.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
+/*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 05:38:38 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/11/27 02:58:06 by aabdulmecit      ###   ########.fr       */
+/*   Updated: 2024/11/27 20:34:39 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,19 @@ void    ft_paint_texture(t_game *game, int x, int y)
         mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->wall.xpm_ptr, x * IMG_WIDTH, y * IMG_HEIGHT);
     else if (game->map.full[y][x] == FLOOR)
         mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->floor.xpm_ptr, x * IMG_WIDTH, y * IMG_HEIGHT);
-    else if (game->map.full[y][x] == PLAYER)
-        mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->player_front.xpm_ptr, x * IMG_WIDTH, y * IMG_HEIGHT);    
     else if (game->map.full[y][x] == COINS)
         mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->coins.xpm_ptr, x * IMG_WIDTH, y * IMG_HEIGHT);
+    else if (game->map.full[y][x] == PLAYER)
+    {
+        if (game->player_direction == FRONT)
+            mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->player_front.xpm_ptr, x * IMG_WIDTH, y * IMG_HEIGHT);
+        else if (game->player_direction == BACK)
+            mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->player_back.xpm_ptr, x * IMG_WIDTH, y * IMG_HEIGHT);
+        else if (game->player_direction == LEFT)
+            mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->player_left.xpm_ptr, x * IMG_WIDTH, y * IMG_HEIGHT);
+        else if (game->player_direction == RIGHT)
+            mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->player_right.xpm_ptr, x * IMG_WIDTH, y * IMG_HEIGHT);
+    }
     else if (game->map.full[y][x] == MAP_EXIT)
     {
         if (game->map.coins == 0)

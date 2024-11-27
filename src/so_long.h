@@ -6,7 +6,7 @@
 /*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 15:16:28 by aozkaya           #+#    #+#             */
-/*   Updated: 2024/11/27 19:14:52 by aozkaya          ###   ########.fr       */
+/*   Updated: 2024/11/27 20:30:04 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,10 +48,10 @@
 # define KEY_Q				113
 # define KEY_ESC  			65307
 
-# define FRONT				1
-# define LEFT				2
-# define RIGHT				3
-# define BACK				4
+// # define FRONT				1
+// # define LEFT				2
+// # define RIGHT				3
+// # define BACK				4
 
 # define WALL_XPM			"assets/sprites/dungeonwall.xpm"
 # define FLOOR_XPM			"assets/sprites/floor.xpm"
@@ -81,6 +81,14 @@ typedef struct s_position
 	int	y;
 }	t_positon;
 
+typedef enum e_direction
+{
+    FRONT,
+    BACK,
+    LEFT,
+    RIGHT
+} t_direction;
+
 typedef struct s_image
 {
 	void	*xpm_ptr;
@@ -104,7 +112,7 @@ typedef struct s_game
 	void		*mlx_ptr;
 	void		*win_ptr;
 	int			movements;
-	int			player_sprite;
+	t_direction	player_direction;
 	t_map		map;
 	t_bool		map_alloc;
 	t_image		undefined_image;
