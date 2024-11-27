@@ -6,7 +6,7 @@
 /*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/24 21:33:43 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/11/27 19:32:19 by aozkaya          ###   ########.fr       */
+/*   Updated: 2024/11/27 19:36:26 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,10 +82,13 @@ void check_as_a_hero(t_game *game)
         ft_error_msg("The map is too large for your display.\nYou can set display size with -D", game);
     clone_map = ft_copy_map(&game->map);
     if (!clone_map)
+    {
         ft_error_msg("Map copy failed.", game);
+        return;
+    }
     result = ft_check_all_collectables(clone_map, game);
-    if (!result)
-        ft_error_msg("All of coins can't be collected.", game);
+    if (result)
+        ft_printf(GREEN"Passed from flood fill\n"RESET);
     else
         ft_error_msg("All of coins can't be collected.", game);
     ft_free_just_map(clone_map);
