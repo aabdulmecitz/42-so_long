@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_check_map.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
+/*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 19:32:02 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/11/27 00:46:50 by aabdulmecit      ###   ########.fr       */
+/*   Updated: 2024/11/27 19:29:22 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,10 @@ void    ft_count_elements(t_game *game, int x, int y);
 
 
 void    ft_check_map(t_game *game)
-{
+{ 
     ft_check_rectanglular(game);
     ft_check_elements(game);
     check_as_a_hero(game);
-    ft_printf("rows %d, columns %d\n", game->map.rows, game->map.columns);
-    ft_printf(GREEN"Map validation passed!\n"RESET);
 }
 
 void    ft_check_rectanglular(t_game *game)

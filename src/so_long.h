@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
+/*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 15:16:28 by aozkaya           #+#    #+#             */
-/*   Updated: 2024/11/27 00:40:52 by aabdulmecit      ###   ########.fr       */
+/*   Updated: 2024/11/27 19:14:52 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@
 
 # define ANIM_SPEED			1000
 
-# define WIN_H				540
-# define WIN_W				960
+# define WIN_H				1080
+# define WIN_W				1920
 
 # define WALL				'1'
 # define FLOOR 				'0'
