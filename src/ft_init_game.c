@@ -6,7 +6,7 @@
 /*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 02:15:50 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/11/28 18:13:24 by aozkaya          ###   ########.fr       */
+/*   Updated: 2024/11/28 20:09:07 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ void ft_init_sprites(t_game *game)
 
 
 t_image *ft_new_sprite(void *mlx, char *path, t_game *game)
-{
+{ 
     t_image *sprite;
 
     sprite = malloc(sizeof(t_image));
@@ -84,6 +84,7 @@ t_image *ft_new_sprite(void *mlx, char *path, t_game *game)
     if (!sprite->xpm_ptr)
     {
         ft_printf(RED"Failed to load sprite: %s\n"RESET, path);
+        free(sprite->xpm_ptr);
         free(sprite);
         ft_error_msg("Couldn't find a sprite. Does it exist?", game);
     }
