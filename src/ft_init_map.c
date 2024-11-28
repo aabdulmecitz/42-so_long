@@ -6,19 +6,19 @@
 /*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 19:39:02 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/11/28 15:20:46 by aozkaya          ###   ########.fr       */
+/*   Updated: 2024/11/28 17:25:34 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	remove_carriage_return(char *line);
 void    ft_check_for_empty_line(char *map, t_game *game);
 
 void	ft_init_map(t_game *game, char *argv)
 {
 	char	*map_temp;
 	char	*line_temp;
+	char	*tmp;
 	int		map_fd;
 
 	map_fd = open(argv, O_RDONLY);
@@ -31,9 +31,10 @@ void	ft_init_map(t_game *game, char *argv)
 		line_temp = get_next_line(map_fd);
 		if (line_temp == NULL)
 			break ;
-		//remove_carriage_return(line_temp); // windowsta calistirirken bunu kullanmak lazim.
-		map_temp = ft_strjoin(map_temp, line_temp);
+		tmp = ft_strjoin(map_temp, line_temp);
+		free (map_temp);
 		free(line_temp);
+		map_temp = tmp;
 		game->map.rows++;
 	}
 	close(map_fd);
@@ -42,24 +43,6 @@ void	ft_init_map(t_game *game, char *argv)
 	game->map.full = ft_split(map_temp, '\n');
 	game->map_alloc = true;
 	free(map_temp);
-}
-
-void	remove_carriage_return(char *line)
-{
-    int start;
-    int end;
-
-	start = 0;
-	end = ft_strlen(line) - 1;
-    while (line[start] == '\r' || line[start] == '\n')
-        start++;
-    while (end >= 0 && (line[end] == '\r' || line[end] == '\n'))
-	{
-        line[end] = '\n';
-		line[end + 1] = '\0';
-        end--;
-	}
-    ft_memmove(line, line + start, end - start + 2);
 }
 
 void    ft_check_for_empty_line(char *map, t_game *game)

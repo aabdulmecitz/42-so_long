@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_mem_free.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
+/*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 02:11:01 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/11/27 00:28:29 by aabdulmecit      ###   ########.fr       */
+/*   Updated: 2024/11/28 17:32:52 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,10 @@ void	ft_free_all_allocated_memory(t_game *game)
 
 static void	ft_destroy_images(t_game *game)
 {
+	int	i;
+
+	i = 0;
+	
 	void	*images[] = {
 		game->wall.xpm_ptr,
 		game->floor.xpm_ptr,
@@ -44,10 +48,14 @@ static void	ft_destroy_images(t_game *game)
 		game->open_exit.xpm_ptr,
 		NULL
 	};
-	int		i = 0;
-
+	
 	while (images[i])
-		mlx_destroy_image(game->mlx_ptr, images[i++]);
+	{
+		if (images[i])
+			mlx_destroy_image(game->mlx_ptr, images[i]);
+		free(images[i]);
+		i++;
+	}
 }
 
 void	ft_free_map(t_game *game)
