@@ -6,7 +6,7 @@
 /*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 02:11:01 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/11/28 20:15:04 by aozkaya          ###   ########.fr       */
+/*   Updated: 2024/11/28 20:29:20 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,19 @@ void	ft_free_just_map(t_map *map)
 int ft_destroy_window(t_game *game)
 {	
 	if (!game)
+	{
 		ft_free_all_allocated_memory(game);
+		// free (&game->wall);
+		// free (&game->floor);
+		// free (&game->coins);
+		// free (&game->player_front);
+		// free (&game->player_left);
+		// free (&game->player_right);
+		// free (&game->player_back);
+		// free (&game->exit_closed);
+		// free (&game->open_exit);
+	}
+	
     exit(0);
 	return (0);
 }
