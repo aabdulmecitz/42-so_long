@@ -6,7 +6,7 @@
 /*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 02:11:01 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/11/28 20:09:27 by aozkaya          ###   ########.fr       */
+/*   Updated: 2024/11/28 20:15:04 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,15 +27,7 @@ void	ft_free_all_allocated_memory(t_game *game)
 		mlx_destroy_display(game->mlx_ptr);
 		free(game->mlx_ptr);
 	}
-	// free (game->wall);
-	// free (game->floor);
-	// free (game->coins);
-	// free (game->player_front);
-	// free (game->player_left);
-	// free (game->player_right);
-	// free (game->player_back);
-	// free (game->exit_closed);
-	// free (game->open_exit);
+
 	free(game);
 }
 
@@ -57,6 +49,8 @@ static void	ft_destroy_images(t_game *game)
 		game->open_exit.xpm_ptr,
 		NULL
 	};
+	
+
 	
 	while (images[i])
 	{
