@@ -6,7 +6,7 @@
 /*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 02:15:50 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/11/27 20:32:50 by aozkaya          ###   ########.fr       */
+/*   Updated: 2024/11/28 18:13:24 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void ft_init_sprites(t_game *game)
 {
     void *mlx = game->mlx_ptr;
 
-    game->wall = *ft_new_sprite(mlx, WALL_XPM, game);
+    game->wall = *ft_new_sprite(mlx, WALL_XPM, game); 
     game->floor = *ft_new_sprite(mlx, FLOOR_XPM, game);
     game->coins = *ft_new_sprite(mlx, COINS_XPM, game);
     game->player_front = *ft_new_sprite(mlx, PLAYER_FRONT_XPM, game);

@@ -6,7 +6,7 @@
 /*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 03:00:21 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/11/28 15:13:21 by aozkaya          ###   ########.fr       */
+/*   Updated: 2024/11/28 17:37:18 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 int	ft_close_game(t_game *game)
 {
 	ft_free_all_allocated_memory(game);
+	
 	ft_printf(GREEN"Game closed successfully.\n"RESET);
 	exit(0);
 	return (0);
