@@ -65,7 +65,7 @@ run:			re
 				./${NAME} assets/maps/valid/map3.ber 
 
 valgrind: $(NAME)
-	$(VALGRIND) ./${NAME} assets/maps/valid/map4.ber 
+	$(VALGRIND) ./${NAME} assets/maps/valid/map3.ber 
 
 
 .PHONY:			all clean fclean re rebonus valgrind run run_bonus makefile

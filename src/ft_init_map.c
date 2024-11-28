@@ -6,7 +6,7 @@
 /*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 19:39:02 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/11/28 14:54:42 by aozkaya          ###   ########.fr       */
+/*   Updated: 2024/11/28 15:20:46 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,17 +31,17 @@ void	ft_init_map(t_game *game, char *argv)
 		line_temp = get_next_line(map_fd);
 		if (line_temp == NULL)
 			break ;
-
-		remove_carriage_return(line_temp);
+		//remove_carriage_return(line_temp); // windowsta calistirirken bunu kullanmak lazim.
 		map_temp = ft_strjoin(map_temp, line_temp);
 		free(line_temp);
 		game->map.rows++;
 	}
 	close(map_fd);
+
+	ft_check_for_empty_line(map_temp, game);
 	game->map.full = ft_split(map_temp, '\n');
 	game->map_alloc = true;
 	free(map_temp);
-	ft_check_for_empty_line(game->map.full, game);
 }
 
 void	remove_carriage_return(char *line)
