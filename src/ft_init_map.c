@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_init_map.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
+/*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 19:39:02 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/11/25 15:40:46 by aabdulmecit      ###   ########.fr       */
+/*   Updated: 2024/11/28 14:54:42 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ void	ft_init_map(t_game *game, char *argv)
 	game->map.full = ft_split(map_temp, '\n');
 	game->map_alloc = true;
 	free(map_temp);
+	ft_check_for_empty_line(game->map.full, game);
 }
 
 void	remove_carriage_return(char *line)
