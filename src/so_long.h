@@ -6,7 +6,7 @@
 /*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 15:16:28 by aozkaya           #+#    #+#             */
-/*   Updated: 2024/11/28 14:44:11 by aozkaya          ###   ########.fr       */
+/*   Updated: 2024/11/29 19:01:36 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,11 +127,6 @@ typedef struct s_game
 	t_image		player_back;
 }	t_game;
 
-typedef struct s_sprite
-{
-	void *sprite_image;
-	int sprite_columns;
-} t_sprite;
 
 // typedef struct s_anim
 // {

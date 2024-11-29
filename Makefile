@@ -61,10 +61,10 @@ update:
 	git submodule update --init --recursive --remote
 
 run:			re
-				./${NAME} assets/maps/valid/map3.ber 
+				./${NAME} assets/maps/valid/map2.ber 
 
 valgrind: $(NAME)
-	$(VALGRIND) ./${NAME} assets/maps/valid/map3.ber 
+	$(VALGRIND) ./${NAME} assets/maps/valid/map2.ber 
 
 
 .PHONY:			all clean fclean re rebonus valgrind run run_bonus makefile

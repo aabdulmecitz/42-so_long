@@ -6,7 +6,7 @@
 /*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 02:11:01 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/11/28 20:29:20 by aozkaya          ###   ########.fr       */
+/*   Updated: 2024/11/29 19:23:05 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,35 +31,33 @@ void	ft_free_all_allocated_memory(t_game *game)
 	free(game);
 }
 
-static void	ft_destroy_images(t_game *game)
+static void ft_destroy_images(t_game *game)
 {
-	int	i;
+    int i;
 
-	i = 0;
-	
-	void	*images[] = {
-		game->wall.xpm_ptr,
-		game->floor.xpm_ptr,
-		game->coins.xpm_ptr,
-		game->player_front.xpm_ptr,
-		game->player_left.xpm_ptr,
-		game->player_right.xpm_ptr,
-		game->player_back.xpm_ptr,
-		game->exit_closed.xpm_ptr,
-		game->open_exit.xpm_ptr,
-		NULL
-	};
-	
+    i = 0;
+    t_image *images[] = {
+        &game->wall,
+        &game->floor,
+        &game->coins,
+        &game->player_front,
+        &game->player_left,
+        &game->player_right,
+        &game->player_back,
+        &game->exit_closed,
+        &game->open_exit,
+        NULL
+    };
 
-	
-	while (images[i])
-	{
-		if (images[i])
-			mlx_destroy_image(game->mlx_ptr, images[i]);
-		free(images[i]);
-		i++;
-	}
+    while (images[i])
+    {
+        if (images[i]->xpm_ptr)
+            mlx_destroy_image(game->mlx_ptr, images[i]->xpm_ptr);
+        free(images[i]);
+        i++;
+    }
 }
+
 
 void	ft_free_map(t_game *game)
 {
@@ -92,15 +90,7 @@ int ft_destroy_window(t_game *game)
 	if (!game)
 	{
 		ft_free_all_allocated_memory(game);
-		// free (&game->wall);
-		// free (&game->floor);
-		// free (&game->coins);
-		// free (&game->player_front);
-		// free (&game->player_left);
-		// free (&game->player_right);
-		// free (&game->player_back);
-		// free (&game->exit_closed);
-		// free (&game->open_exit);
+
 	}
 	
     exit(0);
