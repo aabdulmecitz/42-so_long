@@ -29,7 +29,7 @@ SRCS 			= $(addprefix $(SRCS_DIR),\
 all:			${NAME} ${LIBFT} 
 
 ${NAME}: 		
-				${CC} -Wall -Wextra -Werror ${SRCS} ${LIBFT} -L./lib/minilibx-linux ${MLX} ${MINILIBX_FLAGS} -g3 -o ${NAME}
+				${CC} ${SRCS} ${LIBFT} -L./lib/minilibx-linux ${MLX} ${MINILIBX_FLAGS} -g3 -o ${NAME}
 				@echo "$(NAME): $(GREEN)$(NAME) was compiled.$(RESET)"
 				@echo
 
@@ -63,7 +63,7 @@ update:
 run:			re
 				./${NAME} assets/maps/valid/map2.ber 
 
-valgrind: $(NAME)
+valgrind: re
 	$(VALGRIND) ./${NAME} assets/maps/valid/map2.ber 
 
 

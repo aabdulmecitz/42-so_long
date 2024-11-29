@@ -6,7 +6,7 @@
 /*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 15:16:28 by aozkaya           #+#    #+#             */
-/*   Updated: 2024/11/29 19:01:36 by aozkaya          ###   ########.fr       */
+/*   Updated: 2024/11/29 21:43:34 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -150,7 +150,7 @@ void    check_as_a_hero(t_game *game);
 int		key_hook(int keycode, t_game *game);
 int 	ft_check_all_collectables(t_map *map, t_game *game);
 void    ft_handle_buttons(t_game *game);
-int		ft_destroy_window(t_game *game);
+int ft_destroy_window(t_game *game);
 void    ft_congrats_message();
 int	ft_render_frame(t_game *game);
 int ft_update_frame(t_game *game);
