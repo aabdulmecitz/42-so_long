@@ -59,6 +59,7 @@
   "files.associations": {
     "so_long.h": "c",
     "libft.h": "c",
-    "type_traits": "c"
+    "type_traits": "c",
+    "so_long_bonus.h": "c"
   }
 }
