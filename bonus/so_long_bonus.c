@@ -6,7 +6,7 @@
 /*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 03:00:21 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/11/30 17:15:31 by aabdulmecit      ###   ########.fr       */
+/*   Updated: 2024/11/30 18:34:54 by aabdulmecit      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int	main(int argc, const char *argv[])
 	ft_init_game(game);
 	ft_check_map(game);
 	ft_printf("player's x = %d, player's y = %d\n", game->map.player.x, game->map.player.y);
-	mlx_loop_hook(game->mlx_ptr, ft_render_frame, game);
+	// mlx_loop_hook(game->mlx_ptr, ft_render_frame, game);
 	ft_handle_buttons(game);
 	ft_printf(CYAN"***here***\n"RESET);
 	mlx_loop(game->mlx_ptr);

@@ -6,7 +6,7 @@
 /*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 05:38:38 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/11/30 17:21:08 by aabdulmecit      ###   ########.fr       */
+/*   Updated: 2024/11/30 18:36:24 by aabdulmecit      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,4 +58,13 @@ void    ft_paint_texture(t_game *game, int x, int y)
         else
             mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->exit_closed.xpm_ptr, x * IMG_WIDTH, y * IMG_HEIGHT);
     }
+}
+
+int ft_update_frame(t_game *game)
+{
+    ft_move_enemy_x(game);
+    ft_check_collision_fixed_enemy(game);
+    ft_check_collision_wandering_enemy(game);
+    ft_render_frame(game);
+    return (0);
 }

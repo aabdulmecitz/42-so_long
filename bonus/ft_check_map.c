@@ -6,7 +6,7 @@
 /*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 19:32:02 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/11/30 17:20:45 by aabdulmecit      ###   ########.fr       */
+/*   Updated: 2024/11/30 18:35:43 by aabdulmecit      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,8 @@ void    ft_count_elements(t_game *game, int x, int y)
     else if (game->map.full[y][x] == COINS)
         game->map.coins++;
     else if (game->map.full[y][x] != WALL && game->map.full[y][x] != FLOOR &&
-        game->map.full[y][x] != PLAYER && game->map.full[y][x] != MAP_EXIT && game->map.full[y][x] != COINS)
+        game->map.full[y][x] != PLAYER && game->map.full[y][x] != MAP_EXIT && 
+        game->map.full[y][x] != COINS && game->map.full[y][x] != WANDER_ENEMY &&
+        game->map.full[y][x] != STAT_ENEMY)
         ft_error_msg("Invalid character in map", game);
 }

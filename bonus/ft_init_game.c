@@ -6,27 +6,18 @@
 /*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 02:15:50 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/11/30 17:20:57 by aabdulmecit      ###   ########.fr       */
+/*   Updated: 2024/11/30 17:44:57 by aabdulmecit      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long_bonus.h"
 
 void ft_init_game(t_game *game);
-void ft_init_vars(t_game *game);
 void ft_init_mlx(t_game *game);
 void ft_init_sprites(t_game *game);
 t_image *ft_new_sprite(void *mlx, char *path, t_game *game);
 
 void	ft_init_game(t_game *game)
-{
-    ft_init_vars(game);
-    ft_init_mlx(game);
-    ft_init_sprites(game);
-    ft_printf(GREEN"Game initialization successful!\n"RESET);
-}
-
-void ft_init_vars(t_game *game)
 {
     game->map.coins = 0;
     game->map.exit = 0;
@@ -36,6 +27,9 @@ void ft_init_vars(t_game *game)
     while (game->map.full[game->map.rows])
         game->map.rows++;
     game->player_direction = FRONT;
+    ft_init_mlx(game);
+    ft_init_sprites(game);
+    ft_printf(GREEN"Game initialization successful!\n"RESET);
 }
 
 void ft_init_mlx(t_game *game)

@@ -6,7 +6,7 @@
 /*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 19:39:02 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/11/30 17:21:02 by aabdulmecit      ###   ########.fr       */
+/*   Updated: 2024/11/30 18:35:17 by aabdulmecit      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ void	ft_init_map(t_game *game, char *argv)
 		game->map.rows++;
 	}
 	close(map_fd);
-
 	ft_check_for_empty_line(map_temp, game);
 	game->map.full = ft_split(map_temp, '\n');
 	game->map_alloc = true;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
+/*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 15:16:28 by aozkaya           #+#    #+#             */
-/*   Updated: 2024/11/29 21:43:34 by aozkaya          ###   ########.fr       */
+/*   Updated: 2024/11/30 18:16:05 by aabdulmecit      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,18 +48,13 @@
 # define KEY_Q				113
 # define KEY_ESC  			65307
 
-// # define FRONT				1
-// # define LEFT				2
-// # define RIGHT				3
-// # define BACK				4
-
 # define WALL_XPM			"assets/sprites/dungeonwall.xpm"
 # define FLOOR_XPM			"assets/sprites/floor.xpm"
 # define COINS_XPM			"assets/sprites/coin/coin1.xpm"
-# define PLAYER_FRONT_XPM	"assets/sprites/player/front.xpm"
-# define PLAYER_LEFT_XPM	"assets/sprites/player/left.xpm"
-# define PLAYER_RIGHT_XPM	"assets/sprites/player/right.xpm"
-# define PLAYER_BACK_XPM	"assets/sprites/player/back.xpm"
+# define PLAYER_FRONT_XPM	"assets/sprites/player/front/player17.xpm"
+# define PLAYER_LEFT_XPM	"assets/sprites/player/left/player9.xpm"
+# define PLAYER_RIGHT_XPM	"assets/sprites/player/right/player1.xpm"
+# define PLAYER_BACK_XPM	"assets/sprites/player/back/player25.xpm"
 # define OPEN_EXIT_XPM		"assets/sprites/opened_door.xpm"
 # define EXIT_CLOSED_XPM	"assets/sprites/dungeon_door.xpm"
 

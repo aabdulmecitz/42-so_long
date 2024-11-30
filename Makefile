@@ -28,7 +28,7 @@ SRCS 			= $(addprefix $(SRCS_DIR),\
 				ft_flood_fill.c ft_handle_buttons.c)
 
 BONUS_SRC 		= $(addprefix $(BONUS_SRCS_DIR),\
-				ft_check_command_line_args.c \
+				ft_check_command_line_args.c ft_enemy.c \
 				ft_msg.c ft_init_game.c\
 				ft_check_map.c ft_init_map.c\
 				so_long_bonus.c ft_mem_free.c ft_render_frame.c\
@@ -79,8 +79,8 @@ update:
 run:			re
 				./${NAME} assets/maps/valid/map2.ber 
 
-run_bonus:		re
-				./${NAME} assets/maps/valid/bonus/map5.ber 
+run_bonus:		re_bonus
+				./${NAME_BONUS} assets/maps/valid/bonus/map5.ber 
 
 valgrind: re
 	$(VALGRIND) ./${NAME} assets/maps/valid/map2.ber 
