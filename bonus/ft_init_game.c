@@ -6,7 +6,7 @@
 /*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 02:15:50 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/12/03 22:50:14 by aozkaya          ###   ########.fr       */
+/*   Updated: 2024/12/04 02:21:33 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 void ft_init_game(t_game *game);
 void ft_init_mlx(t_game *game);
 void ft_init_sprites(t_game *game);
-t_image *ft_new_sprite(void *mlx, char *path, t_game *game);
 
 void	ft_init_game(t_game *game)
 {
@@ -54,7 +53,7 @@ void ft_init_mlx(t_game *game)
     }
 }
 
-static void ft_load_sprite(t_image *sprite, void *mlx, char *path, t_game *game)
+void ft_load_sprite(t_image *sprite, void *mlx, char *path, t_game *game)
 {
     t_image *temp = malloc(sizeof(t_image));
     if (!temp)

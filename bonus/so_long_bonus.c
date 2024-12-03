@@ -6,7 +6,7 @@
 /*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 03:00:21 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/12/03 22:42:57 by aozkaya          ###   ########.fr       */
+/*   Updated: 2024/12/04 02:29:51 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,11 @@ int	main(int argc, const char *argv[])
 	ft_init_map(game, (char *)argv[1]);
 	ft_init_game(game);
 	ft_check_map(game);
+	ft_printf("Enemy K Count: %d\n", game->enemy_k_num);
+	ft_printf("Enemy X Count: %d\n", game->enemy_x_num);
+	ft_enemies(game);
 	ft_printf("player's x = %d, player's y = %d\n", game->map.player.x, game->map.player.y);
-	// mlx_loop_hook(game->mlx_ptr, ft_render_frame, game);
-	ft_enemy(game);
+	mlx_loop_hook(game->mlx_ptr, ft_render_frame, game);
 	ft_handle_buttons(game);
 	ft_printf(CYAN"***here***\n"RESET);
 	mlx_loop(game->mlx_ptr);

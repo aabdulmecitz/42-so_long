@@ -6,7 +6,7 @@
 /*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 15:16:28 by aozkaya           #+#    #+#             */
-/*   Updated: 2024/12/03 22:58:28 by aozkaya          ###   ########.fr       */
+/*   Updated: 2024/12/04 02:37:13 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -146,7 +146,6 @@ typedef struct s_game
 	t_image		player_left;
 	t_image		player_right;
 	t_image		player_back;
-	t_image		enemy
 }	t_game;
 
 
@@ -172,6 +171,12 @@ void ft_check_collision_fixed_enemy(t_game *game);
 void ft_check_collision_wandering_enemy(t_game *game);
 void ft_move_enemy_x(t_game *game);
 void    ft_failed_msg();
+void    ft_init_enemy(t_game *game);
+void handle_enemy(t_game *game, int x, int y);
+void ft_allocate_enemy_memory(t_game *game);
+void ft_load_sprite(t_image *sprite, void *mlx, char *path, t_game *game);
+void    ft_enemies(t_game *game);
+
 
 
 void ft_print_map_full(t_game *game);
