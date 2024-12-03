@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_msg.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
+/*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 03:50:53 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/11/30 17:21:06 by aabdulmecit      ###   ########.fr       */
+/*   Updated: 2024/12/03 21:51:29 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,4 +41,17 @@ void    ft_congrats_message()
     ft_printf(GREEN" Remember: the real treasure was the journey all along! 💎 \n"RESET);
     ft_printf(GREEN"===========================================================\n"RESET);
     ft_printf(GREEN"\n");
+}
+
+void    ft_failed_msg()
+{
+    ft_printf(RED"\n");
+    ft_printf(RED"===========================================================\n"RESET);
+    ft_printf(RED"                     OH NOO!                   \n"RESET);
+    ft_printf(RED"-----------------------------------------------------------\n"RESET);
+    ft_printf(RED" You've failed completed the game!                 \n"RESET);
+    ft_printf(RED" Thanks for playing. You should try again.             \n"RESET);
+    ft_printf(RED" Remember: have enjoy!            \n"RESET);
+    ft_printf(RED"===========================================================\n"RESET);
+    ft_printf(RED"\n");
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
+/*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 15:16:28 by aozkaya           #+#    #+#             */
-/*   Updated: 2024/11/30 18:25:05 by aabdulmecit      ###   ########.fr       */
+/*   Updated: 2024/12/03 22:19:43 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,8 @@
 # define PLAYER_BACK_XPM	"assets/sprites/player/back/player25.xpm"
 # define OPEN_EXIT_XPM		"assets/sprites/opened_door.xpm"
 # define EXIT_CLOSED_XPM	"assets/sprites/dungeon_door.xpm"
+# define STAT_ENEMY_XPM		"assets/sprites/toxic-river.xpm"
+# define WANDER_ENEMY_XPM		"assets/sprites/toxic-river.xpm"
 
 # define GREEN				"\033[0;32m"
 # define RED 				"\033[1;31m"
@@ -114,6 +116,7 @@ typedef enum e_enemy_type
 typedef struct s_enemy
 {
     t_positon pos;
+	t_image sprite;
     t_enemy_type type;
     t_direction dir;
 } t_enemy;
@@ -124,8 +127,10 @@ typedef struct s_game
 	void		*win_ptr;
 	int			movements;
 	t_direction	player_direction;
-	t_enemy		enemy_k;
-    t_enemy		enemy_x;
+	t_enemy		*enemy_k;
+	int			enemy_k_num;
+    t_enemy		*enemy_x;
+	int			enemy_x_num;
 	t_map		map;
 	t_bool		map_alloc;
 	t_image		undefined_image;
@@ -162,6 +167,8 @@ void    ft_paint_texture(t_game *game, int x, int y);
 void ft_check_collision_fixed_enemy(t_game *game);
 void ft_check_collision_wandering_enemy(t_game *game);
 void ft_move_enemy_x(t_game *game);
+void    ft_failed_msg();
+
 
 void ft_print_map_full(t_game *game);
 

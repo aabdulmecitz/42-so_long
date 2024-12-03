@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_check_map.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
+/*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 19:32:02 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/11/30 18:35:43 by aabdulmecit      ###   ########.fr       */
+/*   Updated: 2024/12/03 21:56:34 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,10 @@ void    ft_count_elements(t_game *game, int x, int y)
         game->map.exit++;
     else if (game->map.full[y][x] == COINS)
         game->map.coins++;
+    else if (game->map.full[y][x] == STAT_ENEMY)
+        game->enemy_k_num++;
+    else if (game->map.full[y][x] == WANDER_ENEMY)
+        game->enemy_x_num++;
     else if (game->map.full[y][x] != WALL && game->map.full[y][x] != FLOOR &&
         game->map.full[y][x] != PLAYER && game->map.full[y][x] != MAP_EXIT && 
         game->map.full[y][x] != COINS && game->map.full[y][x] != WANDER_ENEMY &&

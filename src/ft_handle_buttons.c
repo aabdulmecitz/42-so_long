@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_handle_buttons.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
+/*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 15:51:50 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/11/30 18:33:34 by aabdulmecit      ###   ########.fr       */
+/*   Updated: 2024/12/03 22:15:40 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,8 @@ void ft_move_direction(t_game *game, int dx, int dy)
     int x = game->map.player.x;
     int y = game->map.player.y;
 
-    if (game->map.full[y + dy][x + dx] != WALL && (game->map.full[y + dy][x + dx] != MAP_EXIT || game->map.coins == 0))
+    if (game->map.full[y + dy][x + dx] != WALL && 
+    (game->map.full[y + dy][x + dx] != MAP_EXIT || game->map.coins == 0))
     {
         ft_check_object(game, x + dx, y + dy);
         game->map.full[y][x] = FLOOR;

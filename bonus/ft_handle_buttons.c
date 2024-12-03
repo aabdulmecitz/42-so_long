@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_handle_buttons.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
+/*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 15:51:50 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/11/30 17:20:55 by aabdulmecit      ###   ########.fr       */
+/*   Updated: 2024/12/03 22:16:43 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,8 @@ void ft_move_direction(t_game *game, int dx, int dy)
         game->map.full[y + dy][x + dx] = PLAYER;
         game->movements++;
     }
+    
+
 }
 
 void ft_check_object(t_game *game, int x, int y)
@@ -67,6 +69,12 @@ void ft_check_object(t_game *game, int x, int y)
         ft_congrats_message();
         ft_destroy_window(game);
     }
+    else if (game->map.full[y][x] == STAT_ENEMY || game->map.full[y][x] == WANDER_ENEMY)
+    {
+        ft_congrats_message();
+        ft_destroy_window(game);
+    }
+
 }
 
 int key_hook(int keycode, t_game *game)
