@@ -6,7 +6,7 @@
 /*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 15:16:28 by aozkaya           #+#    #+#             */
-/*   Updated: 2024/12/03 22:19:43 by aozkaya          ###   ########.fr       */
+/*   Updated: 2024/12/03 22:58:28 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,10 @@ typedef enum e_direction
     FRONT,
     BACK,
     LEFT,
-    RIGHT
+    RIGHT,
+	HORIZONTAL,
+	VERTICAL,
+	IDLE
 } t_direction;
 
 typedef struct s_image
@@ -143,6 +146,7 @@ typedef struct s_game
 	t_image		player_left;
 	t_image		player_right;
 	t_image		player_back;
+	t_image		enemy
 }	t_game;
 
 

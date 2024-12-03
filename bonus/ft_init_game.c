@@ -6,7 +6,7 @@
 /*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 02:15:50 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/12/03 22:19:35 by aozkaya          ###   ########.fr       */
+/*   Updated: 2024/12/03 22:50:14 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,5 @@ void ft_init_sprites(t_game *game)
     ft_load_sprite(&game->player_back, mlx, PLAYER_BACK_XPM, game);
     ft_load_sprite(&game->open_exit, mlx, OPEN_EXIT_XPM, game);
     ft_load_sprite(&game->exit_closed, mlx, EXIT_CLOSED_XPM, game);
-    ft_load_sprite(&game->enemy_k->sprite, mlx, STAT_ENEMY_XPM, game);
-    ft_load_sprite(&game->enemy_k->sprite, mlx, WANDER_ENEMY_XPM, game);
+    
 }

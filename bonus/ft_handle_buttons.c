@@ -6,7 +6,7 @@
 /*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 15:51:50 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/12/03 22:16:43 by aozkaya          ###   ########.fr       */
+/*   Updated: 2024/12/03 22:34:18 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ void ft_check_object(t_game *game, int x, int y)
     }
     else if (game->map.full[y][x] == STAT_ENEMY || game->map.full[y][x] == WANDER_ENEMY)
     {
-        ft_congrats_message();
+        ft_failed_msg();
         ft_destroy_window(game);
     }
 

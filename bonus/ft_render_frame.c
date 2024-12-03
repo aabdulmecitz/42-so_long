@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_render_frame.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
+/*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 05:38:38 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/11/30 18:36:24 by aabdulmecit      ###   ########.fr       */
+/*   Updated: 2024/12/03 22:31:19 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,11 +60,11 @@ void    ft_paint_texture(t_game *game, int x, int y)
     }
 }
 
-int ft_update_frame(t_game *game)
-{
-    ft_move_enemy_x(game);
-    ft_check_collision_fixed_enemy(game);
-    ft_check_collision_wandering_enemy(game);
-    ft_render_frame(game);
-    return (0);
-}
+// int ft_update_frame(t_game *game)
+// {
+//     ft_move_enemy_x(game);
+//     ft_check_collision_fixed_enemy(game);
+//     ft_check_collision_wandering_enemy(game);
+//     ft_render_frame(game);
+//     return (0);
+// }
