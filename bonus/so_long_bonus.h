@@ -6,7 +6,7 @@
 /*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 15:16:28 by aozkaya           #+#    #+#             */
-/*   Updated: 2024/12/04 02:37:13 by aozkaya          ###   ########.fr       */
+/*   Updated: 2024/12/04 03:01:37 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -162,20 +162,22 @@ void    check_as_a_hero(t_game *game);
 int		key_hook(int keycode, t_game *game);
 int 	ft_check_all_collectables(t_map *map, t_game *game);
 void    ft_handle_buttons(t_game *game);
-int ft_destroy_window(t_game *game);
+int 	ft_destroy_window(t_game *game);
 void    ft_congrats_message();
-int	ft_render_frame(t_game *game);
-int ft_update_frame(t_game *game);
+int		ft_render_frame(t_game *game);
+int 	ft_update_frame(t_game *game);
 void    ft_paint_texture(t_game *game, int x, int y);
-void ft_check_collision_fixed_enemy(t_game *game);
-void ft_check_collision_wandering_enemy(t_game *game);
-void ft_move_enemy_x(t_game *game);
+void 	ft_check_collision_fixed_enemy(t_game *game);
+void 	ft_check_collision_wandering_enemy(t_game *game);
+void 	ft_move_enemy_x(t_game *game);
 void    ft_failed_msg();
 void    ft_init_enemy(t_game *game);
-void handle_enemy(t_game *game, int x, int y);
-void ft_allocate_enemy_memory(t_game *game);
-void ft_load_sprite(t_image *sprite, void *mlx, char *path, t_game *game);
+void 	handle_enemy(t_game *game, int x, int y);
+void 	ft_allocate_enemy_memory(t_game *game);
+void 	ft_load_sprite(t_image *sprite, void *mlx, char *path, t_game *game);
 void    ft_enemies(t_game *game);
+void    ft_enemy_movement(t_game *game, t_enemy *enemy);
+int		is_valid_position(t_game *game, int x, int y);
 
 
 
