@@ -6,7 +6,7 @@
 /*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 15:16:28 by aozkaya           #+#    #+#             */
-/*   Updated: 2024/12/04 03:01:37 by aozkaya          ###   ########.fr       */
+/*   Updated: 2024/12/04 05:47:50 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@
 # define OPEN_EXIT_XPM		"assets/sprites/opened_door.xpm"
 # define EXIT_CLOSED_XPM	"assets/sprites/dungeon_door.xpm"
 # define STAT_ENEMY_XPM		"assets/sprites/toxic-river.xpm"
-# define WANDER_ENEMY_XPM		"assets/sprites/toxic-river.xpm"
+# define WANDER_ENEMY_XPM	"assets/sprites/enemy/left/enemy1.xpm"
 
 # define GREEN				"\033[0;32m"
 # define RED 				"\033[1;31m"
@@ -178,6 +178,7 @@ void 	ft_load_sprite(t_image *sprite, void *mlx, char *path, t_game *game);
 void    ft_enemies(t_game *game);
 void    ft_enemy_movement(t_game *game, t_enemy *enemy);
 int		is_valid_position(t_game *game, int x, int y);
+void	ft_update_enemies(t_game *game);
 
 
 

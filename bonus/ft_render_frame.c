@@ -6,7 +6,7 @@
 /*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 05:38:38 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/12/03 22:31:19 by aozkaya          ###   ########.fr       */
+/*   Updated: 2024/12/04 05:34:53 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,10 @@ void    ft_paint_texture(t_game *game, int x, int y)
         mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->floor.xpm_ptr, x * IMG_WIDTH, y * IMG_HEIGHT);
     else if (game->map.full[y][x] == COINS)
         mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->coins.xpm_ptr, x * IMG_WIDTH, y * IMG_HEIGHT);
+    else if (game->map.full[y][x] == WANDER_ENEMY)
+        mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->enemy_x->sprite.xpm_ptr, x * IMG_WIDTH, y * IMG_HEIGHT);
+    else if (game->map.full[y][x] == STAT_ENEMY)
+        mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->enemy_k->sprite.xpm_ptr, x * IMG_WIDTH, y * IMG_HEIGHT);
     else if (game->map.full[y][x] == PLAYER)
     {
         if (game->player_direction == FRONT)

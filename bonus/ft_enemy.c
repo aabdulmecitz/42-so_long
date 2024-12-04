@@ -6,7 +6,7 @@
 /*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/30 17:59:37 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/12/04 02:41:25 by aozkaya          ###   ########.fr       */
+/*   Updated: 2024/12/04 05:30:32 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,13 @@
 void    ft_enemies(t_game *game)
 {
     ft_allocate_enemy_memory(game);
-    ft_init_enemy(game);    
+    ft_init_enemy(game); 
 }
 
 void ft_init_enemy(t_game *game)
 {
     int x;
     int y;
-
 
     y = 0;
     while (y < game->map.rows)
@@ -46,7 +45,7 @@ void handle_enemy(t_game *game, int x, int y)
             game->enemy_k[game->enemy_k_num - 1].pos.x = x;
             game->enemy_k[game->enemy_k_num - 1].pos.y = y;
             game->enemy_k[game->enemy_k_num - 1].type = ENEMY_FIXED;
-            game->enemy_k[game->enemy_k_num - 1].dir = IDLE;
+            game->enemy_k[game->enemy_k_num - 1].dir = rand() % 4; // Başlangıç yönünü rastgele ayarlayalım
             ft_load_sprite(&game->enemy_k[game->enemy_k_num - 1].sprite, game->mlx_ptr, STAT_ENEMY_XPM, game);
             game->enemy_k_num--;
         }
@@ -58,12 +57,13 @@ void handle_enemy(t_game *game, int x, int y)
             game->enemy_x[game->enemy_x_num - 1].pos.x = x;
             game->enemy_x[game->enemy_x_num - 1].pos.y = y;
             game->enemy_x[game->enemy_x_num - 1].type = ENEMY_WANDERING;
-            game->enemy_x[game->enemy_x_num - 1].dir = IDLE;
+            game->enemy_x[game->enemy_x_num - 1].dir = rand() % 4; // Başlangıç yönünü rastgele ayarlayalım
             ft_load_sprite(&game->enemy_x[game->enemy_x_num - 1].sprite, game->mlx_ptr, WANDER_ENEMY_XPM, game);
             game->enemy_x_num--;
         }
     }
 }
+
 
 void ft_allocate_enemy_memory(t_game *game)
 {
