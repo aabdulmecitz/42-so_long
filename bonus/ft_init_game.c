@@ -6,7 +6,7 @@
 /*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 02:15:50 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/12/04 02:21:33 by aozkaya          ###   ########.fr       */
+/*   Updated: 2024/12/13 16:25:53 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ void ft_init_sprites(t_game *game);
 
 void	ft_init_game(t_game *game)
 {
+    game->game_num = 0;
     game->map.coins = 0;
     game->map.exit = 0;
     game->map.players = 0;

@@ -6,7 +6,7 @@
 /*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 15:16:28 by aozkaya           #+#    #+#             */
-/*   Updated: 2024/12/04 05:47:50 by aozkaya          ###   ########.fr       */
+/*   Updated: 2024/12/13 19:01:28 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,6 +134,7 @@ typedef struct s_game
 	int			enemy_k_num;
     t_enemy		*enemy_x;
 	int			enemy_x_num;
+	int			game_num;
 	t_map		map;
 	t_bool		map_alloc;
 	t_image		undefined_image;

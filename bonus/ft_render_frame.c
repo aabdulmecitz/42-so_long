@@ -6,7 +6,7 @@
 /*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 05:38:38 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/12/04 05:34:53 by aozkaya          ###   ########.fr       */
+/*   Updated: 2024/12/13 16:28:41 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ int ft_render_frame(t_game *game)
     int x;
     int y;
     y = 0;
+    ft_update_enemies(game);
     while (y < game->map.rows)
     {
         x = 0;
