@@ -6,7 +6,7 @@
 /*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 15:16:28 by aozkaya           #+#    #+#             */
-/*   Updated: 2024/12/13 19:01:28 by aozkaya          ###   ########.fr       */
+/*   Updated: 2024/12/14 18:59:30 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,10 +118,12 @@ typedef enum e_enemy_type
 
 typedef struct s_enemy
 {
-    t_positon pos;
+	int x;
+	int y;
 	t_image sprite;
     t_enemy_type type;
     t_direction dir;
+	struct s_enemy *next;
 } t_enemy;
 
 typedef struct s_game
