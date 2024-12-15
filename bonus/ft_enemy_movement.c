@@ -6,7 +6,7 @@
 /*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 02:42:34 by aozkaya           #+#    #+#             */
-/*   Updated: 2024/12/15 21:16:55 by aabdulmecit      ###   ########.fr       */
+/*   Updated: 2024/12/15 21:18:59 by aabdulmecit      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ void ft_enemy_movement(t_game *game, t_enemy *enemy)
         else
             enemy->dir = RIGHT;
     }
+    usleep(500000);
 }
 
 
