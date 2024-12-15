@@ -6,7 +6,7 @@
 /*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 02:42:34 by aozkaya           #+#    #+#             */
-/*   Updated: 2024/12/15 21:10:56 by aabdulmecit      ###   ########.fr       */
+/*   Updated: 2024/12/15 21:16:55 by aabdulmecit      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,12 +69,13 @@ void ft_update_enemies(t_game *game)
     t_enemy *current;
 
     current = game->enemy;
+    game->game_num = 0;
     while (current)
     {
         printf("Enemy: x: %d, y: %d\n", current->x, current->y);
         ft_enemy_movement(game, current);
         current = current->next;
-        sleep(1);
+        game->game_num++;
     }
     printf("===========================\n");
 }
