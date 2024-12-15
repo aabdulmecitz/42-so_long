@@ -6,7 +6,7 @@
 /*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 02:15:50 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/12/15 21:03:42 by aabdulmecit      ###   ########.fr       */
+/*   Updated: 2024/12/15 23:51:30 by aabdulmecit      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void ft_init_mlx(t_game *game)
     game->win_ptr = mlx_new_window(
         game->mlx_ptr,
         (game->map.columns + 1) * IMG_WIDTH,
-        game->map.rows * IMG_HEIGHT,
+        (game->map.rows + 2) * IMG_HEIGHT,
         "so_long"
     );
     if (!game->win_ptr)

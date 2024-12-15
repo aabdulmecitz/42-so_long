@@ -6,7 +6,7 @@
 /*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 05:38:38 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/12/15 21:54:32 by aabdulmecit      ###   ########.fr       */
+/*   Updated: 2024/12/16 00:19:41 by aabdulmecit      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,19 +18,22 @@ int ft_render_frame(t_game *game)
 {
     int x;
     int y;
-
     ft_handle_enemies(game);
     y = 0;
-    while (y < game->map.rows)
+    while (y < game->map.rows + 2)
     {
         x = 0;
         while (x < game->map.columns)
         {
-            ft_paint_texture(game, x, y);
+            if (y < game->map.rows)
+                ft_paint_texture(game, x, y);
+            else
+                mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->floor.xpm_ptr, x * IMG_WIDTH, y * IMG_HEIGHT);
             x++;
         }
         y++;
     }
+    write_steps(game, 32, (game->map.rows + 1) * IMG_HEIGHT);
     return (0);
 }
 
@@ -65,12 +68,3 @@ void    ft_paint_texture(t_game *game, int x, int y)
             mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->exit_closed.xpm_ptr, x * IMG_WIDTH, y * IMG_HEIGHT);
     }
 }
-
-// int ft_update_frame(t_game *game)
-// {
-//     ft_move_enemy_x(game);
-//     ft_check_collision_fixed_enemy(game);
-//     ft_check_collision_wandering_enemy(game);
-//     ft_render_frame(game);
-//     return (0);
-// }

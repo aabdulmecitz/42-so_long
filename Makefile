@@ -30,7 +30,7 @@ SRCS 			= $(addprefix $(SRCS_DIR),\
 BONUS_SRC 		= $(addprefix $(BONUS_SRCS_DIR),\
 				ft_check_command_line_args.c ft_enemy.c \
 				ft_msg.c ft_init_game.c ft_enemy_movement.c\
-				ft_check_map.c ft_init_map.c\
+				ft_check_map.c ft_init_map.c write_steps.c\
 				so_long_bonus.c ft_mem_free.c ft_render_frame.c\
 				ft_flood_fill.c ft_handle_buttons.c)
 
