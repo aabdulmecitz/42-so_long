@@ -6,7 +6,7 @@
 /*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/30 17:59:37 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/12/15 21:07:01 by aabdulmecit      ###   ########.fr       */
+/*   Updated: 2024/12/15 21:23:33 by aabdulmecit      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void ft_init_enemy(t_game *game)
     }
 }
 
-
+// IF ENEMY SEE THE PLAYER YOU WILL LOSE 
 
 // void    ft_enemies(t_game *game)
 // {
