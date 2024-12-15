@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_check_map.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
+/*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 19:32:02 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/12/03 21:56:34 by aozkaya          ###   ########.fr       */
+/*   Updated: 2024/12/16 00:22:29 by aabdulmecit      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ void    ft_check_rectanglular(t_game *game);
 void    ft_check_elements(t_game *game);
 void    ft_search_elements(t_game *game);
 void    ft_count_elements(t_game *game, int x, int y);
-
 
 void    ft_check_map(t_game *game)
 { 
