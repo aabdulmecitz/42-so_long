@@ -6,7 +6,7 @@
 /*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 02:42:34 by aozkaya           #+#    #+#             */
-/*   Updated: 2024/12/15 21:18:59 by aabdulmecit      ###   ########.fr       */
+/*   Updated: 2024/12/15 21:22:40 by aabdulmecit      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,6 @@ void ft_enemy_movement(t_game *game, t_enemy *enemy)
         else
             enemy->dir = RIGHT;
     }
-    usleep(500000);
 }
 
 
@@ -70,13 +69,16 @@ void ft_update_enemies(t_game *game)
     t_enemy *current;
 
     current = game->enemy;
-    game->game_num = 0;
     while (current)
     {
         printf("Enemy: x: %d, y: %d\n", current->x, current->y);
-        ft_enemy_movement(game, current);
+        if (game->game_num % 15 == 0)
+        {
+            ft_enemy_movement(game, current);
+            /* code */
+        }
+        
         current = current->next;
-        game->game_num++;
     }
     printf("===========================\n");
 }
