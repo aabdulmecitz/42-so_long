@@ -6,7 +6,7 @@
 /*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 02:42:34 by aozkaya           #+#    #+#             */
-/*   Updated: 2024/12/15 22:08:43 by aabdulmecit      ###   ########.fr       */
+/*   Updated: 2024/12/15 22:17:42 by aabdulmecit      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void ft_enemy_movement(t_game *game, t_enemy *enemy)
     time_t current_time;
 
     current_time = time(NULL);
-    if (difftime(current_time, enemy->last_move_time) < 0.1) {
+    if (difftime(current_time, enemy->last_move_time) < 0.001) {
         return;
     }
     new_x = enemy->x;
@@ -45,6 +45,11 @@ void ft_enemy_movement(t_game *game, t_enemy *enemy)
     printf("Enemy moving from (%d, %d) to (%d, %d)\n", enemy->x, enemy->y, new_x, new_y);
     if (is_valid_position(game, new_x, new_y))
     {
+        if (game->map.full[new_y][new_x] == PLAYER)
+        {
+            ft_failed_msg();
+            ft_destroy_window(game);
+        }
         game->map.full[enemy->y][enemy->x] = FLOOR;
         enemy->x = new_x;
         enemy->y = new_y;
