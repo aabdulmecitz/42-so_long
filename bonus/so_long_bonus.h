@@ -6,7 +6,7 @@
 /*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 15:16:28 by aozkaya           #+#    #+#             */
-/*   Updated: 2024/12/15 23:59:25 by aabdulmecit      ###   ########.fr       */
+/*   Updated: 2024/12/16 00:48:22 by aabdulmecit      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -186,7 +186,7 @@ void	ft_update_enemies(t_game *game);
 void    write_steps(t_game *game, int x, int y);
 
 
-void ft_print_map_full(t_game *game);
+// void ft_print_map_full(t_game *game);
 
 
 

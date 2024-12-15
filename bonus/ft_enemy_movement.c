@@ -6,7 +6,7 @@
 /*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 02:42:34 by aozkaya           #+#    #+#             */
-/*   Updated: 2024/12/15 22:17:42 by aabdulmecit      ###   ########.fr       */
+/*   Updated: 2024/12/16 00:49:51 by aabdulmecit      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void ft_enemy_movement(t_game *game, t_enemy *enemy)
         new_x++;
     else if (enemy->dir == LEFT)
         new_x--;
-    printf("Enemy moving from (%d, %d) to (%d, %d)\n", enemy->x, enemy->y, new_x, new_y);
+    // printf("Enemy moving from (%d, %d) to (%d, %d)\n", enemy->x, enemy->y, new_x, new_y);
     if (is_valid_position(game, new_x, new_y))
     {
         if (game->map.full[new_y][new_x] == PLAYER)
@@ -77,9 +77,9 @@ void ft_handle_enemies(t_game *game)
     current = game->enemy;
     while (current)
     {
-        printf("Enemy: x: %d, y: %d\n", current->x, current->y);
+        // printf("Enemy: x: %d, y: %d\n", current->x, current->y);
         ft_enemy_movement(game, current);
         current = current->next;
     }
-    printf("===========================\n");
+    // printf("===========================\n");
 }
