@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
+/*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 15:16:28 by aozkaya           #+#    #+#             */
-/*   Updated: 2024/12/14 18:59:30 by aozkaya          ###   ########.fr       */
+/*   Updated: 2024/12/15 21:00:21 by aabdulmecit      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,9 +120,7 @@ typedef struct s_enemy
 {
 	int x;
 	int y;
-	t_image sprite;
-    t_enemy_type type;
-    t_direction dir;
+	t_direction dir;
 	struct s_enemy *next;
 } t_enemy;
 
@@ -132,9 +130,8 @@ typedef struct s_game
 	void		*win_ptr;
 	int			movements;
 	t_direction	player_direction;
-	t_enemy		*enemy_k;
 	int			enemy_k_num;
-    t_enemy		*enemy_x;
+    t_enemy		*enemy;
 	int			enemy_x_num;
 	int			game_num;
 	t_map		map;
@@ -149,6 +146,8 @@ typedef struct s_game
 	t_image		player_left;
 	t_image		player_right;
 	t_image		player_back;
+	t_image		enemy_k;
+	t_image		enemy_x;
 }	t_game;
 
 
@@ -182,7 +181,6 @@ void    ft_enemies(t_game *game);
 void    ft_enemy_movement(t_game *game, t_enemy *enemy);
 int		is_valid_position(t_game *game, int x, int y);
 void	ft_update_enemies(t_game *game);
-
 
 
 void ft_print_map_full(t_game *game);

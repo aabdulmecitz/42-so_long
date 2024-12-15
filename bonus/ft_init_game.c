@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_init_game.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
+/*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 02:15:50 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/12/13 16:25:53 by aozkaya          ###   ########.fr       */
+/*   Updated: 2024/12/15 21:03:42 by aabdulmecit      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,7 @@ void	ft_init_game(t_game *game)
     game->movements = 0;
     game->enemy_k_num = 0;
     game->enemy_x_num = 0;
-    game->enemy_x = NULL;
-    game->enemy_k = NULL;
+    game->enemy = NULL;
     game->map.columns = ft_strlen(game->map.full[0]) - 1;
     while (game->map.full[game->map.rows])
         game->map.rows++;
@@ -86,5 +85,7 @@ void ft_init_sprites(t_game *game)
     ft_load_sprite(&game->player_back, mlx, PLAYER_BACK_XPM, game);
     ft_load_sprite(&game->open_exit, mlx, OPEN_EXIT_XPM, game);
     ft_load_sprite(&game->exit_closed, mlx, EXIT_CLOSED_XPM, game);
+    ft_load_sprite(&game->enemy_x, mlx, WANDER_ENEMY_XPM, game);
+    ft_load_sprite(&game->enemy_k, mlx, STAT_ENEMY_XPM, game);
     
 }

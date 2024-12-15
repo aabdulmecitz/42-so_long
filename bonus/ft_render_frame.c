@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_render_frame.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
+/*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 05:38:38 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/12/13 16:28:41 by aozkaya          ###   ########.fr       */
+/*   Updated: 2024/12/15 20:58:13 by aabdulmecit      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,9 @@ void    ft_paint_texture(t_game *game, int x, int y)
     else if (game->map.full[y][x] == COINS)
         mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->coins.xpm_ptr, x * IMG_WIDTH, y * IMG_HEIGHT);
     else if (game->map.full[y][x] == WANDER_ENEMY)
-        mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->enemy_x->sprite.xpm_ptr, x * IMG_WIDTH, y * IMG_HEIGHT);
+        mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->enemy_x.xpm_ptr, x * IMG_WIDTH, y * IMG_HEIGHT);
     else if (game->map.full[y][x] == STAT_ENEMY)
-        mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->enemy_k->sprite.xpm_ptr, x * IMG_WIDTH, y * IMG_HEIGHT);
+        mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->enemy_k.xpm_ptr, x * IMG_WIDTH, y * IMG_HEIGHT);
     else if (game->map.full[y][x] == PLAYER)
     {
         if (game->player_direction == FRONT)

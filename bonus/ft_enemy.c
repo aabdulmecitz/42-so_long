@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_enemy.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
+/*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/30 17:59:37 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/12/14 18:58:58 by aozkaya          ###   ########.fr       */
+/*   Updated: 2024/12/15 21:02:45 by aabdulmecit      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,39 +18,44 @@ void ft_init_enemy(t_game *game)
     int y;
     t_enemy *new_enemy;
 
-    game->enemy_x = NULL; // Bağlı liste başlangıçta boş
-
+    game->enemy = NULL; // Listeyi başlat
     y = 0;
-    while (y < game->map.rows)
+
+    while (y < game->map.rows) // Haritanın satırlarını tara
     {
         x = 0;
-        while (x < game->map.columns)
+        while (x < game->map.columns) // Haritanın sütunlarını tara
         {
-            // Eğer haritada bir düşman varsa
-            if (game->map.full[y][x] == WANDER_ENEMY || game->map.full[y][x] == STAT_ENEMY)
+            if (game->enemy_x_num == 0)
+                return;
+
+            if (game->map.full[y][x] == WANDER_ENEMY)
             {
-                // Yeni düşman düğümü oluştur
                 new_enemy = (t_enemy *)malloc(sizeof(t_enemy));
                 if (!new_enemy)
+                {
                     return;
+                }
 
-                new_enemy->x = x;              // X koordinatı
-                new_enemy->y = y;              // Y koordinatı
-                new_enemy->next = game->enemy_x; // Listeye ekle (başa ekleme)
-                game->enemy_x = new_enemy;  // Liste başını güncelle
+                new_enemy->x = x;
+                new_enemy->y = y;
+                new_enemy->next = game->enemy; // Listeye yeni düşmanı ekle
+                game->enemy = new_enemy; // Listenin başını güncelle
+                game->enemy_x_num--; // Kalan düşman sayısını azalt
             }
-            x++;
+            x++; // Sütunda bir ileri git
         }
-        y++;
+        y++; // Satırda bir ileri git
     }
 }
 
 
-void    ft_enemies(t_game *game)
-{
-    // ft_allocate_enemy_memory(game);
-    ft_init_enemy(game); 
-}
+
+// void    ft_enemies(t_game *game)
+// {
+//     // ft_allocate_enemy_memory(game);
+//     ft_init_enemy(game); 
+// }
 
 // void ft_init_enemy(t_game *game)
 // {
