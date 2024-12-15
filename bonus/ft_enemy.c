@@ -6,7 +6,7 @@
 /*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/30 17:59:37 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/12/15 21:02:45 by aabdulmecit      ###   ########.fr       */
+/*   Updated: 2024/12/15 21:07:01 by aabdulmecit      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,34 +18,30 @@ void ft_init_enemy(t_game *game)
     int y;
     t_enemy *new_enemy;
 
-    game->enemy = NULL; // Listeyi başlat
+    game->enemy = NULL;
     y = 0;
 
-    while (y < game->map.rows) // Haritanın satırlarını tara
+    while (y < game->map.rows)
     {
         x = 0;
-        while (x < game->map.columns) // Haritanın sütunlarını tara
+        while (x < game->map.columns)
         {
             if (game->enemy_x_num == 0)
                 return;
-
             if (game->map.full[y][x] == WANDER_ENEMY)
             {
                 new_enemy = (t_enemy *)malloc(sizeof(t_enemy));
                 if (!new_enemy)
-                {
                     return;
-                }
-
                 new_enemy->x = x;
                 new_enemy->y = y;
-                new_enemy->next = game->enemy; // Listeye yeni düşmanı ekle
-                game->enemy = new_enemy; // Listenin başını güncelle
-                game->enemy_x_num--; // Kalan düşman sayısını azalt
+                new_enemy->next = game->enemy;
+                game->enemy = new_enemy;
+                game->enemy_x_num--;
             }
-            x++; // Sütunda bir ileri git
+            x++;
         }
-        y++; // Satırda bir ileri git
+        y++;
     }
 }
 
