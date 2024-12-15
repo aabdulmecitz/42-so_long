@@ -6,7 +6,7 @@
 /*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 05:38:38 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/12/15 20:58:13 by aabdulmecit      ###   ########.fr       */
+/*   Updated: 2024/12/15 21:54:32 by aabdulmecit      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,9 @@ int ft_render_frame(t_game *game)
 {
     int x;
     int y;
+
+    ft_handle_enemies(game);
     y = 0;
-    ft_update_enemies(game);
     while (y < game->map.rows)
     {
         x = 0;

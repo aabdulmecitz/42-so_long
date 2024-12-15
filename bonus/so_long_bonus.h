@@ -6,7 +6,7 @@
 /*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 15:16:28 by aozkaya           #+#    #+#             */
-/*   Updated: 2024/12/15 21:00:21 by aabdulmecit      ###   ########.fr       */
+/*   Updated: 2024/12/15 21:48:48 by aabdulmecit      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,12 @@
 # include <X11/X.h>
 # include <X11/keysym.h>
 # include <stdio.h>
+# include <time.h>
 
 # define IMG_HEIGHT			32
 # define IMG_WIDTH			32
 
-# define ANIM_SPEED			1000
+# define delay				500
 
 # define WIN_H				1080
 # define WIN_W				1920
@@ -121,6 +122,7 @@ typedef struct s_enemy
 	int x;
 	int y;
 	t_direction dir;
+	time_t last_move_time;
 	struct s_enemy *next;
 } t_enemy;
 
@@ -174,7 +176,7 @@ void 	ft_check_collision_wandering_enemy(t_game *game);
 void 	ft_move_enemy_x(t_game *game);
 void    ft_failed_msg();
 void    ft_init_enemy(t_game *game);
-void 	handle_enemy(t_game *game, int x, int y);
+void	ft_handle_enemies(t_game *game);
 void 	ft_allocate_enemy_memory(t_game *game);
 void 	ft_load_sprite(t_image *sprite, void *mlx, char *path, t_game *game);
 void    ft_enemies(t_game *game);
