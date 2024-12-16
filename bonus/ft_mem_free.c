@@ -6,7 +6,7 @@
 /*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 02:11:01 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/12/15 21:03:14 by aabdulmecit      ###   ########.fr       */
+/*   Updated: 2024/12/16 17:56:35 by aabdulmecit      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,15 +39,15 @@ static void ft_destroy_images(t_game *game)
 
     i = 0;
     t_image *images[] = {
-        &game->wall,
-        &game->floor,
-        &game->coins,
-        &game->player_front,
-        &game->player_left,
-        &game->player_right,
-        &game->player_back,
-        &game->exit_closed,
-        &game->open_exit,
+        game->wall,
+        game->floor,
+        game->coins,
+        game->player_front,
+        game->player_left,
+        game->player_right,
+        game->player_back,
+        game->exit_closed,
+        game->open_exit,
         NULL
     };
 

@@ -6,7 +6,7 @@
 /*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 15:16:28 by aozkaya           #+#    #+#             */
-/*   Updated: 2024/12/16 00:48:22 by aabdulmecit      ###   ########.fr       */
+/*   Updated: 2024/12/16 17:48:34 by aabdulmecit      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,7 @@ typedef struct s_image
 	void	*xpm_ptr;
 	int		x;
 	int		y;
+	struct s_image *next;
 }	t_image;
 
 typedef struct s_map
@@ -138,18 +139,18 @@ typedef struct s_game
 	int			game_num;
 	t_map		map;
 	t_bool		map_alloc;
-	t_image		undefined_image;
-	t_image		wall;
-	t_image		floor;
-	t_image		coins;
-	t_image		open_exit;
-	t_image		exit_closed;
-	t_image		player_front;
-	t_image		player_left;
-	t_image		player_right;
-	t_image		player_back;
-	t_image		enemy_k;
-	t_image		enemy_x;
+	t_image		*undefined_image;
+	t_image		*wall;
+	t_image		*floor;
+	t_image		*coins;
+	t_image		*open_exit;
+	t_image		*exit_closed;
+	t_image		*player_front;
+	t_image		*player_left;
+	t_image		*player_right;
+	t_image		*player_back;
+	t_image		*enemy_k;
+	t_image		*enemy_x;
 }	t_game;
 
 

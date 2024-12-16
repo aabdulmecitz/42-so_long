@@ -6,7 +6,7 @@
 /*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 03:50:53 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/12/16 00:47:44 by aabdulmecit      ###   ########.fr       */
+/*   Updated: 2024/12/16 17:56:07 by aabdulmecit      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ void    ft_error_msg(char *msg, t_game *game)
         if (game->map_alloc)
             ft_free_map(game);
 
-        if (game->wall.xpm_ptr)
-            free(game->wall.xpm_ptr);
+        if (game->wall->xpm_ptr)
+            free(game->wall->xpm_ptr);
 
         free(game);
         game = NULL;
