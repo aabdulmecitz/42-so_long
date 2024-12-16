@@ -6,7 +6,7 @@
 /*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 23:35:52 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/12/16 23:47:31 by aabdulmecit      ###   ########.fr       */
+/*   Updated: 2024/12/16 23:55:13 by aabdulmecit      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,34 @@ void init_animation(t_game *game, t_image *image, ...)
     va_end(args);
 }
 
-void init_all_of_animations(t_game *game)
+void    init_all_of_animations(t_game *game)
 {
     init_animation(game, game->coins, 
         "assets/sprites/coin/coin2.xpm",
         "assets/sprites/coin/coin3.xpm",
         "assets/sprites/coin/coin4.xpm", NULL);
 }
+
+void    run_animation(t_game *game, t_image *image_list)
+{
+    static time_t last_time = 0;
+    static t_image *current_image = NULL;
+    t_image *temp;
+    time_t current_time;
+    int delay = 100;
+
+    current_time = time(NULL);
+    if (difftime(current_time, last_time) >= delay / 1000.0)
+    {
+        if (current_image == NULL)
+            current_image = image_list;
+        mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, 
+            current_image->xpm_ptr, current_image->x, current_image->y);
+        temp = current_image;
+        current_image = current_image->next;
+        if (current_image == NULL)
+            current_image = image_list;
+        last_time = current_time;
+    }
+}
+

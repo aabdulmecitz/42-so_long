@@ -6,7 +6,7 @@
 /*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 15:16:28 by aozkaya           #+#    #+#             */
-/*   Updated: 2024/12/16 23:39:54 by aabdulmecit      ###   ########.fr       */
+/*   Updated: 2024/12/16 23:55:24 by aabdulmecit      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -191,6 +191,7 @@ void	ft_update_coin_animation(t_game *game);
 void	ft_free_coin_animation(t_game *game);
 void    init_animation(t_game *game, t_image *image, ...);
 void    init_all_of_animations(t_game *game);
+void    run_animation(t_game *game, t_image *image_list);
 
 
 
