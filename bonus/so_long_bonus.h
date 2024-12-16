@@ -6,7 +6,7 @@
 /*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 15:16:28 by aozkaya           #+#    #+#             */
-/*   Updated: 2024/12/16 17:48:34 by aabdulmecit      ###   ########.fr       */
+/*   Updated: 2024/12/16 23:39:54 by aabdulmecit      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 # include <X11/keysym.h>
 # include <stdio.h>
 # include <time.h>
+# include <stdarg.h>
 
 # define IMG_HEIGHT			32
 # define IMG_WIDTH			32
@@ -185,6 +186,14 @@ void    ft_enemy_movement(t_game *game, t_enemy *enemy);
 int		is_valid_position(t_game *game, int x, int y);
 void	ft_update_enemies(t_game *game);
 void    write_steps(t_game *game, int x, int y);
+void	init_coin_animation(t_game *game);
+void	ft_update_coin_animation(t_game *game);
+void	ft_free_coin_animation(t_game *game);
+void    init_animation(t_game *game, t_image *image, ...);
+void    init_all_of_animations(t_game *game);
+
+
+
 
 
 // void ft_print_map_full(t_game *game);

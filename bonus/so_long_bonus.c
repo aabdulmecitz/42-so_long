@@ -6,7 +6,7 @@
 /*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 03:00:21 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/12/16 18:14:20 by aabdulmecit      ###   ########.fr       */
+/*   Updated: 2024/12/16 23:31:44 by aabdulmecit      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ int	main(int argc, const char *argv[])
 	ft_init_game(game);
 	ft_check_map(game);
 	ft_init_enemy(game);
+	init_all_of_animations(game);
 	ft_handle_enemies(game);
 	mlx_loop_hook(game->mlx_ptr, ft_render_frame, game);
 	ft_handle_buttons(game);

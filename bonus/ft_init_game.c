@@ -6,7 +6,7 @@
 /*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 02:15:50 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/12/16 18:42:17 by aabdulmecit      ###   ########.fr       */
+/*   Updated: 2024/12/16 18:50:33 by aabdulmecit      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,10 +68,8 @@ void ft_load_sprite(t_image *sprite, void *mlx, char *path, t_game *game)
 {
     if (!sprite)
         ft_error_msg("Sprite pointer is NULL.", game);
-
     sprite->xpm_ptr = mlx_xpm_file_to_image(mlx, path, &sprite->x, &sprite->y);
     ft_printf(CYAN"Loading sprite from path: %s\n"RESET, path);
-
     if (!sprite->xpm_ptr)
     {
         ft_printf(RED"Failed to load sprite: %s\n"RESET, path);
@@ -82,9 +80,9 @@ void ft_load_sprite(t_image *sprite, void *mlx, char *path, t_game *game)
 
 void ft_init_sprites(t_game *game)
 {
-    void *mlx = game->mlx_ptr;
+    void *mlx;
 
-    // Bellek ayır
+    mlx = game->mlx_ptr;
     game->wall = malloc(sizeof(t_image));
     game->floor = malloc(sizeof(t_image));
     game->coins = malloc(sizeof(t_image));
@@ -96,17 +94,11 @@ void ft_init_sprites(t_game *game)
     game->exit_closed = malloc(sizeof(t_image));
     game->enemy_x = malloc(sizeof(t_image));
     game->enemy_k = malloc(sizeof(t_image));
-
-    // NULL kontrolü
     if (!game->wall || !game->floor || !game->coins ||
         !game->player_front || !game->player_left || !game->player_right ||
         !game->player_back || !game->open_exit || !game->exit_closed ||
         !game->enemy_x || !game->enemy_k)
-    {
         ft_error_msg("Memory allocation failed for one of the sprites.", game);
-    }
-
-    // Sprite'ları yükle
     ft_load_sprite(game->wall, mlx, WALL_XPM, game);
     ft_load_sprite(game->floor, mlx, FLOOR_XPM, game);
     ft_load_sprite(game->coins, mlx, COINS_XPM, game);
