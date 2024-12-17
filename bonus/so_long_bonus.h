@@ -6,7 +6,7 @@
 /*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 15:16:28 by aozkaya           #+#    #+#             */
-/*   Updated: 2024/12/16 23:55:24 by aabdulmecit      ###   ########.fr       */
+/*   Updated: 2024/12/17 03:12:46 by aabdulmecit      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@
 # define IMG_HEIGHT			32
 # define IMG_WIDTH			32
 
-# define delay				500
+# define delay				100
 
 # define WIN_H				1080
 # define WIN_W				1920
@@ -189,7 +189,7 @@ void    write_steps(t_game *game, int x, int y);
 void	init_coin_animation(t_game *game);
 void	ft_update_coin_animation(t_game *game);
 void	ft_free_coin_animation(t_game *game);
-void    init_animation(t_game *game, t_image *image, ...);
+void    init_animation(t_game *game, t_image **image, ...);
 void    init_all_of_animations(t_game *game);
 void    run_animation(t_game *game, t_image *image_list);
 

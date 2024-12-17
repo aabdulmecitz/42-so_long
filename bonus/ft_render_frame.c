@@ -6,7 +6,7 @@
 /*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 05:38:38 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/12/16 23:01:36 by aabdulmecit      ###   ########.fr       */
+/*   Updated: 2024/12/17 03:29:52 by aabdulmecit      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int ft_render_frame(t_game *game)
 {
     int x;
     int y;
+
     ft_handle_enemies(game);
     y = 0;
     while (y < game->map.rows + 2)
@@ -34,6 +35,8 @@ int ft_render_frame(t_game *game)
         y++;
     }
     write_steps(game, 32, (game->map.rows + 1) * IMG_HEIGHT);
+
+    
     return (0);
 }
 
