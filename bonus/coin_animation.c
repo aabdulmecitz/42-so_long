@@ -6,87 +6,36 @@
 /*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 17:39:19 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/12/16 23:36:00 by aabdulmecit      ###   ########.fr       */
+/*   Updated: 2024/12/17 03:57:43 by aabdulmecit      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long_bonus.h"
 
-/*void init_coin_animation(t_game *game)
-    {
-        char *coin_frames[] = {
-            "assets/sprites/coin/coin1.xpm",
-            "assets/sprites/coin/coin2.xpm",
-            "assets/sprites/coin/coin3.xpm",
-            "assets/sprites/coin/coin4.xpm",
-            NULL
-        };
-
-        int i = 0;
-        t_image *new_coin;
-        t_image *last_coin;
-
-        while (coin_frames[i] != NULL)
-        {
-            new_coin = malloc(sizeof(t_image));
-            if (!new_coin)
-                ft_error_msg("Memory allocation failed for coin node.", game);
-
-            ft_load_sprite(new_coin, game->mlx_ptr, coin_frames[i], game);
-            
-            if (game->coins == NULL)
-            {
-                game->coins = new_coin;
-            }
-            else
-            {
-                last_coin = game->coins;
-                while (last_coin->next != NULL)
-                {
-                    last_coin = last_coin->next;
-                }
-                last_coin->next = new_coin;
-            }
-
-            new_coin->next = NULL;
-            i++;
-        }
-    }
-
-void update_coin_animation(t_game *game)
+t_image *get_current_coin_frame(t_game *game)
 {
-    static time_t last_update_time = 0;
-    time_t current_time = time(NULL);
-    t_image *current_coin;
+    static clock_t last_time = 0;
+    static t_image *current_frame = NULL;
+    clock_t current_time;
+    double elapsed_time;
 
-    if (difftime(current_time, last_update_time) < 0.1)
-        return;
+    current_time = clock();
+    elapsed_time = (double)(current_time - last_time) / CLOCKS_PER_SEC * 1500.0;
 
-    current_coin = game->coins;
-    if (current_coin) 
+    if (current_frame == NULL)
+        current_frame = game->coins;
+
+    if (elapsed_time >= delay)
     {
-        mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, current_coin->xpm_ptr, 100, 100);
-
-        game->coins = current_coin->next;
-        if (!game->coins)
-            game->coins = current_coin;
+        current_frame = current_frame->next;
+        if (current_frame == NULL)
+            current_frame = game->coins;
+        last_time = current_time;
     }
-
-    last_update_time = current_time;
+    return current_frame;
 }
-
-void clear_coin_animation(t_game *game)
+void ft_paint_coin_with_animation(t_game *game, int x, int y)
 {
-    t_image *current;
-    t_image *next;
-
-    current = game->coins;
-    while (current)
-    {
-        next = current->next;
-        free(current);
-        current = next;
-    }
-    game->coins = NULL;
-}*/
-
+    t_image *current_coin_frame = get_current_coin_frame(game);
+    mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, current_coin_frame->xpm_ptr, x * IMG_WIDTH, y * IMG_HEIGHT);
+}
