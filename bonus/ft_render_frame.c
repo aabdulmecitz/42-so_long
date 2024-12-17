@@ -6,7 +6,7 @@
 /*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 05:38:38 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/12/17 03:57:10 by aabdulmecit      ###   ########.fr       */
+/*   Updated: 2024/12/17 04:00:40 by aabdulmecit      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void    ft_paint_texture(t_game *game, int x, int y)
     else if (game->map.full[y][x] == FLOOR)
         mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->floor->xpm_ptr, x * IMG_WIDTH, y * IMG_HEIGHT);
     else if (game->map.full[y][x] == COINS)
-        ft_paint_coin(game, x, y);
+        ft_paint_coin_with_animation(game, x, y);
     else if (game->map.full[y][x] == WANDER_ENEMY)
         mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->enemy_x->xpm_ptr, x * IMG_WIDTH, y * IMG_HEIGHT);
     else if (game->map.full[y][x] == STAT_ENEMY)
