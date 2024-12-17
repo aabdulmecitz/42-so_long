@@ -6,7 +6,7 @@
 /*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 15:51:50 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/12/17 05:00:29 by aabdulmecit      ###   ########.fr       */
+/*   Updated: 2024/12/17 05:05:53 by aabdulmecit      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,16 +67,16 @@ void ft_check_object(t_game *game, int x, int y)
     else if (game->map.full[y][x] == MAP_EXIT && game->map.coins == 0)
     {
         ft_congrats_message();
-        finish_screen(game, 1);
+        // finish_screen(game, 1);
         
-        // ft_destroy_window(game);
+        ft_destroy_window(game);
     }
     else if (game->map.full[y][x] == STAT_ENEMY || game->map.full[y][x] == WANDER_ENEMY)
     {
         ft_failed_msg();
-        finish_screen(game, 0);
+        // finish_screen(game, 0);
 
-        // ft_destroy_window(game);
+        ft_destroy_window(game);
     }
 
 }
