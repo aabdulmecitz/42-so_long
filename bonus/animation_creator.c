@@ -6,7 +6,7 @@
 /*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 23:35:52 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/12/17 03:26:21 by aabdulmecit      ###   ########.fr       */
+/*   Updated: 2024/12/17 05:20:46 by aabdulmecit      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,14 @@ void    init_animation(t_game *game, t_image **image, ...)
             ft_error_msg("Memory allocation failed for image node.", game);
         ft_load_sprite(new_image, game->mlx_ptr, (char *)current_path, game);
         new_image->next = NULL;
-        if (*image != NULL) // Bağlı liste boş değilse sona ekle
+        if (*image != NULL)
         {
             t_image *temp = *image;
             while (temp->next != NULL)
                 temp = temp->next;
             temp->next = new_image;
         }
-        else // Bağlı liste boşsa ilk düğümü ekle
+        else
             *image = new_image;
         current_path = va_arg(args, const char *);
     }
