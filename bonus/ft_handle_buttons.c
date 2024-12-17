@@ -6,7 +6,7 @@
 /*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 15:51:50 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/12/16 00:49:05 by aabdulmecit      ###   ########.fr       */
+/*   Updated: 2024/12/17 05:00:29 by aabdulmecit      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,12 +67,16 @@ void ft_check_object(t_game *game, int x, int y)
     else if (game->map.full[y][x] == MAP_EXIT && game->map.coins == 0)
     {
         ft_congrats_message();
-        ft_destroy_window(game);
+        finish_screen(game, 1);
+        
+        // ft_destroy_window(game);
     }
     else if (game->map.full[y][x] == STAT_ENEMY || game->map.full[y][x] == WANDER_ENEMY)
     {
         ft_failed_msg();
-        ft_destroy_window(game);
+        finish_screen(game, 0);
+
+        // ft_destroy_window(game);
     }
 
 }
@@ -82,8 +86,6 @@ int key_hook(int keycode, t_game *game)
     if (keycode == KEY_ESC || keycode == KEY_Q)
         ft_destroy_window(game);
     ft_player_move(keycode, game);
-    // ft_print_map_full(game);
-    // ft_printf(CYAN"The player's new position: (%d, %d)\nAll of coins: %d, Movements: %d\n"RESET, game->map.player.x, game->map.player.y, game->map.coins, game->movements);
     return 0;
 }
 

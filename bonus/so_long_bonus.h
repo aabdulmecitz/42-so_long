@@ -6,7 +6,7 @@
 /*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 15:16:28 by aozkaya           #+#    #+#             */
-/*   Updated: 2024/12/17 04:00:22 by aabdulmecit      ###   ########.fr       */
+/*   Updated: 2024/12/17 04:59:04 by aabdulmecit      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -193,6 +193,7 @@ void    init_animation(t_game *game, t_image **image, ...);
 void    init_all_of_animations(t_game *game);
 void    run_animation(t_game *game, t_image *image_list);
 void	ft_paint_coin_with_animation(t_game *game, int x, int y);
+void    finish_screen(t_game *game, int is_succes);
 
 
 
