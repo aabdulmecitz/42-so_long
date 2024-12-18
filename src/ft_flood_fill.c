@@ -6,7 +6,7 @@
 /*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/24 21:33:43 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/12/18 15:55:01 by aozkaya          ###   ########.fr       */
+/*   Updated: 2024/12/18 15:59:09 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,7 +110,7 @@ void	check_as_a_hero(t_game *game)
 	if (result)
 		ft_printf(GREEN"Passed from flood fill\n"RESET);
 	else
-		ft_error_msg("All of coins can't be collected.", game);
+		ft_error_msg("All of coins or exit can't accessible.", game);
 	ft_free_just_map(clone_map_c);
 	ft_free_just_map(clone_map_e);
 }
