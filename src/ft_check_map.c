@@ -6,7 +6,7 @@
 /*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 19:32:02 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/12/19 01:29:38 by aabdulmecit      ###   ########.fr       */
+/*   Updated: 2024/12/19 02:01:57 by aabdulmecit      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,8 @@ void	ft_check_rectanglular(t_game *game)
 		if (current_row_len != first_row_len)
 		{
 			ft_printf(RED "%s , current row len: %d , first row len:\
-					%d\n" RESET, game->map.full[i], current_row_len,
-					first_row_len);
+				%d\n" RESET, game->map.full[i], current_row_len,
+				first_row_len);
 			ft_error_msg("Map is not rectangular!", game);
 			return ;
 		}
@@ -55,8 +55,8 @@ void	ft_check_elements(t_game *game)
 {
 	ft_search_elements(game);
 	if (game->map.players != 1)
-		ft_error_msg("Map must contain exactly one starting position ('P')",
-				game);
+		ft_error_msg("Map must contain exactly one starting position ('P')", \
+		game);
 	if (game->map.exit != 1)
 		ft_error_msg("Map must contain exactly one exit ('E')", game);
 	if (game->map.coins < 1)
@@ -71,8 +71,8 @@ void	ft_search_elements(t_game *game)
 	y = 0;
 	while (y < game->map.rows)
 	{
-		ft_printf(CYAN "|%s| size: %d|\n" RESET, game->map.full[y],
-				(int)ft_strlen(game->map.full[y]));
+		ft_printf(CYAN "|%s| size: %d|\n" RESET, game->map.full[y], \
+			(int)ft_strlen(game->map.full[y]));
 		x = 0;
 		while (x < game->map.columns)
 		{
