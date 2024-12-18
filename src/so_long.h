@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
+/*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 15:16:28 by aozkaya           #+#    #+#             */
-/*   Updated: 2024/12/18 15:55:42 by aozkaya          ###   ########.fr       */
+/*   Updated: 2024/12/19 01:47:12 by aabdulmecit      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -149,6 +149,7 @@ int 	ft_destroy_window(t_game *game);
 void    ft_congrats_message();
 int		ft_render_frame(t_game *game);
 int		ft_update_frame(t_game *game);
+void    free_tripple(void *ptr1, void *ptr2, void *ptr3, void *ptr4);
 
 void ft_print_map_full(t_game *game);
 

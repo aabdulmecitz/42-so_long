@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
+/*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 03:00:21 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/11/28 17:37:18 by aozkaya          ###   ########.fr       */
+/*   Updated: 2024/12/19 01:47:03 by aabdulmecit      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,13 @@ void ft_print_map_full(t_game *game)
 {
     int i;
 
-    for (i = 0; i < game->map.rows; i++)
-    {
+	i = 0;
+
+    while (i)
+	{
+		i++;
         ft_printf("%s|size: %d\n", game->map.full[i], (int)ft_strlen(game->map.full[i]));
-    }
+	}
 }
 
 int	main(int argc, const char *argv[])
