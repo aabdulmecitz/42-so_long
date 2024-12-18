@@ -37,10 +37,11 @@ BONUS_SRC 		= $(addprefix $(BONUS_SRCS_DIR),\
 
 
 all:			${NAME} ${LIBFT} 
-
 bonus:			${NAME_BONUS} ${LIBFT}
+
 ${NAME}: 		
 				${CC} ${SRCS} ${LIBFT} -L./lib/minilibx-linux ${MLX} ${MINILIBX_FLAGS} -g3 -o ${NAME}
+				make compile_libs
 				@echo "$(NAME): $(GREEN)$(NAME) was compiled.$(RESET)"
 				@echo
 
