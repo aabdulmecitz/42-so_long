@@ -6,7 +6,7 @@
 /*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 19:39:02 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/12/19 01:49:03 by aabdulmecit      ###   ########.fr       */
+/*   Updated: 2024/12/19 01:53:08 by aabdulmecit      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	ft_init_map(t_game *game, char *argv)
 		if (line_temp == NULL)
 			break ;
 		tmp = ft_strjoin(map_temp, line_temp);
-		free_tripple(map_temp, line_temp, NULL, NULL);
+		free_double(map_temp, line_temp, NULL, NULL);
 		map_temp = tmp;
 		game->map.rows++;
 	}
