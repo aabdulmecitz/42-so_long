@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_flood_fill.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
+/*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/24 21:33:43 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/12/18 15:59:09 by aozkaya          ###   ########.fr       */
+/*   Updated: 2024/12/19 01:27:10 by aabdulmecit      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,7 @@ static t_map	*ft_copy_map(const t_map *src_map)
 static void	flood_fill_c(t_map *map, int x, int y, int *collected)
 {
 	if (x < 0 || x >= map->columns || y < 0 || y >= map->rows
-		|| map->full[y][x] == WALL
-		|| map->full[y][x] == 'F'
+		|| map->full[y][x] == WALL || map->full[y][x] == 'F'
 		|| map->full[y][x] == MAP_EXIT)
 		return ;
 	if (map->full[y][x] == COINS)
@@ -58,8 +57,7 @@ static void	flood_fill_c(t_map *map, int x, int y, int *collected)
 static void	flood_fill_e(t_map *map, int x, int y, int *collected)
 {
 	if (x < 0 || x >= map->columns || y < 0 || y >= map->rows
-		|| map->full[y][x] == WALL
-		|| map->full[y][x] == 'F')
+		|| map->full[y][x] == WALL || map->full[y][x] == 'F')
 		return ;
 	if (map->full[y][x] == MAP_EXIT)
 		(*collected)++;
@@ -92,11 +90,11 @@ void	check_as_a_hero(t_game *game)
 	t_map	*clone_map_e;
 	int		result;
 
-	if (WIN_W >= (game->map.columns * IMG_WIDTH) && WIN_H
-		>= (game->map.rows * IMG_HEIGHT))
+	if (WIN_W >= (game->map.columns * IMG_WIDTH) && WIN_H >= (game->map.rows
+			* IMG_HEIGHT))
 	{
 		ft_printf("rows %d, columns %d\n", game->map.rows, game->map.columns);
-		ft_printf(GREEN"Map validation passed!\n"RESET);
+		ft_printf(GREEN "Map validation passed!\n" RESET);
 	}
 	else
 		ft_error_msg("The map is too large for your display.", game);
@@ -108,7 +106,7 @@ void	check_as_a_hero(t_game *game)
 		ft_error_msg("Map copy failed.", game);
 	result = ft_check_all_collectables(clone_map_c, clone_map_e, game);
 	if (result)
-		ft_printf(GREEN"Passed from flood fill\n"RESET);
+		ft_printf(GREEN "Passed from flood fill\n" RESET);
 	else
 		ft_error_msg("All of coins or exit can't accessible.", game);
 	ft_free_just_map(clone_map_c);
