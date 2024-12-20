@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_enemy_movement.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
+/*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 02:42:34 by aozkaya           #+#    #+#             */
-/*   Updated: 2024/12/20 05:04:40 by aabdulmecit      ###   ########.fr       */
+/*   Updated: 2024/12/20 18:05:48 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long_bonus.h"
 
-void	move_enemy(t_game *game, t_enemy *enemy int new_x, int new_y);
+void	move_enemy(t_game *game, t_enemy *enemy, int new_x, int new_y);
 
 int	is_valid_position(t_game *game, int x, int y)
 {
@@ -48,7 +48,7 @@ void	ft_enemy_movement(t_game *game, t_enemy *enemy)
 	enemy->last_move_time = current_time;
 }
 
-void	move_enemy(t_game *game, t_enemy *enemy int new_x, int new_y)
+void	move_enemy(t_game *game, t_enemy *enemy, int new_x, int new_y)
 {
 	if (is_valid_position(game, new_x, new_y))
 	{

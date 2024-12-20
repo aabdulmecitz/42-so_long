@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_check_map.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
+/*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 19:32:02 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/12/20 05:05:39 by aabdulmecit      ###   ########.fr       */
+/*   Updated: 2024/12/20 18:05:56 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void	ft_check_elements(t_game *game)
 	ft_search_elements(game);
 	if (game->map.players != 1)
 		ft_error_msg("Map must contain exactly one starting position ('P')", \
-			ame);
+			game);
 	if (game->map.exit != 1)
 		ft_error_msg("Map must contain exactly one exit ('E')", game);
 	if (game->map.coins < 1)
