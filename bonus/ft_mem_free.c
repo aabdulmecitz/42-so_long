@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_mem_free.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
+/*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 02:11:01 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/12/16 17:56:35 by aabdulmecit      ###   ########.fr       */
+/*   Updated: 2024/12/20 18:08:16 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,6 @@ static void ft_destroy_images(t_game *game)
         game->open_exit,
         NULL
     };
-
     while (images[i])
     {
         if (images[i]->xpm_ptr)
