@@ -6,7 +6,7 @@
 /*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 02:11:01 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/12/21 00:56:01 by aabdulmecit      ###   ########.fr       */
+/*   Updated: 2024/12/21 01:52:27 by aabdulmecit      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ static void	ft_destroy_images(t_game *game)
 	while (images[i])
 	{
 		if (images[i]->xpm_ptr)
-			mlx_destroy_image(game->mlx_ptr, images[i]->xpm_ptr);
+            free_image_list(images[i], game->mlx_ptr);
 		free(images[i]);
 		i++;
 	}

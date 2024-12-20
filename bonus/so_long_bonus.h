@@ -6,7 +6,7 @@
 /*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 15:16:28 by aozkaya           #+#    #+#             */
-/*   Updated: 2024/12/21 01:26:16 by aabdulmecit      ###   ########.fr       */
+/*   Updated: 2024/12/21 01:50:17 by aabdulmecit      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -198,5 +198,6 @@ void				finish_screen(t_game *game, int is_succes);
 void				free_double(void *ptr1, void *ptr2, void *ptr3, void *ptr4);
 void				conf_null(t_game *game);
 void				load_all_sprites(t_game *game);
+void				free_image_list(t_image *head, void *mlx_ptr);
 
 #endif
