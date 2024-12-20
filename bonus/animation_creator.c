@@ -6,13 +6,14 @@
 /*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 23:35:52 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/12/21 00:34:43 by aabdulmecit      ###   ########.fr       */
+/*   Updated: 2024/12/21 00:36:09 by aabdulmecit      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long_bonus.h"
 
-void    image_creator(t_game *game, t_image *new_image, const char *current_path);
+void	image_creator(t_game *game, t_image *new_image,
+			const char *current_path);
 
 void	init_animation(t_game *game, t_image **image, ...)
 {
@@ -25,8 +26,8 @@ void	init_animation(t_game *game, t_image **image, ...)
 	current_path = va_arg(args, const char *);
 	while (current_path != NULL)
 	{
-        new_image = malloc(sizeof(t_image));
-        image_creator(game, new_image, current_path);
+		new_image = malloc(sizeof(t_image));
+		image_creator(game, new_image, current_path);
 		if (*image != NULL)
 		{
 			temp = *image;
@@ -43,9 +44,8 @@ void	init_animation(t_game *game, t_image **image, ...)
 
 void	init_all_of_animations(t_game *game)
 {
-	init_animation(game, &game->coins, "assets/sprites/coin/coin2.xpm",
-			"assets/sprites/coin/coin3.xpm", "assets/sprites/coin/coin4.xpm",
-			NULL);
+	init_animation(game, &game->coins, "assets/sprites/coin/coin2.xpm", \
+"assets/sprites/coin/coin3.xpm", "assets/sprites/coin/coin4.xpm", NULL);
 }
 
 void	run_animation(t_game *game, t_image *image_list)
@@ -63,7 +63,7 @@ void	run_animation(t_game *game, t_image *image_list)
 			current_image = image_list;
 		if (current_image && current_image->xpm_ptr)
 		{
-			mlx_put_image_to_window(game->mlx_ptr, game->win_ptr,
+			mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, \
 					current_image->xpm_ptr, current_image->x, current_image->y);
 		}
 		current_image = current_image->next;
@@ -74,10 +74,11 @@ void	run_animation(t_game *game, t_image *image_list)
 	}
 }
 
-void    image_creator(t_game *game, t_image *new_image, const char *current_path)
+void	image_creator(t_game *game, t_image *new_image,
+		const char *current_path)
 {
-    if (!new_image)
-        ft_error_msg("Memory allocation failed for image node.", game);
-    ft_load_sprite(new_image, game->mlx_ptr, (char *)current_path, game);
+	if (!new_image)
+		ft_error_msg("Memory allocation failed for image node.", game);
+	ft_load_sprite(new_image, game->mlx_ptr, (char *)current_path, game);
 	new_image->next = NULL;
 }
