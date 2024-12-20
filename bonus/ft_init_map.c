@@ -6,13 +6,13 @@
 /*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 19:39:02 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/12/21 00:37:30 by aabdulmecit      ###   ########.fr       */
+/*   Updated: 2024/12/21 00:39:22 by aabdulmecit      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long_bonus.h"
 
-void    ft_check_for_empty_line(char *map, t_game *game);
+void	ft_check_for_empty_line(char *map, t_game *game);
 
 void	ft_init_map(t_game *game, char *argv)
 {
@@ -43,7 +43,7 @@ void	ft_init_map(t_game *game, char *argv)
 	free(map_temp);
 }
 
-void    ft_check_for_empty_line(char *map, t_game *game)
+void	ft_check_for_empty_line(char *map, t_game *game)
 {
 	int	i;
 
@@ -56,7 +56,7 @@ The map have an empty line right at the beginning.", game);
 	}
 	else if (map[ft_strlen(map) - 1] == '\n')
 	{
-		free (map);
+		free(map);
 		ft_error_msg("Invalid map. \
 The map have an empty line at the end.", game);
 	}
@@ -71,4 +71,3 @@ The map have an empty line at the middle.", game);
 		i++;
 	}
 }
-

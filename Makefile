@@ -33,7 +33,7 @@ BONUS_SRC 		= $(addprefix $(BONUS_SRCS_DIR),\
 				ft_check_map.c ft_init_map.c write_steps.c\
 				so_long_bonus.c ft_mem_free.c ft_render_frame.c\
 				ft_flood_fill.c ft_handle_buttons.c coin_animation.c\
-				animation_creator.c)
+				animation_creator.c free.c)
 
 
 all:			${NAME} ${LIBFT} 

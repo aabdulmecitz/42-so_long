@@ -6,11 +6,11 @@
 /*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 01:42:47 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/12/19 02:02:19 by aabdulmecit      ###   ########.fr       */
+/*   Updated: 2024/12/21 00:38:22 by aabdulmecit      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 void	free_double(void *ptr1, void *ptr2, void *ptr3, void *ptr4)
 {
