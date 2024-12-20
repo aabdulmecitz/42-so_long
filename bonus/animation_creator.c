@@ -6,7 +6,7 @@
 /*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 23:35:52 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/12/21 00:36:09 by aabdulmecit      ###   ########.fr       */
+/*   Updated: 2024/12/21 01:16:42 by aabdulmecit      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	run_animation(t_game *game, t_image *image_list)
 	last_time = 0;
 	current_image = NULL;
 	current_time = time(NULL);
-	if (difftime(current_time, last_time) * 1000 >= delay)
+	if (difftime(current_time, last_time) * 1000 >= DELAY)
 	{
 		if (current_image == NULL)
 			current_image = image_list;

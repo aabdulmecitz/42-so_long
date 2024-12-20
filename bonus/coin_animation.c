@@ -6,7 +6,7 @@
 /*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 17:39:19 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/12/21 00:45:19 by aabdulmecit      ###   ########.fr       */
+/*   Updated: 2024/12/21 01:16:34 by aabdulmecit      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ t_image	*get_current_coin_frame(t_game *game)
 	elapsed_time = (double)(current_time - last_time) / CLOCKS_PER_SEC * 1500.0;
 	if (current_frame == NULL)
 		current_frame = game->coins;
-	if (elapsed_time >= delay)
+	if (elapsed_time >= DELAY)
 	{
 		current_frame = current_frame->next;
 		if (current_frame == NULL)
