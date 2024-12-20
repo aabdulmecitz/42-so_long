@@ -6,7 +6,7 @@
 /*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 02:11:01 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/12/21 01:52:27 by aabdulmecit      ###   ########.fr       */
+/*   Updated: 2024/12/21 02:40:44 by aabdulmecit      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ void	ft_free_all_allocated_memory(t_game *game)
 
 static void	ft_destroy_images(t_game *game)
 {
-	int			i;
-	t_image		*images[10];
+	int		i;
+	t_image	*images[10];
 
 	i = 0;
 	images[0] = game->wall;
@@ -51,7 +51,7 @@ static void	ft_destroy_images(t_game *game)
 	while (images[i])
 	{
 		if (images[i]->xpm_ptr)
-            free_image_list(images[i], game->mlx_ptr);
+			free_image_list(images[i], game->mlx_ptr);
 		free(images[i]);
 		i++;
 	}
