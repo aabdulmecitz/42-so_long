@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_render_frame.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
+/*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 05:38:38 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/12/21 00:52:39 by aabdulmecit      ###   ########.fr       */
+/*   Updated: 2024/12/21 17:05:50 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,33 @@ int	ft_render_frame(t_game *game)
 		{
 			if (y < game->map.rows)
 				ft_paint_texture(game, x, y);
-			else
-				mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, \
-game->floor->xpm_ptr, x * IMG_WIDTH, y * IMG_HEIGHT);
 			x++;
 		}
 		y++;
 	}
-	write_steps(game, 32, (game->map.rows + 1) * IMG_HEIGHT);
+	return (0);
+}
+
+int	print_space_line(t_game *game)
+{
+	int	x;
+	int	y;
+
+	y = 0;
+	while (y < game->map.rows + 2)
+	{
+		x = 0;
+		while (x < game->map.columns)
+		{
+			if (!(y < game->map.rows))
+			{
+				mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, \
+game->floor->xpm_ptr, x * IMG_WIDTH, y * IMG_HEIGHT);
+			}
+			x++;
+		}
+		y++;
+	}
 	return (0);
 }
 

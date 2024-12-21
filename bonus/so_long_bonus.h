@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
+/*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 15:16:28 by aozkaya           #+#    #+#             */
-/*   Updated: 2024/12/21 01:50:17 by aabdulmecit      ###   ########.fr       */
+/*   Updated: 2024/12/21 17:02:23 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -199,5 +199,6 @@ void				free_double(void *ptr1, void *ptr2, void *ptr3, void *ptr4);
 void				conf_null(t_game *game);
 void				load_all_sprites(t_game *game);
 void				free_image_list(t_image *head, void *mlx_ptr);
+int					print_space_line(t_game *game);
 
 #endif

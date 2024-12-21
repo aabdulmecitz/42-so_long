@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_handle_buttons.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
+/*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 15:51:50 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/12/21 01:15:41 by aabdulmecit      ###   ########.fr       */
+/*   Updated: 2024/12/21 17:02:46 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,9 @@ void	ft_move_direction(t_game *game, int dx, int dy)
 {
 	int	x;
 	int	y;
+	int i;
 
+	i = 0;
 	x = game->map.player.x;
 	y = game->map.player.y;
 	if (game->map.full[y + dy][x + dx] != WALL && (game->map.full[y + dy][x
@@ -57,6 +59,8 @@ void	ft_move_direction(t_game *game, int dx, int dy)
 		game->map.player.y += dy;
 		game->map.full[y + dy][x + dx] = PLAYER;
 		game->movements++;
+		print_space_line(game);
+		write_steps(game, 32, (game->map.rows + 1) * IMG_HEIGHT);
 	}
 }
 
