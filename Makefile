@@ -5,20 +5,20 @@ GREEN			= \033[0;32m
 RED				= \033[0;31m
 RESET			= \033[0m
 
-LIBFT 			= lib/libft/libft.a
+LIBFT 			= ./lib/libft/libft.a
+MLX 			= ./lib/minilibx-linux/libmlx.a
 
 CC 				= cc
 
 STANDARD_FLAGS 	= -Wall -Werror -Wextra
 MINILIBX_FLAGS	= -lXext -lX11
-MLX = ./lib/minilibx-linux/libmlx.a
 
 VALGRIND		= @valgrind --leak-check=full --show-leak-kinds=all
 
 REMOVE 			= rm -f
 
 SRCS_DIR		= ./src/
-BONUS_SRCS_DIR		= ./bonus/
+BONUS_SRCS_DIR	= ./bonus/
 
 SRCS 			= $(addprefix $(SRCS_DIR),\
 				ft_check_command_line_args.c \
@@ -36,8 +36,8 @@ BONUS_SRC 		= $(addprefix $(BONUS_SRCS_DIR),\
 				animation_creator.c free.c)
 
 
-all:			${NAME} ${LIBFT} 
-bonus:			${NAME_BONUS} ${LIBFT}
+all:			${LIBFT} ${MLX} ${NAME} 
+bonus:			${LIBFT} ${MLX} ${NAME_BONUS} 
 
 ${NAME}: 		
 				${CC} ${SRCS} ${LIBFT} -L./lib/minilibx-linux ${MLX} ${MINILIBX_FLAGS} -g3 -o ${NAME}
@@ -50,9 +50,17 @@ ${NAME_BONUS}:
 				@echo "$(NAME_BONUS): $(GREEN)$(NAME_BONUS) was compiled.$(RESET)"
 				@echo
 
+${MLX}:
+				@echo "Compiling MLX..."
+				make -C lib/minilibx-linux
+				make clean lib/minilibx-linux
+				@echo "MLX compiled successfully."
+
 ${LIBFT}:
-				@echo
-				make bonus -C lib/libft
+				@echo "Compiling libft..."
+				make -C lib/libft
+				make clean lib/libft
+				@echo "libft compiled successfully."
 
 clean:
 				make clean -C lib/libft
