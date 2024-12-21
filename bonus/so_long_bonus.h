@@ -6,7 +6,7 @@
 /*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 15:16:28 by aozkaya           #+#    #+#             */
-/*   Updated: 2024/12/21 17:02:23 by aozkaya          ###   ########.fr       */
+/*   Updated: 2024/12/21 17:50:28 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@
 # define IMG_HEIGHT 32
 # define IMG_WIDTH 32
 
-# define DELAY 100
+# define DELAY 50
 
 # define WIN_H 1080
 # define WIN_W 1920
