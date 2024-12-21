@@ -13,7 +13,7 @@ STANDARD_FLAGS 	= -Wall -Werror -Wextra
 MINILIBX_FLAGS	= -lXext -lX11
 MLX = ./lib/minilibx-linux/libmlx.a
 
-VALGRIND		= @valgrind --leak-check=full
+VALGRIND		= @valgrind --leak-check=full --show-leak-kinds=all
 
 REMOVE 			= rm -f
 
