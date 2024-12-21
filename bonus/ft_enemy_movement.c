@@ -6,7 +6,7 @@
 /*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 02:42:34 by aozkaya           #+#    #+#             */
-/*   Updated: 2024/12/21 17:55:23 by aozkaya          ###   ########.fr       */
+/*   Updated: 2024/12/21 18:19:58 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,30 +27,25 @@ int	is_valid_position(t_game *game, int x, int y)
 
 void	ft_enemy_movement(t_game *game, t_enemy *enemy)
 {
-	static clock_t	last_time = 0;
-	clock_t			cur_time;
-	double			elapsed_time;
-	int				new_x;
-	int				new_y;
+	time_t	current_time;
+	int		new_x;
+	int		new_y;
 
-	cur_time = clock();
-	elapsed_time = (double)(cur_time - last_time) / CLOCKS_PER_SEC * 10000.0;
-	if (elapsed_time >= DELAY)
-	{
-		new_x = enemy->x;
-		new_y = enemy->y;
-		if (enemy->dir == BACK)
-			new_y--;
-		else if (enemy->dir == FRONT)
-			new_y++;
-		else if (enemy->dir == RIGHT)
-			new_x++;
-		else if (enemy->dir == LEFT)
-			new_x--;
-		move_enemy(game, enemy, new_x, new_y);
-		enemy->last_move_time = cur_time;
-		last_time = cur_time;
-	}
+	current_time = time(NULL);
+	if (difftime(current_time, enemy->last_move_time) < 0.1)
+		return ;
+	new_x = enemy->x;
+	new_y = enemy->y;
+	if (enemy->dir == BACK)
+		new_y--;
+	else if (enemy->dir == FRONT)
+		new_y++;
+	else if (enemy->dir == RIGHT)
+		new_x++;
+	else if (enemy->dir == LEFT)
+		new_x--;
+	move_enemy(game, enemy, new_x, new_y);
+	enemy->last_move_time = current_time;
 }
 
 void	move_enemy(t_game *game, t_enemy *enemy, int new_x, int new_y)
