@@ -85,7 +85,10 @@ run_bonus:		re_bonus
 				./${NAME_BONUS} assets/maps/valid/bonus/map5.ber 
 
 valgrind: re
-	$(VALGRIND) ./${NAME} assets/maps/valid/map2.ber 
+	valgrind --leak-check=full ./${NAME} assets/maps/valid/map2.ber 
+
+valgrind_bonus:
+	valgrind --leak-check=full ./so_long_bonus assets/maps/valid/bonus/map5.ber
 
 
 .PHONY:			all clean fclean re rebonus valgrind run run_bonus makefile
