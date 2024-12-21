@@ -91,5 +91,7 @@ valgrind: re
 valgrind_bonus:
 	$(VALGRIND)  --leak-check=full ./so_long_bonus assets/maps/valid/bonus/map5.ber
 
+norminette:
+	norminette ./src && norminette ./bonus
 
 .PHONY:			all clean fclean re rebonus valgrind run run_bonus makefile
