@@ -70,6 +70,7 @@ push:
 re:				fclean all
 
 re_bonus:	fclean bonus
+
 compile_libs:
 	@make -sC lib/libft
 	@make -sC lib/minilibx-linux
@@ -85,10 +86,10 @@ run_bonus:		re_bonus
 				./${NAME_BONUS} assets/maps/valid/bonus/map5.ber 
 
 valgrind: re
-	valgrind --leak-check=full ./${NAME} assets/maps/valid/map2.ber 
+	$(VALGRIND) ./${NAME} assets/maps/valid/map2.ber 
 
 valgrind_bonus:
-	valgrind --leak-check=full ./so_long_bonus assets/maps/valid/bonus/map5.ber
+	$(VALGRIND)  --leak-check=full ./so_long_bonus assets/maps/valid/bonus/map5.ber
 
 
 .PHONY:			all clean fclean re rebonus valgrind run run_bonus makefile
