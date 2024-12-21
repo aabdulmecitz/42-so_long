@@ -6,7 +6,7 @@
 /*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 15:51:50 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/12/21 17:02:46 by aozkaya          ###   ########.fr       */
+/*   Updated: 2024/12/21 17:53:42 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	ft_move_direction(t_game *game, int dx, int dy)
 {
 	int	x;
 	int	y;
-	int i;
+	int	i;
 
 	i = 0;
 	x = game->map.player.x;

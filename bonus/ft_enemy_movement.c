@@ -6,7 +6,7 @@
 /*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 02:42:34 by aozkaya           #+#    #+#             */
-/*   Updated: 2024/12/21 17:52:13 by aozkaya          ###   ########.fr       */
+/*   Updated: 2024/12/21 17:55:23 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,15 +28,13 @@ int	is_valid_position(t_game *game, int x, int y)
 void	ft_enemy_movement(t_game *game, t_enemy *enemy)
 {
 	static clock_t	last_time = 0;
-	clock_t			current_time;
+	clock_t			cur_time;
 	double			elapsed_time;
+	int				new_x;
+	int				new_y;
 
-	int		new_x;
-	int		new_y;
-
-	current_time = clock();
-	elapsed_time = (double)(current_time - last_time) / CLOCKS_PER_SEC * 10000.0;
-
+	cur_time = clock();
+	elapsed_time = (double)(cur_time - last_time) / CLOCKS_PER_SEC * 10000.0;
 	if (elapsed_time >= DELAY)
 	{
 		new_x = enemy->x;
@@ -50,8 +48,8 @@ void	ft_enemy_movement(t_game *game, t_enemy *enemy)
 		else if (enemy->dir == LEFT)
 			new_x--;
 		move_enemy(game, enemy, new_x, new_y);
-		enemy->last_move_time = current_time;
-		last_time = current_time;
+		enemy->last_move_time = cur_time;
+		last_time = cur_time;
 	}
 }
 
