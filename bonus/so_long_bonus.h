@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
+/*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 15:16:28 by aozkaya           #+#    #+#             */
-/*   Updated: 2024/12/21 17:59:30 by aozkaya          ###   ########.fr       */
+/*   Updated: 2024/12/27 01:42:38 by aabdulmecit      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -190,7 +190,7 @@ void				write_steps(t_game *game, int x, int y);
 void				init_coin_animation(t_game *game);
 void				ft_update_coin_animation(t_game *game);
 void				ft_free_coin_animation(t_game *game);
-void				init_animation(t_game *game, t_image **image, ...);
+void				init_animation(t_game *game, t_image *image, ...);
 void				init_all_of_animations(t_game *game);
 void				run_animation(t_game *game, t_image *image_list);
 void				ft_paint_coin_with_animation(t_game *game, int x, int y);

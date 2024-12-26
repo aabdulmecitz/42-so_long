@@ -6,7 +6,7 @@
 /*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 23:35:52 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/12/21 01:16:42 by aabdulmecit      ###   ########.fr       */
+/*   Updated: 2024/12/27 01:44:04 by aabdulmecit      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	image_creator(t_game *game, t_image *new_image,
 			const char *current_path);
 
-void	init_animation(t_game *game, t_image **image, ...)
+void	init_animation(t_game *game, t_image *image, ...)
 {
 	va_list		args;
 	t_image		*new_image;
@@ -24,19 +24,13 @@ void	init_animation(t_game *game, t_image **image, ...)
 
 	va_start(args, image);
 	current_path = va_arg(args, const char *);
+	temp = image;
 	while (current_path != NULL)
 	{
 		new_image = malloc(sizeof(t_image));
 		image_creator(game, new_image, current_path);
-		if (*image != NULL)
-		{
-			temp = *image;
-			while (temp->next != NULL)
-				temp = temp->next;
-			temp->next = new_image;
-		}
-		else
-			*image = new_image;
+		temp->next = new_image;
+		temp = temp->next;
 		current_path = va_arg(args, const char *);
 	}
 	va_end(args);
@@ -44,8 +38,8 @@ void	init_animation(t_game *game, t_image **image, ...)
 
 void	init_all_of_animations(t_game *game)
 {
-	init_animation(game, &game->coins, "assets/sprites/coin/coin2.xpm", \
-"assets/sprites/coin/coin3.xpm", "assets/sprites/coin/coin4.xpm", NULL);
+	init_animation(game, game->coins, "assets/sprites/coin/coin2.xpm", \
+"assets/sprites/coin/coin3.xpm", "assets/sprites/coin/coin4.xpm");
 }
 
 void	run_animation(t_game *game, t_image *image_list)

@@ -40,13 +40,13 @@ all:			${LIBFT} ${MLX} ${NAME}
 bonus:			${LIBFT} ${MLX} ${NAME_BONUS} 
 
 ${NAME}: 		
-				${CC} ${SRCS} ${LIBFT} -L./lib/minilibx-linux ${MLX} ${MINILIBX_FLAGS} -g3 -o ${NAME}
+				${CC} ${SRCS} ${LIBFT} -L./lib/minilibx-linux ${MLX} ${MINILIBX_FLAGS} -g -fsanitize=address -o ${NAME}
 				make compile_libs
 				@echo "$(NAME): $(GREEN)$(NAME) was compiled.$(RESET)"
 				@echo
 
 ${NAME_BONUS}: 		
-				${CC} ${BONUS_SRC} ${LIBFT} -L./lib/minilibx-linux ${MLX} ${MINILIBX_FLAGS} -g3 -o ${NAME_BONUS}
+				${CC} ${BONUS_SRC} ${LIBFT} -L./lib/minilibx-linux ${MLX} ${MINILIBX_FLAGS} -g -fsanitize=address -o ${NAME_BONUS}
 				@echo "$(NAME_BONUS): $(GREEN)$(NAME_BONUS) was compiled.$(RESET)"
 				@echo
 
