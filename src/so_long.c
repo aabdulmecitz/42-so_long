@@ -6,7 +6,7 @@
 /*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 17:10:28 by aozkaya           #+#    #+#             */
-/*   Updated: 2024/12/27 17:11:02 by aozkaya          ###   ########.fr       */
+/*   Updated: 2024/12/27 17:11:55 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	ft_close_game(t_game *game)
 
 void	ft_print_map_full(t_game *game)
 {
-	int	i;# include <stdio.h>
+	int	i;
 
 	i = 0;
 	while (i)
