@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
+/*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/02 03:00:21 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/12/19 01:56:51 by aabdulmecit      ###   ########.fr       */
+/*   Created: 2024/12/27 17:10:28 by aozkaya           #+#    #+#             */
+/*   Updated: 2024/12/27 17:11:02 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-#include <stdio.h>
 
 int	ft_close_game(t_game *game)
 {
@@ -23,7 +22,7 @@ int	ft_close_game(t_game *game)
 
 void	ft_print_map_full(t_game *game)
 {
-	int	i;
+	int	i;# include <stdio.h>
 
 	i = 0;
 	while (i)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_check_command_line_args.c                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
+/*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/15 01:45:25 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/12/19 02:00:04 by aabdulmecit      ###   ########.fr       */
+/*   Created: 2024/12/27 17:09:40 by aozkaya           #+#    #+#             */
+/*   Updated: 2024/12/27 17:09:41 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

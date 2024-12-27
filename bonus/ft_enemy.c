@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_enemy.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
+/*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/30 17:59:37 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/12/21 00:26:48 by aabdulmecit      ###   ########.fr       */
+/*   Created: 2024/12/27 17:08:30 by aozkaya           #+#    #+#             */
+/*   Updated: 2024/12/27 17:08:31 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_mem_free.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
+/*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/23 02:11:01 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/12/19 02:15:07 by aabdulmecit      ###   ########.fr       */
+/*   Created: 2024/12/27 17:10:09 by aozkaya           #+#    #+#             */
+/*   Updated: 2024/12/27 17:10:11 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

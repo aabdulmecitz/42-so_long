@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   animation_creator.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
+/*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/16 23:35:52 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/12/27 16:17:23 by aabdulmecit      ###   ########.fr       */
+/*   Created: 2024/12/27 17:07:30 by aozkaya           #+#    #+#             */
+/*   Updated: 2024/12/27 17:07:32 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_handle_buttons.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
+/*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/25 15:51:50 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/12/19 02:17:09 by aabdulmecit      ###   ########.fr       */
+/*   Created: 2024/12/27 17:09:52 by aozkaya           #+#    #+#             */
+/*   Updated: 2024/12/27 17:09:54 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
+/*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/02 03:00:21 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/12/21 00:40:31 by aabdulmecit      ###   ########.fr       */
+/*   Created: 2024/12/27 17:09:07 by aozkaya           #+#    #+#             */
+/*   Updated: 2024/12/27 17:09:09 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

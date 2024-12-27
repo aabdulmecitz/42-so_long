@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_init_game.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
+/*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/23 02:15:50 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/12/19 01:58:28 by aabdulmecit      ###   ########.fr       */
+/*   Created: 2024/12/27 17:09:59 by aozkaya           #+#    #+#             */
+/*   Updated: 2024/12/27 17:10:00 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
