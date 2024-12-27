@@ -6,7 +6,7 @@
 /*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 17:10:17 by aozkaya           #+#    #+#             */
-/*   Updated: 2024/12/27 17:10:18 by aozkaya          ###   ########.fr       */
+/*   Updated: 2024/12/28 02:08:10 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,18 +31,16 @@ void	ft_congrats_message(void)
 {
 	ft_printf(GREEN "\n");
 	ft_printf(GREEN "==============================================\
-        =============\n" RESET);
-	ft_printf(GREEN "                   🎉 CONGRATULATIONS! 🎉      \
-        \n" RESET);
+=============\n" RESET);
+	ft_printf(GREEN "                   🎉 CONGRATULATIONS! 🎉 \n" RESET);
 	ft_printf(GREEN "-----------------------------------------------\
-        ------------\n" RESET);
-	ft_printf(GREEN " You've successfully completed the game! 🏆    \
-        \n" RESET);
+------------\n" RESET);
+	ft_printf(GREEN " You've successfully completed the game! 🏆 \n" RESET);
 	ft_printf(GREEN " Thanks for playing and being an awesome hero. \
-        👑\n" RESET);
+👑\n" RESET);
 	ft_printf(GREEN " Remember: the real treasure was the journey al\
-        l along! 💎 \n" RESET);
+l along! 💎 \n" RESET);
 	ft_printf(GREEN "===============================================\
-        ============\n" RESET);
+============\n" RESET);
 	ft_printf(GREEN "\n");
 }
