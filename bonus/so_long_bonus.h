@@ -6,7 +6,7 @@
 /*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 15:16:28 by aozkaya           #+#    #+#             */
-/*   Updated: 2024/12/27 01:42:38 by aabdulmecit      ###   ########.fr       */
+/*   Updated: 2024/12/27 16:11:37 by aabdulmecit      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 # include <X11/keysym.h>
 # include <fcntl.h>
 # include <stdarg.h>
-# include <stdio.h>
 # include <time.h>
 # include <unistd.h>
 

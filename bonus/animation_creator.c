@@ -6,7 +6,7 @@
 /*   By: aabdulmecitz <aabdulmecitz@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 23:35:52 by aabdulmecit       #+#    #+#             */
-/*   Updated: 2024/12/27 01:44:04 by aabdulmecit      ###   ########.fr       */
+/*   Updated: 2024/12/27 16:11:20 by aabdulmecit      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	init_animation(t_game *game, t_image *image, ...)
 void	init_all_of_animations(t_game *game)
 {
 	init_animation(game, game->coins, "assets/sprites/coin/coin2.xpm", \
-"assets/sprites/coin/coin3.xpm", "assets/sprites/coin/coin4.xpm");
+"assets/sprites/coin/coin3.xpm", "assets/sprites/coin/coin4.xpm", NULL);
 }
 
 void	run_animation(t_game *game, t_image *image_list)
@@ -64,7 +64,6 @@ void	run_animation(t_game *game, t_image *image_list)
 		if (current_image == NULL)
 			current_image = image_list;
 		last_time = current_time;
-		printf("coin ptr: %p\n", current_image->xpm_ptr);
 	}
 }
 
