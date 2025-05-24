@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_check_map.c                                     :+:      :+:    :+:   */
+/*   map_checker.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,101 +12,101 @@
 
 #include "so_long_bonus.h"
 
-void	ft_check_rectanglular(t_game *game);
-void	ft_check_elements(t_game *game);
-void	ft_search_elements(t_game *game);
-void	ft_count_elements(t_game *game, int x, int y);
+void	ft_check_rectanglular(t_ctx *ctx);
+void	ft_check_elements(t_ctx *ctx);
+void	ft_search_elements(t_ctx *ctx);
+void	ft_count_elements(t_ctx *ctx, int x, int y);
 
-void	ft_check_map(t_game *game)
+void	map_checker(t_ctx *ctx)
 {
-	ft_check_rectanglular(game);
-	ft_check_elements(game);
-	check_as_a_hero(game);
+	ft_check_rectanglular(ctx);
+	ft_check_elements(ctx);
+	general_checker(ctx);
 }
 
-void	ft_check_rectanglular(t_game *game)
+void	ft_check_rectanglular(t_ctx *ctx)
 {
 	int	i;
 	int	first_row_len;
 	int	current_row_len;
 
-	if (game->map.rows == 0)
+	if (ctx->map.rows == 0)
 		return ;
-	first_row_len = (int)ft_strlen(game->map.full[0]);
+	first_row_len = (int)ft_strlen(ctx->map.map_matris[0]);
 	i = 1;
-	while (i < game->map.rows)
+	while (i < ctx->map.rows)
 	{
-		current_row_len = (int)ft_strlen(game->map.full[i]);
+		current_row_len = (int)ft_strlen(ctx->map.map_matris[i]);
 		if (current_row_len != first_row_len)
 		{
 			ft_printf(RED "%s , current row len: %d , first row len: \
-				%d\n" RESET, game->map.full[i], current_row_len, \
+				%d\n" RESET, ctx->map.map_matris[i], current_row_len, \
 				first_row_len);
-			ft_error_msg("Map is not rectangular!", game);
+			error("Map is not rectangular!", ctx);
 			return ;
 		}
 		i++;
 	}
-	game->map.columns++;
+	ctx->map.columns++;
 	ft_printf(GREEN "Map is rectangular!\n" RESET);
 }
 
-void	ft_check_elements(t_game *game)
+void	ft_check_elements(t_ctx *ctx)
 {
-	ft_search_elements(game);
-	if (game->map.players != 1)
-		ft_error_msg("Map must contain exactly one starting position ('P')", \
-			game);
-	if (game->map.exit != 1)
-		ft_error_msg("Map must contain exactly one exit ('E')", game);
-	if (game->map.coins < 1)
-		ft_error_msg("Map must contain at least one collectible ('C')", game);
+	ft_search_elements(ctx);
+	if (ctx->map.players != 1)
+		error("Map must contain exactly one starting location ('P')", \
+			ctx);
+	if (ctx->map.exit != 1)
+		error("Map must contain exactly one exit ('E')", ctx);
+	if (ctx->map.coins < 1)
+		error("Map must contain at least one collectible ('C')", ctx);
 }
 
-void	ft_search_elements(t_game *game)
+void	ft_search_elements(t_ctx *ctx)
 {
 	int	y;
 	int	x;
 
 	y = 0;
-	while (y < game->map.rows)
+	while (y < ctx->map.rows)
 	{
-		ft_printf(CYAN "|%s| size: %d|\n" RESET, game->map.full[y], \
-				(int)ft_strlen(game->map.full[y]));
+		ft_printf(CYAN "|%s| size: %d|\n" RESET, ctx->map.map_matris[y], \
+				(int)ft_strlen(ctx->map.map_matris[y]));
 		x = 0;
-		while (x < game->map.columns)
+		while (x < ctx->map.columns)
 		{
-			ft_count_elements(game, x, y);
+			ft_count_elements(ctx, x, y);
 			x++;
 		}
 		y++;
 	}
 }
 
-void	ft_count_elements(t_game *game, int x, int y)
+void	ft_count_elements(t_ctx *ctx, int x, int y)
 {
-	if ((y == 0 || y == game->map.rows - 1 || x == 0 || \
-x == game->map.columns - 1) && game->map.full[y][x] != WALL)
-		ft_error_msg("Invalid Map.", game);
-	if (game->map.full[y][x] == PLAYER)
+	if ((y == 0 || y == ctx->map.rows - 1 || x == 0 || \
+x == ctx->map.columns - 1) && ctx->map.map_matris[y][x] != WALL)
+		error("Invalid Map.", ctx);
+	if (ctx->map.map_matris[y][x] == PLAYER)
 	{
-		game->map.players++;
-		game->map.player.y = y;
-		game->map.player.x = x;
+		ctx->map.players++;
+		ctx->map.player.y = y;
+		ctx->map.player.x = x;
 	}
-	else if (game->map.full[y][x] == MAP_EXIT)
-		game->map.exit++;
-	else if (game->map.full[y][x] == COINS)
-		game->map.coins++;
-	else if (game->map.full[y][x] == STAT_ENEMY)
-		game->enemy_k_num++;
-	else if (game->map.full[y][x] == WANDER_ENEMY)
-		game->enemy_x_num++;
-	else if (game->map.full[y][x] != WALL && game->map.full[y][x] != FLOOR &&
-				game->map.full[y][x] != PLAYER
-					&& game->map.full[y][x] != MAP_EXIT &&
-				game->map.full[y][x] != COINS
-					&& game->map.full[y][x] != WANDER_ENEMY &&
-				game->map.full[y][x] != STAT_ENEMY)
-		ft_error_msg("Invalid character in map", game);
+	else if (ctx->map.map_matris[y][x] == MAP_EXIT)
+		ctx->map.exit++;
+	else if (ctx->map.map_matris[y][x] == COINS)
+		ctx->map.coins++;
+	else if (ctx->map.map_matris[y][x] == STAT_ENEMY)
+		ctx->enemy_k_num++;
+	else if (ctx->map.map_matris[y][x] == WANDER_ENEMY)
+		ctx->enemy_x_num++;
+	else if (ctx->map.map_matris[y][x] != WALL && ctx->map.map_matris[y][x] != FLOOR &&
+				ctx->map.map_matris[y][x] != PLAYER
+					&& ctx->map.map_matris[y][x] != MAP_EXIT &&
+				ctx->map.map_matris[y][x] != COINS
+					&& ctx->map.map_matris[y][x] != WANDER_ENEMY &&
+				ctx->map.map_matris[y][x] != STAT_ENEMY)
+		error("Invalid character in map", ctx);
 }

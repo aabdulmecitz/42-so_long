@@ -6,21 +6,21 @@
 /*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 17:10:28 by aozkaya           #+#    #+#             */
-/*   Updated: 2024/12/27 17:11:55 by aozkaya          ###   ########.fr       */
+/*   Updated: 2025/05/24 21:59:38 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	ft_close_game(t_game *game)
+int	ft_close_ctx(t_ctx *ctx)
 {
-	ft_free_all_allocated_memory(game);
-	ft_printf(GREEN "Game closed successfully.\n" RESET);
+	free_all_mem(ctx);
+	ft_printf(GREEN "game closed success full.\n" RESET);
 	exit(0);
 	return (0);
 }
 
-void	ft_print_map_full(t_game *game)
+void	ft_print_map_map_matris(t_ctx *ctx)
 {
 	int	i;
 
@@ -28,27 +28,26 @@ void	ft_print_map_full(t_game *game)
 	while (i)
 	{
 		i++;
-		ft_printf("%s|size: %d\n", game->map.full[i],
-			(int)ft_strlen(game->map.full[i]));
+		ft_printf("%s|size: %d\n", ctx->map.map_matris[i],
+			(int)ft_strlen(ctx->map.map_matris[i]));
 	}
 }
 
 int	main(int argc, const char *argv[])
 {
-	t_game	*game;
+	t_ctx	*ctx;
 
-	game = malloc(sizeof(t_game));
-	if (!game)
-		ft_error_msg("Memory allocation failed for game", game);
-	ft_check_command_line_args(argc, argv, game);
-	ft_init_map(game, (char *)argv[1]);
-	ft_init_game(game);
-	ft_check_map(game);
-	ft_printf("player's x = %d, player's y = %d\n", game->map.player.x, \
-		game->map.player.y);
-	mlx_loop_hook(game->mlx_ptr, ft_render_frame, game);
-	ft_handle_buttons(game);
-	ft_printf(CYAN "***here***\n" RESET);
-	mlx_loop(game->mlx_ptr);
+	ctx = malloc(sizeof(t_ctx));
+	if (!ctx)
+		error("Memory allocation failed for ctx", ctx);
+	check_cmd_args(argc, argv, ctx);
+	map_initializer(ctx, (char *)argv[1]);
+	so_long_init(ctx);
+	map_checker(ctx);
+	ft_printf("player's x = %d, player's y = %d\n", ctx->map.player.x, \
+		ctx->map.player.y);
+	mlx_loop_hook(ctx->mlx_ptr, render_a_frame, ctx);
+	handler(ctx);
+	mlx_loop(ctx->mlx_ptr);
 	return (0);
 }

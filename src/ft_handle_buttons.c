@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_handle_buttons.c                                :+:      :+:    :+:   */
+/*   handler.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,80 +12,77 @@
 
 #include "so_long.h"
 
-void	ft_check_object(t_game *game, int x, int y);
-void	ft_player_move(int keycode, t_game *game);
-void	ft_move_direction(t_game *game, int dx, int dy);
-int		key_hook(int keycode, t_game *game);
+void	ft_check_object(t_ctx *ctx, int x, int y)
+{
+	if (ctx->map.map_matris[y][x] == COINS)
+		ctx->map.coins--;
+	else if (ctx->map.map_matris[y][x] == MAP_EXIT && ctx->map.coins == 0)
+	{
+		congrats_msg();
+		win_destroy(ctx);
+	}
 
-void	ft_player_move(int keycode, t_game *game)
+}
+void	ft_player_move(int keycode, t_ctx *ctx)
 {
 	if (keycode == KEY_W || keycode == KEY_UP)
 	{
-		game->player_direction = BACK;
-		ft_move_direction(game, 0, -1);
+		ctx->player_dir = BACK;
+		ft_move_dir(ctx, 0, -1);
 	}
 	else if (keycode == KEY_S || keycode == KEY_DOWN)
 	{
-		game->player_direction = FRONT;
-		ft_move_direction(game, 0, 1);
+		ctx->player_dir = FRONT;
+		ft_move_dir(ctx, 0, 1);
 	}
 	else if (keycode == KEY_A || keycode == KEY_LEFT)
 	{
-		game->player_direction = LEFT;
-		ft_move_direction(game, -1, 0);
+		ctx->player_dir = LEFT;
+		ft_move_dir(ctx, -1, 0);
 	}
 	else if (keycode == KEY_D || keycode == KEY_RIGHT)
 	{
-		game->player_direction = RIGHT;
-		ft_move_direction(game, 1, 0);
+		ctx->player_dir = RIGHT;
+		ft_move_dir(ctx, 1, 0);
 	}
 }
 
-void	ft_move_direction(t_game *game, int dx, int dy)
+int	key_hook(int keycode, t_ctx *ctx)
+{
+	if (keycode == KEY_ESC || keycode == KEY_Q)
+		win_destroy(ctx);
+	ft_player_move(keycode, ctx);
+	ft_print_map_map_matris(ctx);
+	ft_printf(CYAN "The player's new location: (%d, %d)\nAll of coins: %d,\
+		Movements: %d\n" RESET, ctx->map.player.x, ctx->map.player.y, \
+		ctx->map.coins, ctx->movements);
+	return (0);
+}
+
+void	ft_move_dir(t_ctx *ctx, int dx, int dy)
 {
 	int	x;
 	int	y;
 
-	x = game->map.player.x;
-	y = game->map.player.y;
-	if (game->map.full[y + dy][x + dx] != WALL &&
-		(game->map.full[y + dy][x + dx] != MAP_EXIT || game->map.coins == 0))
+	x = ctx->map.player.x;
+	y = ctx->map.player.y;
+	if (ctx->map.map_matris[y + dy][x + dx] != WALL &&
+		(ctx->map.map_matris[y + dy][x + dx] != MAP_EXIT || ctx->map.coins == 0))
 	{
-		ft_check_object(game, x + dx, y + dy);
-		game->map.full[y][x] = FLOOR;
-		game->map.player.x += dx;
-		game->map.player.y += dy;
-		game->map.full[y + dy][x + dx] = PLAYER;
-		game->movements++;
+		ft_check_object(ctx, x + dx, y + dy);
+		ctx->map.map_matris[y][x] = FLOOR;
+		ctx->map.player.x += dx;
+		ctx->map.player.y += dy;
+		ctx->map.map_matris[y + dy][x + dx] = PLAYER;
+		ctx->movements++;
 	}
 }
 
-void	ft_check_object(t_game *game, int x, int y)
+void	handler(t_ctx *ctx)
 {
-	if (game->map.full[y][x] == COINS)
-		game->map.coins--;
-	else if (game->map.full[y][x] == MAP_EXIT && game->map.coins == 0)
-	{
-		ft_congrats_message();
-		ft_destroy_window(game);
-	}
+	mlx_hook(ctx->win_ptr, KeyPress, KeyPressMask, key_hook, ctx);
+	mlx_hook(ctx->win_ptr, DestroyNotify, 0, win_destroy, ctx);
+	mlx_hook(ctx->win_ptr, Expose, 0, render_a_frame, ctx);
 }
 
-int	key_hook(int keycode, t_game *game)
-{
-	if (keycode == KEY_ESC || keycode == KEY_Q)
-		ft_destroy_window(game);
-	ft_player_move(keycode, game);
-	ft_print_map_full(game);
-	ft_printf(CYAN "The player's new position: (%d, %d)\nAll of coins: %d,\
-		Movements: %d\n" RESET, game->map.player.x, game->map.player.y, \
-		game->map.coins, game->movements);
-	return (0);
-}
 
-void	ft_handle_buttons(t_game *game)
-{
-	mlx_hook(game->win_ptr, KeyPress, KeyPressMask, key_hook, game);
-	mlx_hook(game->win_ptr, DestroyNotify, 0, ft_destroy_window, game);
-	mlx_hook(game->win_ptr, Expose, 0, ft_render_frame, game);
-}

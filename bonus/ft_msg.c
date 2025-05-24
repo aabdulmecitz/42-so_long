@@ -6,27 +6,27 @@
 /*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 17:08:55 by aozkaya           #+#    #+#             */
-/*   Updated: 2024/12/27 17:08:57 by aozkaya          ###   ########.fr       */
+/*   Updated: 2025/05/24 21:52:54 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long_bonus.h"
 
-void	ft_error_msg(char *msg, t_game *game)
+void	error(char *msg, t_ctx *ctx)
 {
-	if (game)
+	if (ctx)
 	{
-		if (game->map_alloc)
-			ft_free_map(game);
-		ft_destroy_window(game);
-		free(game);
-		game = NULL;
+		if (ctx->map_alloc)
+			free_map(ctx);
+		win_destroy(ctx);
+		free(ctx);
+		ctx = NULL;
 	}
 	ft_printf(RED "ERROR:\n%s\n" RESET, msg);
 	exit(EXIT_FAILURE);
 }
 
-void	ft_congrats_message(void)
+void	congrats_msg(void)
 {
 	ft_printf(GREEN "\n");
 	ft_printf(GREEN "==========================================\
@@ -35,7 +35,7 @@ void	ft_congrats_message(void)
                 \n" RESET);
 	ft_printf(GREEN "------------------------------------------\
 -----------------\n" RESET);
-	ft_printf(GREEN " You've successfully completed the game! \
+	ft_printf(GREEN " You've successmap_matrisy completed the ctx! \
 🏆               \n" RESET);
 	ft_printf(GREEN " Thanks for playing and being an awesome h\
 ero. 👑          \n" RESET);
@@ -46,7 +46,7 @@ ey all along! 💎 \n" RESET);
 	ft_printf(GREEN "\n");
 }
 
-void	ft_failed_msg(void)
+void	failed_msg(void)
 {
 	ft_printf(RED "\n");
 	ft_printf(RED "==============================================\
@@ -55,7 +55,7 @@ void	ft_failed_msg(void)
  \n" RESET);
 	ft_printf(RED "----------------------------------------------\
 -------------\n" RESET);
-	ft_printf(RED " You've failed completed the game! \n" RESET);
+	ft_printf(RED " You've failed completed the ctx! \n" RESET);
 	ft_printf(RED " Thanks for playing. You should try again. \n" RESET);
 	ft_printf(RED " Remember: have enjoy!            \n" RESET);
 	ft_printf(RED "==============================================\

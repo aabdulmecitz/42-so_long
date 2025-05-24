@@ -6,86 +6,86 @@
 /*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 17:10:09 by aozkaya           #+#    #+#             */
-/*   Updated: 2024/12/27 17:10:11 by aozkaya          ###   ########.fr       */
+/*   Updated: 2025/05/24 21:52:54 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-static void	ft_destroy_images(t_game *game);
+static void	ft_destroy_imgs(t_ctx *ctx);
 
-void	ft_free_all_allocated_memory(t_game *game)
+void	free_all_mem(t_ctx *ctx)
 {
-	if (!game)
+	if (!ctx)
 		return ;
-	ft_destroy_images(game);
-	ft_free_map(game);
-	if (game->win_ptr)
-		mlx_destroy_window(game->mlx_ptr, game->win_ptr);
-	if (game->mlx_ptr)
+	ft_destroy_imgs(ctx);
+	free_map(ctx);
+	if (ctx->win_ptr)
+		mlx_destroy_window(ctx->mlx_ptr, ctx->win_ptr);
+	if (ctx->mlx_ptr)
 	{
-		mlx_destroy_display(game->mlx_ptr);
-		free(game->mlx_ptr);
+		mlx_destroy_display(ctx->mlx_ptr);
+		free(ctx->mlx_ptr);
 	}
-	free(game);
+	free(ctx);
 }
 
-static void	ft_destroy_images(t_game *game)
+static void	ft_destroy_imgs(t_ctx *ctx)
 {
 	int			i;
-	t_image		*images[10];
+	t_img		*imgs[10];
 
 	i = 0;
-	images[0] = &game->wall;
-	images[1] = &game->floor;
-	images[2] = &game->coins;
-	images[3] = &game->player_front;
-	images[4] = &game->player_left;
-	images[5] = &game->player_right;
-	images[6] = &game->player_back;
-	images[7] = &game->exit_closed;
-	images[8] = &game->open_exit;
-	images[9] = NULL;
-	while (images[i])
+	imgs[0] = &ctx->wall;
+	imgs[1] = &ctx->floor;
+	imgs[2] = &ctx->coins;
+	imgs[3] = &ctx->player_front;
+	imgs[4] = &ctx->player_left;
+	imgs[5] = &ctx->player_right;
+	imgs[6] = &ctx->player_back;
+	imgs[7] = &ctx->exit_closed;
+	imgs[8] = &ctx->open_exit;
+	imgs[9] = NULL;
+	while (imgs[i])
 	{
-		if (images[i]->xpm_ptr)
-			mlx_destroy_image(game->mlx_ptr, images[i]->xpm_ptr);
-		free(images[i]);
+		if (imgs[i]->xpm_ptr)
+			mlx_destroy_img(ctx->mlx_ptr, imgs[i]->xpm_ptr);
+		free(imgs[i]);
 		i++;
 	}
 }
 
-void	ft_free_map(t_game *game)
+void	free_map(t_ctx *ctx)
 {
 	int	i;
 
-	if (!game->map.full)
+	if (!ctx->map.map_matris)
 		return ;
 	i = 0;
-	while (i < game->map.rows)
-		free(game->map.full[i++]);
-	free(game->map.full);
+	while (i < ctx->map.rows)
+		free(ctx->map.map_matris[i++]);
+	free(ctx->map.map_matris);
 }
 
-void	ft_free_just_map(t_map *map)
+void	free_map_inside(t_map *map)
 {
 	int	i;
 
 	i = 0;
 	while (i < map->rows)
 	{
-		free(map->full[i]);
+		free(map->map_matris[i]);
 		i++;
 	}
-	free(map->full);
+	free(map->map_matris);
 	free(map);
 }
 
-int	ft_destroy_window(t_game *game)
+int	win_destroy(t_ctx *ctx)
 {
-	if (!game)
+	if (!ctx)
 	{
-		ft_free_all_allocated_memory(game);
+		free_all_mem(ctx);
 	}
 	exit(0);
 	return (0);

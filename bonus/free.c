@@ -6,7 +6,7 @@
 /*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 17:07:20 by aozkaya           #+#    #+#             */
-/*   Updated: 2024/12/27 17:07:22 by aozkaya          ###   ########.fr       */
+/*   Updated: 2025/05/24 21:43:01 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,17 +24,17 @@ void	free_double(void *ptr1, void *ptr2, void *ptr3, void *ptr4)
 		free(ptr4);
 }
 
-void	free_image_list(t_image *head, void *mlx_ptr)
+void	free_img_list(t_img *head, void *mlx_ptr)
 {
-	t_image	*current;
-	t_image	*temp;
+	t_img	*current;
+	t_img	*temp;
 
 	current = head;
 	while (current)
 	{
 		temp = current->next;
 		if (current->xpm_ptr && mlx_ptr)
-			mlx_destroy_image(mlx_ptr, current->xpm_ptr);
+			mlx_destroy_img(mlx_ptr, current->xpm_ptr);
 		free(current);
 		current = temp;
 	}

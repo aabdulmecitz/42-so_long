@@ -6,7 +6,7 @@
 /*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 17:09:11 by aozkaya           #+#    #+#             */
-/*   Updated: 2024/12/27 17:09:12 by aozkaya          ###   ########.fr       */
+/*   Updated: 2025/05/24 21:52:54 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,19 +69,13 @@
 # define CYAN "\033[1;96m"
 # define RESET "\033[0m"
 
-typedef enum e_bool
-{
-	false,
-	true
-}					t_bool;
-
-typedef struct s_position
+typedef struct s_location
 {
 	int				x;
 	int				y;
-}					t_positon;
+}					t_location;
 
-typedef enum e_direction
+typedef enum e_dir
 {
 	FRONT,
 	BACK,
@@ -90,25 +84,25 @@ typedef enum e_direction
 	HORIZONTAL,
 	VERTICAL,
 	IDLE
-}					t_direction;
+}					t_dir;
 
-typedef struct s_image
+typedef struct s_img
 {
 	void			*xpm_ptr;
 	int				x;
 	int				y;
-	struct s_image	*next;
-}					t_image;
+	struct s_img	*next;
+}					t_img;
 
 typedef struct s_map
 {
-	char			**full;
+	char			**map_matris;
 	int				rows;
 	int				columns;
 	int				coins;
 	int				exit;
 	int				players;
-	t_positon		player;
+	t_location		player;
 }					t_map;
 
 typedef enum e_enemy_type
@@ -121,83 +115,82 @@ typedef struct s_enemy
 {
 	int				x;
 	int				y;
-	t_direction		dir;
+	t_dir			dir;
 	time_t			last_move_time;
 	struct s_enemy	*next;
 }					t_enemy;
 
-typedef struct s_game
+typedef struct s_ctx
 {
 	void			*mlx_ptr;
 	void			*win_ptr;
 	int				movements;
-	t_direction		player_direction;
+	t_dir			player_dir;
 	int				enemy_k_num;
-	t_enemy			*enemy;
 	int				enemy_x_num;
-	int				game_num;
+	int				ctx_num;
+	int				map_alloc;
 	t_map			map;
-	t_bool			map_alloc;
-	t_image			*undefined_image;
-	t_image			*wall;
-	t_image			*floor;
-	t_image			*coins;
-	t_image			*open_exit;
-	t_image			*exit_closed;
-	t_image			*player_front;
-	t_image			*player_left;
-	t_image			*player_right;
-	t_image			*player_back;
-	t_image			*enemy_k;
-	t_image			*enemy_x;
-}					t_game;
+	t_img			*undefined_img;
+	t_img			*wall;
+	t_img			*floor;
+	t_img			*coins;
+	t_img			*open_exit;
+	t_img			*exit_closed;
+	t_img			*player_front;
+	t_img			*player_left;
+	t_img			*player_right;
+	t_img			*player_back;
+	t_enemy			*enemy;
+	t_img			*enemy_k;
+	t_img			*enemy_x;
+}					t_ctx;
 
-void				ft_check_command_line_args(int argc, char const *argv[],
-						t_game *game);
-void				ft_check_map(t_game *game);
-void				ft_check_for_empty_line(char *map, t_game *game);
-void				ft_error_msg(char *msg, t_game *game);
-void				ft_init_game(t_game *game);
-void				ft_init_map(t_game *game, char *argv);
-void				ft_free_all_allocated_memory(t_game *game);
-void				ft_free_map(t_game *game);
-void				ft_free_just_map(t_map *map);
-void				check_as_a_hero(t_game *game);
-int					key_hook(int keycode, t_game *game);
-int					ft_check_all_collectables(t_map *map_c, t_map *map_e,
-						t_game *game);
-void				ft_handle_buttons(t_game *game);
-int					ft_destroy_window(t_game *game);
-void				ft_congrats_message(void);
-int					ft_render_frame(t_game *game);
-int					ft_update_frame(t_game *game);
-void				ft_paint_texture(t_game *game, int x, int y);
-void				ft_check_collision_fixed_enemy(t_game *game);
-void				ft_check_collision_wandering_enemy(t_game *game);
-void				ft_move_enemy_x(t_game *game);
-void				ft_failed_msg(void);
-void				ft_init_enemy(t_game *game);
-void				ft_handle_enemies(t_game *game);
-void				ft_allocate_enemy_memory(t_game *game);
-void				ft_load_sprite(t_image *sprite, void *mlx, char *path,
-						t_game *game);
-void				ft_enemies(t_game *game);
-void				ft_enemy_movement(t_game *game, t_enemy *enemy);
-int					is_valid_position(t_game *game, int x, int y);
-void				ft_update_enemies(t_game *game);
-void				write_steps(t_game *game, int x, int y);
-void				init_coin_animation(t_game *game);
-void				ft_update_coin_animation(t_game *game);
-void				ft_free_coin_animation(t_game *game);
-void				init_animation(t_game *game, t_image *image, ...);
-void				init_all_of_animations(t_game *game);
-void				run_animation(t_game *game, t_image *image_list);
-void				ft_paint_coin_with_animation(t_game *game, int x, int y);
-void				finish_screen(t_game *game, int is_succes);
+void				check_cmd_args(int argc, char const *argv[],
+						t_ctx *ctx);
+void				map_checker(t_ctx *ctx);
+void				check_empty_lines(char *map, t_ctx *ctx);
+void				error(char *msg, t_ctx *ctx);
+void				so_long_init(t_ctx *ctx);
+void				map_initializer(t_ctx *ctx, char *argv);
+void				free_all_mem(t_ctx *ctx);
+void				free_map(t_ctx *ctx);
+void				free_map_inside(t_map *map);
+void				general_checker(t_ctx *ctx);
+int					key_hook(int keycode, t_ctx *ctx);
+int					check_collectables(t_map *map_c, t_map *map_e,
+						t_ctx *ctx);
+void				handler(t_ctx *ctx);
+int					win_destroy(t_ctx *ctx);
+void				congrats_msg(void);
+int					render_a_frame(t_ctx *ctx);
+int					update_frame(t_ctx *ctx);
+void				put_texture(t_ctx *ctx, int x, int y);
+void				check_collision_fixed_enemy(t_ctx *ctx);
+void				check_collision_wandering_enemy(t_ctx *ctx);
+void				mv_enemy_x(t_ctx *ctx);
+void				failed_msg(void);
+void				init_enemies(t_ctx *ctx);
+void				handle_enemies(t_ctx *ctx);
+void				allocate_enemy_memory(t_ctx *ctx);
+void				load_sprite(t_img *sprite, void *mlx, char *path,
+						t_ctx *ctx);
+void				ft_enemies(t_ctx *ctx);
+void				enemy_movement(t_ctx *ctx, t_enemy *enemy);
+int					is_valid_location(t_ctx *ctx, int x, int y);
+void				update_enemies(t_ctx *ctx);
+void				write_steps(t_ctx *ctx, int x, int y);
+void				init_coin_animation(t_ctx *ctx);
+void				ft_update_coin_animation(t_ctx *ctx);
+void				free_coin_animation(t_ctx *ctx);
+void				init_animation(t_ctx *ctx, t_img *img, ...);
+void				init_all_of_animations(t_ctx *ctx);
+void				run_animation(t_ctx *ctx, t_img *img_list);
+void				paint_coin_with_animation(t_ctx *ctx, int x, int y);
 void				free_double(void *ptr1, void *ptr2, void *ptr3, void *ptr4);
-void				conf_null(t_game *game);
-void				load_all_sprites(t_game *game);
-void				free_image_list(t_image *head, void *mlx_ptr);
-int					print_space_line(t_game *game);
+void				conf_null(t_ctx *ctx);
+void				load_all_sprites(t_ctx *ctx);
+void				free_img_list(t_img *head, void *mlx_ptr);
+int					print_space_line(t_ctx *ctx);
 
 #endif

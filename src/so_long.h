@@ -6,7 +6,7 @@
 /*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 15:16:28 by aozkaya           #+#    #+#             */
-/*   Updated: 2024/12/27 17:10:54 by aozkaya          ###   ########.fr       */
+/*   Updated: 2025/05/24 22:00:37 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,6 @@
 
 # define IMG_HEIGHT 32
 # define IMG_WIDTH 32
-
-# define ANIM_SPEED 1000
 
 # define WIN_H 1080
 # define WIN_W 1920
@@ -65,84 +63,83 @@
 
 typedef enum e_bool
 {
-	false,
-	true
+	0,
+	1
 }				t_bool;
 
-typedef struct s_position
+typedef struct s_location
 {
 	int			x;
 	int			y;
-}				t_positon;
+}				t_location;
 
-typedef enum e_direction
+typedef enum e_dir
 {
 	FRONT,
 	BACK,
 	LEFT,
 	RIGHT
-}				t_direction;
+}				t_dir;
 
-typedef struct s_image
+typedef struct s_img
 {
 	void		*xpm_ptr;
 	int			x;
 	int			y;
-}				t_image;
+}				t_img;
 
 typedef struct s_map
 {
-	char		**full;
+	char		**map_matris;
 	int			rows;
 	int			columns;
 	int			coins;
 	int			exit;
 	int			players;
-	t_positon	player;
+	t_location	player;
 }				t_map;
 
-typedef struct s_game
+typedef struct s_ctx
 {
 	void		*mlx_ptr;
 	void		*win_ptr;
 	int			movements;
-	t_direction	player_direction;
+	t_dir	player_dir;
 	t_map		map;
 	t_bool		map_alloc;
-	t_image		undefined_image;
-	t_image		wall;
-	t_image		floor;
-	t_image		coins;
-	t_image		open_exit;
-	t_image		exit_closed;
-	t_image		player_front;
-	t_image		player_left;
-	t_image		player_right;
-	t_image		player_back;
-}				t_game;
+	t_img		undefined_img;
+	t_img		wall;
+	t_img		floor;
+	t_img		coins;
+	t_img		open_exit;
+	t_img		exit_closed;
+	t_img		player_front;
+	t_img		player_left;
+	t_img		player_right;
+	t_img		player_back;
+}				t_ctx;
 
-void			ft_check_command_line_args(int argc, char const *argv[],
-					t_game *game);
-void			ft_check_map(t_game *game);
-void			ft_check_for_empty_line(char *map, t_game *game);
-void			ft_error_msg(char *msg, t_game *game);
-void			ft_init_game(t_game *game);
-void			ft_init_map(t_game *game, char *argv);
-void			ft_free_all_allocated_memory(t_game *game);
-void			ft_free_map(t_game *game);
-void			ft_free_just_map(t_map *map);
-void			check_as_a_hero(t_game *game);
-int				key_hook(int keycode, t_game *game);
-int				ft_check_all_collectables(t_map *map_c, t_map *map_e,
-					t_game *game);
-void			ft_handle_buttons(t_game *game);
-int				ft_destroy_window(t_game *game);
-void			ft_congrats_message(void);
-int				ft_render_frame(t_game *game);
-int				ft_update_frame(t_game *game);
+void			check_cmd_args(int argc, char const *argv[],
+					t_ctx *ctx);
+void			map_checker(t_ctx *ctx);
+void			check_empty_lines(char *map, t_ctx *ctx);
+void			error(char *msg, t_ctx *ctx);
+void			so_long_init(t_ctx *ctx);
+void			map_initializer(t_ctx *ctx, char *argv);
+void			general_checker(t_ctx *ctx);
+int				key_hook(int keycode, t_ctx *ctx);
+int				check_collectables(t_map *map_c, t_map *map_e,
+					t_ctx *ctx);
+void			handler(t_ctx *ctx);
+int				win_destroy(t_ctx *ctx);
+void			congrats_msg(void);
+int				render_a_frame(t_ctx *ctx);
+int				update_frame(t_ctx *ctx);
 void			free_double(void *ptr1, void *ptr2, void *ptr3, void *ptr4);
-void			put_player(t_game *game, int x, int y);
-
-void			ft_print_map_full(t_game *game);
+void			put_player(t_ctx *ctx, int x, int y);
+void			free_all_mem(t_ctx *ctx);
+void			free_map(t_ctx *ctx);
+void			free_map_inside(t_map *map);
+void			ft_print_map_map_matris(t_ctx *ctx);
 
 #endif
