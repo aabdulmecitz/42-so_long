@@ -27,7 +27,7 @@ SRCS 			= $(addprefix $(SRCS_DIR),\
 
 BONUS_SRC 		= $(addprefix $(BONUS_SRCS_DIR),\
 				animation_creator.c button_acts.c check_cmd_args.c \
-				check_map.c coin_animation.c enemy_acts.c flood_fill.c \
+				check_map.c get_frame.c paint_frame.c enemy_acts.c flood_fill.c \
 				enemy_init.c frame_mount.c free_all.c free.c ig.c write_steps.c\
 				game_initializer.c map_initializer.c msg.c so_long_bonus.c)
 
