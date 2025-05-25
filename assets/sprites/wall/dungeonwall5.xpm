@@ -12,7 +12,7 @@ static char *result[] = {
 "F c #A04040",
 /* pixels */
 "..oOOOOOOOo...ooo....... oXXX.o.",
-".oooOOOOOOOo.oOOOo...ooo ooXXXr.",
+".oooOOOOOOOo.oOOOo...ooo ooXXXo.",
 " ooXXXXXXXXX.OOOOOo.oXXX ooXXXR.",
 " ooXXFFFFFXX.oXXXXO.oXXX ooooRR ",
 " ooXFFFFFXXX.o...Xo oXXX oooooo ",
