@@ -6,7 +6,7 @@
 /*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 17:07:30 by aozkaya           #+#    #+#             */
-/*   Updated: 2025/05/25 20:25:14 by aozkaya          ###   ########.fr       */
+/*   Updated: 2025/05/25 20:38:10 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,23 +38,23 @@ void	init_animation(t_ctx *ctx, t_img *img, ...)
 
 void	init_all_of_animations(t_ctx *ctx)
 {
-	// Coin animasyonu
 	init_animation(ctx, ctx->coins, 
-		"assets/sprites/coin/coin2.xpm",
-		"assets/sprites/coin/coin3.xpm", 
-		"assets/sprites/coin/coin4.xpm", 
+		COINS_XPM1,
+		COINS_XPM2,
+		COINS_XPM3,
+		COINS_XPM4,
 		NULL);
 
-	// Duvar animasyonu - 5. frame eklendi
 	init_animation(ctx, ctx->wall,
+		WALL_XPM1,
 		WALL_XPM2,
 		WALL_XPM3,
 		WALL_XPM4,
-		WALL_XPM5,  // Yeni eklenen frame
+		WALL_XPM5,
 		NULL);
 
-	// Toxic river animasyonu 
 	init_animation(ctx, ctx->enemy_k,
+		TOXIC_XPM1,
 		TOXIC_XPM2,
 		TOXIC_XPM3,
 		TOXIC_XPM4,

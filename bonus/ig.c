@@ -6,7 +6,7 @@
 /*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 17:09:04 by aozkaya           #+#    #+#             */
-/*   Updated: 2025/05/25 20:22:36 by aozkaya          ###   ########.fr       */
+/*   Updated: 2025/05/25 20:38:33 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	load_all_sprites(t_ctx *ctx)
 	mlx = ctx->mlx_ptr;
 	load_sprite(ctx->wall, mlx, WALL_XPM1, ctx);
 	load_sprite(ctx->floor, mlx, FLOOR_XPM, ctx);
-	load_sprite(ctx->coins, mlx, COINS_XPM, ctx);
+	load_sprite(ctx->coins, mlx, COINS_XPM1, ctx);
 	load_sprite(ctx->player_front, mlx, PLAYER_FRONT_XPM, ctx);
 	load_sprite(ctx->player_left, mlx, PLAYER_LEFT_XPM, ctx);
 	load_sprite(ctx->player_right, mlx, PLAYER_RIGHT_XPM, ctx);
@@ -43,5 +43,5 @@ void	load_all_sprites(t_ctx *ctx)
 	load_sprite(ctx->open_exit, mlx, OPEN_EXIT_XPM, ctx);
 	load_sprite(ctx->exit_closed, mlx, EXIT_CLOSED_XPM, ctx);
 	load_sprite(ctx->enemy_x, mlx, WANDER_ENEMY_XPM, ctx);
-	load_sprite(ctx->enemy_k, mlx, STAT_ENEMY_XPM, ctx);
+	load_sprite(ctx->enemy_k, mlx, TOXIC_XPM1, ctx);
 }

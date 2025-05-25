@@ -6,7 +6,7 @@
 /*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 17:09:11 by aozkaya           #+#    #+#             */
-/*   Updated: 2025/05/25 20:32:54 by aozkaya          ###   ########.fr       */
+/*   Updated: 2025/05/25 20:38:06 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,14 +57,16 @@
 # define WALL_XPM4 "assets/sprites/wall/dungeonwall4.xpm"
 # define WALL_XPM5 "assets/sprites/wall/dungeonwall5.xpm"  // Yeni eklenen tanım
 # define FLOOR_XPM "assets/sprites/floor.xpm"
-# define COINS_XPM "assets/sprites/coin/coin1.xpm"
+# define COINS_XPM1 "assets/sprites/coin/coin1.xpm"
+# define COINS_XPM2 "assets/sprites/coin/coin2.xpm"
+# define COINS_XPM3 "assets/sprites/coin/coin3.xpm"
+# define COINS_XPM4 "assets/sprites/coin/coin4.xpm"
 # define PLAYER_FRONT_XPM "assets/sprites/player/front/player17.xpm"
 # define PLAYER_LEFT_XPM "assets/sprites/player/left/player9.xpm"
 # define PLAYER_RIGHT_XPM "assets/sprites/player/right/player1.xpm"
 # define PLAYER_BACK_XPM "assets/sprites/player/back/player25.xpm"
 # define OPEN_EXIT_XPM "assets/sprites/door/opened_door/opened_door.xpm"
 # define EXIT_CLOSED_XPM "assets/sprites/door/dungeon_door.xpm"
-# define STAT_ENEMY_XPM "assets/sprites/toxic_river/toxic-river.xpm"
 # define WANDER_ENEMY_XPM "assets/sprites/enemy/left/enemy1.xpm"
 # define TOXIC_XPM1 "assets/sprites/toxic_river/toxic-river.xpm"
 # define TOXIC_XPM2 "assets/sprites/toxic_river/toxic-river2.xpm"
