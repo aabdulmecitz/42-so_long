@@ -6,7 +6,7 @@
 /*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 15:16:28 by aozkaya           #+#    #+#             */
-/*   Updated: 2025/05/25 20:03:48 by aozkaya          ###   ########.fr       */
+/*   Updated: 2025/05/25 22:54:07 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,9 +133,9 @@ typedef struct s_ctx
 	void		*mlx_ptr;
 	void		*win_ptr;
 	int			movements;
-	t_dir	player_dir;
+	t_dir		player_dir;
 	t_map		map;
-	int		map_alloc;
+	int			map_alloc;
 	t_img		undefined_img;
 	t_img		wall;
 	t_img		floor;

@@ -83,7 +83,6 @@ void	ft_check_rectanglular(t_ctx *ctx)
 	ft_printf(GREEN "Map is rectangular!\n" RESET);
 }
 
-
 void	ft_count_elements(t_ctx *ctx, int x, int y)
 {
 	if ((y == 0 || y == ctx->map.rows - 1 || x == 0 || x == ctx->map.columns
@@ -99,10 +98,10 @@ void	ft_count_elements(t_ctx *ctx, int x, int y)
 		ctx->map.exit++;
 	else if (ctx->map.map_matris[y][x] == COINS)
 		ctx->map.coins++;
-	else if (ctx->map.map_matris[y][x] != WALL && ctx->map.map_matris[y][x] != FLOOR &&
-				ctx->map.map_matris[y][x] != PLAYER
-					&& ctx->map.map_matris[y][x] != MAP_EXIT
-					&& ctx->map.map_matris[y][x] != COINS)
+	else if (ctx->map.map_matris[y][x] != WALL
+				&& ctx->map.map_matris[y][x] != FLOOR
+				&& ctx->map.map_matris[y][x] != PLAYER
+				&& ctx->map.map_matris[y][x] != MAP_EXIT
+				&& ctx->map.map_matris[y][x] != COINS)
 		error("Invalid character in map", ctx);
 }
-
