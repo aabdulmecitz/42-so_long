@@ -6,7 +6,7 @@
 /*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 17:09:07 by aozkaya           #+#    #+#             */
-/*   Updated: 2025/05/24 21:52:54 by aozkaya          ###   ########.fr       */
+/*   Updated: 2025/05/25 15:21:40 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	main(int argc, const char *argv[])
 
 	ctx = malloc(sizeof(t_ctx));
 	if (!ctx)
-		error("Memory allocation failed for ctx", ctx);
+		error("Memory allocation failed for game", ctx);
 	check_cmd_args(argc, argv, ctx);
 	map_initializer(ctx, (char *)argv[1]);
 	so_long_init(ctx);
