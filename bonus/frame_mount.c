@@ -74,13 +74,6 @@ void	put_texture(t_ctx *ctx, int x, int y)
 	else if (ctx->map.map_matris[y][x] == PLAYER)
 		paint_player_with_animation(ctx, x, y);
 	else if (ctx->map.map_matris[y][x] == MAP_EXIT)
-	{
-		if (ctx->map.coins == 0)
-			mlx_put_image_to_window(ctx->mlx_ptr, ctx->win_ptr, \
-					ctx->open_exit->xpm_ptr, x * IMG_WIDTH, y * IMG_HEIGHT);
-		else
-			mlx_put_image_to_window(ctx->mlx_ptr, ctx->win_ptr, \
-					ctx->exit_closed->xpm_ptr, x * IMG_WIDTH, y * IMG_HEIGHT);
-	}
+		paint_door(ctx, x, y);
 }
 

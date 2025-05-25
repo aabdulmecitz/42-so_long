@@ -6,7 +6,7 @@
 /*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 17:09:11 by aozkaya           #+#    #+#             */
-/*   Updated: 2025/05/25 21:57:25 by aozkaya          ###   ########.fr       */
+/*   Updated: 2025/05/25 22:13:47 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -225,7 +225,7 @@ void				ft_enemies(t_ctx *ctx);
 void				enemy_movement(t_ctx *ctx, t_enemy *enemy);
 int					is_valid_location(t_ctx *ctx, int x, int y);
 void				update_enemies(t_ctx *ctx);
-void	write_steps(t_ctx *ctx, int x, int y);
+void				write_steps(t_ctx *ctx, int x, int y);
 void				init_coin_animation(t_ctx *ctx);
 void				ft_update_coin_animation(t_ctx *ctx);
 void				free_coin_animation(t_ctx *ctx);
@@ -238,21 +238,22 @@ void				conf_null(t_ctx *ctx);
 void				load_all_sprites(t_ctx *ctx);
 void				free_img_list(t_img *head, void *mlx_ptr);
 int					print_space_line(t_ctx *ctx);
-void paint_wall_with_animation(t_ctx *ctx, int x, int y);
-void paint_enemy_x_with_animation(t_ctx *ctx, int x, int y);
-void paint_toxic_with_animation(t_ctx *ctx, int x, int y);
-void paint_player_with_animation(t_ctx *ctx, int x, int y);
+void				paint_wall_with_animation(t_ctx *ctx, int x, int y);
+void				paint_enemy_x_with_animation(t_ctx *ctx, int x, int y);
+void				paint_toxic_with_animation(t_ctx *ctx, int x, int y);
+void				paint_player_with_animation(t_ctx *ctx, int x, int y);
+void				paint_door(t_ctx *ctx, int x, int y);
 
-t_img	*get_enemy_r_frame(t_img *frame);
-t_img	*get_enemy_l_frame(t_img *frame);
+t_img				*get_enemy_r_frame(t_img *frame);
+t_img				*get_enemy_l_frame(t_img *frame);
 
-t_img	*get_player_front_frame(t_img *frame);
-t_img	*get_player_back_frame(t_img *frame);
-t_img	*get_player_left_frame(t_img *frame);
-t_img	*get_player_right_frame(t_img *frame);
+t_img				*get_player_front_frame(t_img *frame);
+t_img				*get_player_back_frame(t_img *frame);
+t_img				*get_player_left_frame(t_img *frame);
+t_img				*get_player_right_frame(t_img *frame);
 
-t_img	*get_coin_frame(t_img *frame);
-t_img	*get_wall_frame(t_img *frame);
-t_img	*get_toxic_frame(t_img *frame);
+t_img				*get_coin_frame(t_img *frame);
+t_img				*get_wall_frame(t_img *frame);
+t_img				*get_toxic_frame(t_img *frame);
 
 #endif

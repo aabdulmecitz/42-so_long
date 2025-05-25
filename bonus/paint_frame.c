@@ -6,7 +6,7 @@
 /*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 20:31:21 by aozkaya           #+#    #+#             */
-/*   Updated: 2025/05/25 21:47:04 by aozkaya          ###   ########.fr       */
+/*   Updated: 2025/05/25 22:09:29 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,19 +53,14 @@ void paint_enemy_x_with_animation(t_ctx *ctx, int x, int y)
 			current_enemy_x_frame->xpm_ptr, x * IMG_WIDTH, y * IMG_HEIGHT);
 }
 
-void paint_player_with_animation(t_ctx *ctx, int x, int y)
+void paint_door(t_ctx *ctx, int x, int y)
 {
-	t_img	*current_player_frame = NULL;
+	t_img	*current_exit_frame;
 
-	if (ctx->player_dir == FRONT)
-		current_player_frame = get_player_front_frame(ctx->player_front);
-	else if (ctx->player_dir == BACK)
-		current_player_frame = get_player_back_frame(ctx->player_back);
-	else if (ctx->player_dir == LEFT)
-		current_player_frame = get_player_left_frame(ctx->player_left);
-	else if (ctx->player_dir == RIGHT)
-		current_player_frame = get_player_right_frame(ctx->player_right);
-	if (current_player_frame)
-		mlx_put_image_to_window(ctx->mlx_ptr, ctx->win_ptr,
-			current_player_frame->xpm_ptr, x * IMG_WIDTH, y * IMG_HEIGHT);
+	if (ctx->map.coins == 0)
+		mlx_put_image_to_window(ctx->mlx_ptr, ctx->win_ptr, \
+				ctx->open_exit->xpm_ptr, x * IMG_WIDTH, y * IMG_HEIGHT);
+	else
+		mlx_put_image_to_window(ctx->mlx_ptr, ctx->win_ptr, \
+				ctx->exit_closed->xpm_ptr, x * IMG_WIDTH, y * IMG_HEIGHT);
 }
