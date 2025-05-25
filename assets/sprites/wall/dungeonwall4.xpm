@@ -1,24 +1,23 @@
 /* XPM */
 static char *result[] = {
 /* columns rows colors chars-per-pixel */
-"32 32 8 1 ",
+"32 32 7 1 ",
 "  c #09080B",
 ". c #12111B",
 "X c #1B1A2C",
 "o c #20283D",
 "O c #2A4C69",
-"+ c #64A1B1",
 "R c #8B3232",
 "r c #662424",
-/* pixels */
-"..oOO+++OOo...ooo....... oRRR.o.",
-".oooOOOO+OOo.oOOOo...ooo ooRRRo.",
-" ooXXXXXXXXX.OOOOOo.oRRR ooRRRo.",
-" ooXX.....XX.oXXXXO.oRRR oooooo ",
-" ooX.....XXX.o...Xo oRRR oooooo ",
-" .oooXXXXooo.X...Xo oRRR ooooo..",
-"....     ....X...Xo .oo. .ooo...",
-"++OOo .oOOo..X..XXo          .oO",
+"/* pixels */",
+"..oOOOOOOOo...oRo....... oXXX.o.",
+".oooOOOOOOOo.oRRRo...ooo ooXXXo.",
+" ooXXRXrXrXX.OOOOOo.oXXX ooXXXo.",
+" ooXXRXrXrXX.oXXXXO.oXXX oooooo ",
+" ooXr.r.rXXX.o...Xo oXXX oooooo ",
+" .oooXXrXooo.X...Xo oXXX ooooo..",
+"..Z.     ....X.Z.Xo .oo. .oZo...",
+"++ZOo .oOOo..X..ZXo          .oO",
 "OOOoo.oXXXXo.o..XXo          oO+",
 "XXXXX.oX..Xo.o..XXo .oOOOo.  oOX",
 "....X.oX..Xo oXXXXo oO+++Oo  ooX",
@@ -39,8 +38,8 @@ static char *result[] = {
 "XXXXXXXXXXXXoOo  ooXXXoo OXX.Xo.",
 "X..........Xooo  oXXXXXX oXX..X.",
 "X..........Xooo  oXXXXXX oX...X.",
-"XX.......XXoooo  oXXXXXX oX...X.",
-".XXXXXXXoooooo.  oXXXXXo oX...X.",
-".......          .ooooo. oX...o.",
-".............      ...   oX...o."
+"XX.......XXoooo  oXXXrXX oX...X.",
+".XXXXXXXoooooo.  oXXrXXo oX...X.",
+".......          .oRooo. oX...o.",
+".............      .r.   oX...o."
 };

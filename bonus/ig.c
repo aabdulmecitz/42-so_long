@@ -6,7 +6,7 @@
 /*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 17:09:04 by aozkaya           #+#    #+#             */
-/*   Updated: 2025/05/24 21:52:54 by aozkaya          ###   ########.fr       */
+/*   Updated: 2025/05/25 15:35:36 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	load_all_sprites(t_ctx *ctx)
 	void	*mlx;
 
 	mlx = ctx->mlx_ptr;
-	load_sprite(ctx->wall, mlx, WALL_XPM, ctx);
+	load_sprite(ctx->wall, mlx, WALL_XPM1, ctx);
 	load_sprite(ctx->floor, mlx, FLOOR_XPM, ctx);
 	load_sprite(ctx->coins, mlx, COINS_XPM, ctx);
 	load_sprite(ctx->player_front, mlx, PLAYER_FRONT_XPM, ctx);

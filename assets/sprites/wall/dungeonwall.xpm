@@ -1,23 +1,22 @@
 /* XPM */
 static char *result[] = {
 /* columns rows colors chars-per-pixel */
-"32 32 6 1 ",
+"32 32 5 1 ",
 "  c #09080B",
 ". c #12111B",
 "X c #1B1A2C",
 "o c #20283D",
 "O c #2A4C69",
-"+ c #64A1B1",
 /* pixels */
-"..oOO+++OOo...ooo....... oXXX.o.",
-".oooOOOO+OOo.oOOOo...ooo ooXXXo.",
+"..oOOOOOOOo...ooo....... oXXX.o.",
+".oooOOOOOOOo.oOOOo...ooo ooXXXo.",
 " ooXXXXXXXXX.OOOOOo.oXXX ooXXXo.",
 " ooXX.....XX.oXXXXO.oXXX oooooo ",
 " ooX.....XXX.o...Xo oXXX oooooo ",
 " .oooXXXXooo.X...Xo oXXX ooooo..",
 "....     ....X...Xo .oo. .ooo...",
-"++OOo .oOOo..X..XXo          .oO",
-"OOOoo.oXXXXo.o..XXo          oO+",
+"OOOOo .oOOo..X..XXo          .oO",
+"OOOoo.oXXXXo.o..XXo          oOO",
 "XXXXX.oX..Xo.o..XXo .oOOOo.  oOX",
 "....X.oX..Xo oXXXXo oO+++Oo  ooX",
 "...XX..XXX.  oXXXXo OOoXXXo  oo.",

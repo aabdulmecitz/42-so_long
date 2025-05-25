@@ -6,7 +6,7 @@
 /*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 17:09:11 by aozkaya           #+#    #+#             */
-/*   Updated: 2025/05/25 15:18:45 by aozkaya          ###   ########.fr       */
+/*   Updated: 2025/05/25 15:50:37 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 # define IMG_HEIGHT 32
 # define IMG_WIDTH 32
 
-# define DELAY 100
+# define DELAY 100  // Animasyon hızını orta seviyeye ayarla
 
 # define WIN_H 1080
 # define WIN_W 1920
@@ -51,7 +51,10 @@
 # define KEY_Q 113
 # define KEY_ESC 65307
 
-# define WALL_XPM "assets/sprites/wall/dungeonwall.xpm"
+# define WALL_XPM1 "assets/sprites/wall/dungeonwall.xpm"
+# define WALL_XPM2 "assets/sprites/wall/dungeonwall2.xpm"
+# define WALL_XPM3 "assets/sprites/wall/dungeonwall3.xpm"
+# define WALL_XPM4 "assets/sprites/wall/dungeonwall4.xpm"
 # define FLOOR_XPM "assets/sprites/floor.xpm"
 # define COINS_XPM "assets/sprites/coin/coin1.xpm"
 # define PLAYER_FRONT_XPM "assets/sprites/player/front/player17.xpm"
@@ -62,6 +65,10 @@
 # define EXIT_CLOSED_XPM "assets/sprites/door/dungeon_door.xpm"
 # define STAT_ENEMY_XPM "assets/sprites/toxic_river/toxic-river.xpm"
 # define WANDER_ENEMY_XPM "assets/sprites/enemy/left/enemy1.xpm"
+# define TOXIC_XPM1 "assets/sprites/toxic_river/toxic-river.xpm"
+# define TOXIC_XPM2 "assets/sprites/toxic_river/toxic-river2.xpm"
+# define TOXIC_XPM3 "assets/sprites/toxic_river/toxic-river3.xpm"
+# define TOXIC_XPM4 "assets/sprites/toxic_river/toxic-river4.xpm"
 
 # define GREEN "\033[0;32m"
 # define RED "\033[1;31m"
