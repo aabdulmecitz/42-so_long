@@ -6,7 +6,7 @@
 /*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 21:43:15 by aozkaya           #+#    #+#             */
-/*   Updated: 2025/05/25 22:04:02 by aozkaya          ###   ########.fr       */
+/*   Updated: 2025/05/25 22:48:04 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,10 +112,11 @@ t_img	*get_player_left_frame(t_img *frame)
 	return (current_frame);
 }
 
-void paint_player_with_animation(t_ctx *ctx, int x, int y)
+void	paint_player_with_animation(t_ctx *ctx, int x, int y)
 {
-	t_img	*current_player_frame = NULL;
+	t_img	*current_player_frame;
 
+	current_player_frame = NULL;
 	if (ctx->player_dir == FRONT)
 		current_player_frame = get_player_front_frame(ctx->player_front);
 	else if (ctx->player_dir == BACK)

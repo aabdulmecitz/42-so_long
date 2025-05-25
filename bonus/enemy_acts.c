@@ -18,9 +18,11 @@ int	is_valid_location(t_ctx *ctx, int x, int y)
 {
 	if (x < 0 || x >= ctx->map.columns || y < 0 || y >= ctx->map.rows)
 		return (0);
-	if (ctx->map.map_matris[y][x] == WALL || ctx->map.map_matris[y][x] == STAT_ENEMY ||
-		ctx->map.map_matris[y][x] == WANDER_ENEMY || ctx->map.map_matris[y][x] == COINS ||
-		ctx->map.map_matris[y][x] == MAP_EXIT)
+	if (ctx->map.map_matris[y][x] == WALL
+		|| ctx->map.map_matris[y][x] == STAT_ENEMY
+		|| ctx->map.map_matris[y][x] == WANDER_ENEMY
+		|| ctx->map.map_matris[y][x] == COINS
+		|| ctx->map.map_matris[y][x] == MAP_EXIT)
 		return (0);
 	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 17:07:30 by aozkaya           #+#    #+#             */
-/*   Updated: 2025/05/25 22:36:43 by aozkaya          ###   ########.fr       */
+/*   Updated: 2025/05/25 22:49:34 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	init_animation(t_ctx *ctx, t_img *img, ...)
 	va_end(args);
 }
 
-static void init_player_animation(t_ctx *ctx)
+static void	init_player_animation(t_ctx *ctx)
 {
 	init_animation(ctx, ctx->player_front,
 		PLAYER_FRONT_XPM1, PLAYER_FRONT_XPM2,
@@ -54,19 +54,19 @@ static void init_player_animation(t_ctx *ctx)
 		PLAYER_RIGHT_XPM5, PLAYER_RIGHT_XPM6,
 		PLAYER_RIGHT_XPM7, PLAYER_RIGHT_XPM8, NULL);
 	init_animation(ctx, ctx->player_back,
-		PLAYER_BACK_XPM1,PLAYER_BACK_XPM2,
-		PLAYER_BACK_XPM3,PLAYER_BACK_XPM4,
-		PLAYER_BACK_XPM5,PLAYER_BACK_XPM6,
-		PLAYER_BACK_XPM7,PLAYER_BACK_XPM8, NULL);
+		PLAYER_BACK_XPM1, PLAYER_BACK_XPM2,
+		PLAYER_BACK_XPM3, PLAYER_BACK_XPM4,
+		PLAYER_BACK_XPM5, PLAYER_BACK_XPM6,
+		PLAYER_BACK_XPM7, PLAYER_BACK_XPM8, NULL);
 }
 
 void	init_all_of_animations(t_ctx *ctx)
 {
-	init_animation(ctx, ctx->coins, 
+	init_animation(ctx, ctx->coins,
 		COINS_XPM1, COINS_XPM2,
 		COINS_XPM3, COINS_XPM4, NULL);
 	init_animation(ctx, ctx->wall,
-		WALL_XPM1, WALL_XPM2, WALL_XPM3, 
+		WALL_XPM1, WALL_XPM2, WALL_XPM3,
 		WALL_XPM4, WALL_XPM5, NULL);
 	init_animation(ctx, ctx->enemy_k,
 		TOXIC_XPM1, TOXIC_XPM2,

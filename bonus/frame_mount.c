@@ -76,4 +76,3 @@ void	put_texture(t_ctx *ctx, int x, int y)
 	else if (ctx->map.map_matris[y][x] == MAP_EXIT)
 		paint_door(ctx, x, y);
 }
-

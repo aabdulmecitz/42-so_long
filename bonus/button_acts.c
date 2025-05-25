@@ -50,8 +50,9 @@ void	ft_move_dir(t_ctx *ctx, int dx, int dy)
 	i = 0;
 	x = ctx->map.player.x;
 	y = ctx->map.player.y;
-	if (ctx->map.map_matris[y + dy][x + dx] != WALL && (ctx->map.map_matris[y + dy][x
-			+ dx] != MAP_EXIT || ctx->map.coins == 0))
+	if (ctx->map.map_matris[y + dy][x + dx] != WALL
+		&& (ctx->map.map_matris[y + dy][x + dx] != MAP_EXIT
+		|| ctx->map.coins == 0))
 	{
 		ft_check_object(ctx, x + dx, y + dy);
 		ctx->map.map_matris[y][x] = FLOOR;

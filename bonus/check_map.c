@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_checker.c                                     :+:      :+:    :+:   */
+/*   check_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 17:07:08 by aozkaya           #+#    #+#             */
-/*   Updated: 2024/12/27 17:12:20 by aozkaya          ###   ########.fr       */
+/*   Updated: 2025/05/25 22:51:03 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,8 @@ x == ctx->map.columns - 1) && ctx->map.map_matris[y][x] != WALL)
 		ctx->enemy_k_num++;
 	else if (ctx->map.map_matris[y][x] == WANDER_ENEMY)
 		ctx->enemy_x_num++;
-	else if (ctx->map.map_matris[y][x] != WALL && ctx->map.map_matris[y][x] != FLOOR &&
+	else if (ctx->map.map_matris[y][x] != WALL
+					&& ctx->map.map_matris[y][x] != FLOOR &&
 				ctx->map.map_matris[y][x] != PLAYER
 					&& ctx->map.map_matris[y][x] != MAP_EXIT &&
 				ctx->map.map_matris[y][x] != COINS
