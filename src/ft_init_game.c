@@ -60,7 +60,7 @@ static void	load_sprite(t_img *sprite, void *mlx, char *path, t_ctx *ctx)
 	temp = malloc(sizeof(t_img));
 	if (!temp)
 		error("Memory allocation failed for sprite.", ctx);
-	temp->xpm_ptr = mlx_xpm_file_to_img(mlx, path, &temp->x, &temp->y);
+	temp->xpm_ptr = mlx_xpm_file_to_image(mlx, path, &temp->x, &temp->y);
 	ft_printf(CYAN "Loading sprite from path: %s\n" RESET, path);
 	if (!temp->xpm_ptr)
 	{

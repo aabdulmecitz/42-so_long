@@ -6,7 +6,7 @@
 /*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 17:10:09 by aozkaya           #+#    #+#             */
-/*   Updated: 2025/05/24 21:52:54 by aozkaya          ###   ########.fr       */
+/*   Updated: 2025/05/25 14:22:27 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ static void	ft_destroy_imgs(t_ctx *ctx)
 	while (imgs[i])
 	{
 		if (imgs[i]->xpm_ptr)
-			mlx_destroy_img(ctx->mlx_ptr, imgs[i]->xpm_ptr);
+			mlx_destroy_image(ctx->mlx_ptr, imgs[i]->xpm_ptr);
 		free(imgs[i]);
 		i++;
 	}

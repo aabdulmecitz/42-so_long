@@ -6,7 +6,7 @@
 /*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 15:16:28 by aozkaya           #+#    #+#             */
-/*   Updated: 2025/05/24 22:00:37 by aozkaya          ###   ########.fr       */
+/*   Updated: 2025/05/25 14:14:17 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,12 +61,6 @@
 # define CYAN "\033[1;96m"
 # define RESET "\033[0m"
 
-typedef enum e_bool
-{
-	0,
-	1
-}				t_bool;
-
 typedef struct s_location
 {
 	int			x;
@@ -106,7 +100,7 @@ typedef struct s_ctx
 	int			movements;
 	t_dir	player_dir;
 	t_map		map;
-	t_bool		map_alloc;
+	int		map_alloc;
 	t_img		undefined_img;
 	t_img		wall;
 	t_img		floor;

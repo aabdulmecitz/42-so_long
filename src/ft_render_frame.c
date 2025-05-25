@@ -36,39 +36,39 @@ int	render_a_frame(t_ctx *ctx)
 void	put_player(t_ctx *ctx, int x, int y)
 {
 	if (ctx->player_dir == FRONT)
-		mlx_put_img_to_window(ctx->mlx_ptr, ctx->win_ptr, \
+		mlx_put_image_to_window(ctx->mlx_ptr, ctx->win_ptr, \
 				ctx->player_front.xpm_ptr, x * IMG_WIDTH, y * IMG_HEIGHT);
 	else if (ctx->player_dir == BACK)
-		mlx_put_img_to_window(ctx->mlx_ptr, ctx->win_ptr, \
+		mlx_put_image_to_window(ctx->mlx_ptr, ctx->win_ptr, \
 				ctx->player_back.xpm_ptr, x * IMG_WIDTH, y * IMG_HEIGHT);
 	else if (ctx->player_dir == LEFT)
-		mlx_put_img_to_window(ctx->mlx_ptr, ctx->win_ptr, \
+		mlx_put_image_to_window(ctx->mlx_ptr, ctx->win_ptr, \
 				ctx->player_left.xpm_ptr, x * IMG_WIDTH, y * IMG_HEIGHT);
 	else if (ctx->player_dir == RIGHT)
-		mlx_put_img_to_window(ctx->mlx_ptr, ctx->win_ptr, \
+		mlx_put_image_to_window(ctx->mlx_ptr, ctx->win_ptr, \
 				ctx->player_right.xpm_ptr, x * IMG_WIDTH, y * IMG_HEIGHT);
 }
 
 void	put_texture(t_ctx *ctx, int x, int y)
 {
 	if (ctx->map.map_matris[y][x] == WALL)
-		mlx_put_img_to_window(ctx->mlx_ptr, ctx->win_ptr, \
+		mlx_put_image_to_window(ctx->mlx_ptr, ctx->win_ptr, \
 				ctx->wall.xpm_ptr, x * IMG_WIDTH, y * IMG_HEIGHT);
 	else if (ctx->map.map_matris[y][x] == FLOOR)
-		mlx_put_img_to_window(ctx->mlx_ptr, ctx->win_ptr, \
+		mlx_put_image_to_window(ctx->mlx_ptr, ctx->win_ptr, \
 				ctx->floor.xpm_ptr, x * IMG_WIDTH, y * IMG_HEIGHT);
 	else if (ctx->map.map_matris[y][x] == COINS)
-		mlx_put_img_to_window(ctx->mlx_ptr, ctx->win_ptr, \
+		mlx_put_image_to_window(ctx->mlx_ptr, ctx->win_ptr, \
 				ctx->coins.xpm_ptr, x * IMG_WIDTH, y * IMG_HEIGHT);
 	else if (ctx->map.map_matris[y][x] == PLAYER)
 		put_player(ctx, x, y);
 	else if (ctx->map.map_matris[y][x] == MAP_EXIT)
 	{
 		if (ctx->map.coins == 0)
-			mlx_put_img_to_window(ctx->mlx_ptr, ctx->win_ptr, \
+			mlx_put_image_to_window(ctx->mlx_ptr, ctx->win_ptr, \
 					ctx->open_exit.xpm_ptr, x * IMG_WIDTH, y * IMG_HEIGHT);
 		else
-			mlx_put_img_to_window(ctx->mlx_ptr, ctx->win_ptr, \
+			mlx_put_image_to_window(ctx->mlx_ptr, ctx->win_ptr, \
 					ctx->exit_closed.xpm_ptr, x * IMG_WIDTH, y * IMG_HEIGHT);
 	}
 }
