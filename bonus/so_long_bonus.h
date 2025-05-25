@@ -6,7 +6,7 @@
 /*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 17:09:11 by aozkaya           #+#    #+#             */
-/*   Updated: 2025/05/25 14:56:58 by aozkaya          ###   ########.fr       */
+/*   Updated: 2025/05/25 15:18:45 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,16 +51,16 @@
 # define KEY_Q 113
 # define KEY_ESC 65307
 
-# define WALL_XPM "assets/sprites/dungeonwall.xpm"
+# define WALL_XPM "assets/sprites/wall/dungeonwall.xpm"
 # define FLOOR_XPM "assets/sprites/floor.xpm"
 # define COINS_XPM "assets/sprites/coin/coin1.xpm"
 # define PLAYER_FRONT_XPM "assets/sprites/player/front/player17.xpm"
 # define PLAYER_LEFT_XPM "assets/sprites/player/left/player9.xpm"
 # define PLAYER_RIGHT_XPM "assets/sprites/player/right/player1.xpm"
 # define PLAYER_BACK_XPM "assets/sprites/player/back/player25.xpm"
-# define OPEN_EXIT_XPM "assets/sprites/opened_door.xpm"
-# define EXIT_CLOSED_XPM "assets/sprites/dungeon_door.xpm"
-# define STAT_ENEMY_XPM "assets/sprites/toxic-river.xpm"
+# define OPEN_EXIT_XPM "assets/sprites/door/opened_door/opened_door.xpm"
+# define EXIT_CLOSED_XPM "assets/sprites/door/dungeon_door.xpm"
+# define STAT_ENEMY_XPM "assets/sprites/toxic_river/toxic-river.xpm"
 # define WANDER_ENEMY_XPM "assets/sprites/enemy/left/enemy1.xpm"
 
 # define GREEN "\033[0;32m"
