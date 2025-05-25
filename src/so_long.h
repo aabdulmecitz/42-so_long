@@ -6,7 +6,7 @@
 /*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 15:16:28 by aozkaya           #+#    #+#             */
-/*   Updated: 2025/05/25 14:14:17 by aozkaya          ###   ########.fr       */
+/*   Updated: 2025/05/25 14:27:07 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,6 +134,6 @@ void			put_player(t_ctx *ctx, int x, int y);
 void			free_all_mem(t_ctx *ctx);
 void			free_map(t_ctx *ctx);
 void			free_map_inside(t_map *map);
-void			ft_print_map_map_matris(t_ctx *ctx);
+void			print_map_matris(t_ctx *ctx);
 
 #endif

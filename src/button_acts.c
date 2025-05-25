@@ -21,8 +21,27 @@ void	ft_check_object(t_ctx *ctx, int x, int y)
 		congrats_msg();
 		win_destroy(ctx);
 	}
-
 }
+
+void	ft_move_dir(t_ctx *ctx, int dx, int dy)
+{
+	int	x;
+	int	y;
+
+	x = ctx->map.player.x;
+	y = ctx->map.player.y;
+	if (ctx->map.map_matris[y + dy][x + dx] != WALL &&
+		(ctx->map.map_matris[y + dy][x + dx] != MAP_EXIT || ctx->map.coins == 0))
+	{
+		ft_check_object(ctx, x + dx, y + dy);
+		ctx->map.map_matris[y][x] = FLOOR;
+		ctx->map.player.x += dx;
+		ctx->map.player.y += dy;
+		ctx->map.map_matris[y + dy][x + dx] = PLAYER;
+		ctx->movements++;
+	}
+}
+
 void	ft_player_move(int keycode, t_ctx *ctx)
 {
 	if (keycode == KEY_W || keycode == KEY_UP)
@@ -52,30 +71,11 @@ int	key_hook(int keycode, t_ctx *ctx)
 	if (keycode == KEY_ESC || keycode == KEY_Q)
 		win_destroy(ctx);
 	ft_player_move(keycode, ctx);
-	ft_print_map_map_matris(ctx);
+	print_map_matris(ctx);
 	ft_printf(CYAN "The player's new location: (%d, %d)\nAll of coins: %d,\
 		Movements: %d\n" RESET, ctx->map.player.x, ctx->map.player.y, \
 		ctx->map.coins, ctx->movements);
 	return (0);
-}
-
-void	ft_move_dir(t_ctx *ctx, int dx, int dy)
-{
-	int	x;
-	int	y;
-
-	x = ctx->map.player.x;
-	y = ctx->map.player.y;
-	if (ctx->map.map_matris[y + dy][x + dx] != WALL &&
-		(ctx->map.map_matris[y + dy][x + dx] != MAP_EXIT || ctx->map.coins == 0))
-	{
-		ft_check_object(ctx, x + dx, y + dy);
-		ctx->map.map_matris[y][x] = FLOOR;
-		ctx->map.player.x += dx;
-		ctx->map.player.y += dy;
-		ctx->map.map_matris[y + dy][x + dx] = PLAYER;
-		ctx->movements++;
-	}
 }
 
 void	handler(t_ctx *ctx)

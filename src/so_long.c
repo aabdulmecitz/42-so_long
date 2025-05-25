@@ -6,7 +6,7 @@
 /*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 17:10:28 by aozkaya           #+#    #+#             */
-/*   Updated: 2025/05/24 21:59:38 by aozkaya          ###   ########.fr       */
+/*   Updated: 2025/05/25 14:28:02 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	ft_close_ctx(t_ctx *ctx)
 	return (0);
 }
 
-void	ft_print_map_map_matris(t_ctx *ctx)
+void	print_map_matris(t_ctx *ctx)
 {
 	int	i;
 
@@ -44,6 +44,7 @@ int	main(int argc, const char *argv[])
 	map_initializer(ctx, (char *)argv[1]);
 	so_long_init(ctx);
 	map_checker(ctx);
+	print_map_matris(ctx);
 	ft_printf("player's x = %d, player's y = %d\n", ctx->map.player.x, \
 		ctx->map.player.y);
 	mlx_loop_hook(ctx->mlx_ptr, render_a_frame, ctx);

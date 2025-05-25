@@ -21,11 +21,9 @@ SRCS_DIR		= ./src/
 BONUS_SRCS_DIR	= ./bonus/
 
 SRCS 			= $(addprefix $(SRCS_DIR),\
-				ft_check_command_line_args.c \
-				ft_msg.c ft_init_game.c free.c\
-				ft_check_map.c ft_init_map.c\
-				so_long.c ft_mem_free.c ft_render_frame.c\
-				ft_flood_fill.c ft_handle_buttons.c)
+				button_acts.c check_cmd_args.c check_map.c \
+				flood_fill.c frame_mount.c free.c free_all.c\
+				game_initializer.c map_initializer.c msg.c so_long.c)
 
 BONUS_SRC 		= $(addprefix $(BONUS_SRCS_DIR),\
 				ft_check_command_line_args.c ft_enemy.c \
