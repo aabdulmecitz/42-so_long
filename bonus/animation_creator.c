@@ -6,7 +6,7 @@
 /*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 17:07:30 by aozkaya           #+#    #+#             */
-/*   Updated: 2025/05/25 15:49:28 by aozkaya          ###   ########.fr       */
+/*   Updated: 2025/05/25 16:03:41 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,11 +45,12 @@ void	init_all_of_animations(t_ctx *ctx)
 		"assets/sprites/coin/coin4.xpm", 
 		NULL);
 
-	// Duvar animasyonu
+	// Duvar animasyonu - 5. frame eklendi
 	init_animation(ctx, ctx->wall,
 		WALL_XPM2,
 		WALL_XPM3,
 		WALL_XPM4,
+		WALL_XPM5,  // Yeni eklenen frame
 		NULL);
 
 	// Toxic river animasyonu 
@@ -74,7 +75,7 @@ void    paint_wall_with_animation(t_ctx *ctx, int x, int y)
 
     elapsed_time = (double)(current_time - last_time) / CLOCKS_PER_SEC * 1000.0;
     
-    // Normal hızda animasyon
+    // Animasyon hızı artırıldı (1.5'ten 1.0'a düşürüldü)
     if (elapsed_time >= DELAY)
     {
         wall_frame = wall_frame->next;

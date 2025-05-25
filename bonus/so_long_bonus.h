@@ -6,7 +6,7 @@
 /*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 17:09:11 by aozkaya           #+#    #+#             */
-/*   Updated: 2025/05/25 15:50:37 by aozkaya          ###   ########.fr       */
+/*   Updated: 2025/05/25 16:03:41 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 # define IMG_HEIGHT 32
 # define IMG_WIDTH 32
 
-# define DELAY 100  // Animasyon hızını orta seviyeye ayarla
+# define DELAY 80  // Animasyon hızı artırıldı (150'den 80'e düşürüldü)
 
 # define WIN_H 1080
 # define WIN_W 1920
@@ -55,6 +55,7 @@
 # define WALL_XPM2 "assets/sprites/wall/dungeonwall2.xpm"
 # define WALL_XPM3 "assets/sprites/wall/dungeonwall3.xpm"
 # define WALL_XPM4 "assets/sprites/wall/dungeonwall4.xpm"
+# define WALL_XPM5 "assets/sprites/wall/dungeonwall5.xpm"  // Yeni eklenen tanım
 # define FLOOR_XPM "assets/sprites/floor.xpm"
 # define COINS_XPM "assets/sprites/coin/coin1.xpm"
 # define PLAYER_FRONT_XPM "assets/sprites/player/front/player17.xpm"
