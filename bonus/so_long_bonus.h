@@ -6,7 +6,7 @@
 /*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 17:09:11 by aozkaya           #+#    #+#             */
-/*   Updated: 2025/05/25 21:09:13 by aozkaya          ###   ########.fr       */
+/*   Updated: 2025/05/25 21:57:25 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,10 +61,38 @@
 # define COINS_XPM2 "assets/sprites/coin/coin2.xpm"
 # define COINS_XPM3 "assets/sprites/coin/coin3.xpm"
 # define COINS_XPM4 "assets/sprites/coin/coin4.xpm"
-# define PLAYER_FRONT_XPM "assets/sprites/player/front/player17.xpm"
-# define PLAYER_LEFT_XPM "assets/sprites/player/left/player9.xpm"
-# define PLAYER_RIGHT_XPM "assets/sprites/player/right/player1.xpm"
-# define PLAYER_BACK_XPM "assets/sprites/player/back/player25.xpm"
+# define PLAYER_FRONT_XPM1 "assets/sprites/player/front/player17.xpm"
+# define PLAYER_FRONT_XPM2 "assets/sprites/player/front/player18.xpm"
+# define PLAYER_FRONT_XPM3 "assets/sprites/player/front/player19.xpm"
+# define PLAYER_FRONT_XPM4 "assets/sprites/player/front/player20.xpm"
+# define PLAYER_FRONT_XPM5 "assets/sprites/player/front/player21.xpm"
+# define PLAYER_FRONT_XPM6 "assets/sprites/player/front/player22.xpm"
+# define PLAYER_FRONT_XPM7 "assets/sprites/player/front/player23.xpm"
+# define PLAYER_FRONT_XPM8 "assets/sprites/player/front/player24.xpm"
+# define PLAYER_LEFT_XPM1 "assets/sprites/player/left/player9.xpm"
+# define PLAYER_LEFT_XPM2 "assets/sprites/player/left/player10.xpm"
+# define PLAYER_LEFT_XPM3 "assets/sprites/player/left/player11.xpm"
+# define PLAYER_LEFT_XPM4 "assets/sprites/player/left/player12.xpm"
+# define PLAYER_LEFT_XPM5 "assets/sprites/player/left/player13.xpm"
+# define PLAYER_LEFT_XPM6 "assets/sprites/player/left/player14.xpm"
+# define PLAYER_LEFT_XPM7 "assets/sprites/player/left/player15.xpm"
+# define PLAYER_LEFT_XPM8 "assets/sprites/player/left/player16.xpm"
+# define PLAYER_RIGHT_XPM1 "assets/sprites/player/right/player1.xpm"
+# define PLAYER_RIGHT_XPM2 "assets/sprites/player/right/player2.xpm"
+# define PLAYER_RIGHT_XPM3 "assets/sprites/player/right/player3.xpm"
+# define PLAYER_RIGHT_XPM4 "assets/sprites/player/right/player4.xpm"
+# define PLAYER_RIGHT_XPM5 "assets/sprites/player/right/player5.xpm"
+# define PLAYER_RIGHT_XPM6 "assets/sprites/player/right/player6.xpm"
+# define PLAYER_RIGHT_XPM7 "assets/sprites/player/right/player7.xpm"
+# define PLAYER_RIGHT_XPM8 "assets/sprites/player/right/player8.xpm"
+# define PLAYER_BACK_XPM1 "assets/sprites/player/back/player25.xpm"
+# define PLAYER_BACK_XPM2 "assets/sprites/player/back/player26.xpm"
+# define PLAYER_BACK_XPM3 "assets/sprites/player/back/player27.xpm"
+# define PLAYER_BACK_XPM4 "assets/sprites/player/back/player28.xpm"
+# define PLAYER_BACK_XPM5 "assets/sprites/player/back/player29.xpm"
+# define PLAYER_BACK_XPM6 "assets/sprites/player/back/player30.xpm"
+# define PLAYER_BACK_XPM7 "assets/sprites/player/back/player31.xpm"
+# define PLAYER_BACK_XPM8 "assets/sprites/player/back/player32.xpm"
 # define OPEN_EXIT_XPM "assets/sprites/door/opened_door/opened_door.xpm"
 # define EXIT_CLOSED_XPM "assets/sprites/door/dungeon_door.xpm"
 # define WANDER_ENEMY_L_XPM1 "assets/sprites/enemy/left/enemy1.xpm"
@@ -213,8 +241,15 @@ int					print_space_line(t_ctx *ctx);
 void paint_wall_with_animation(t_ctx *ctx, int x, int y);
 void paint_enemy_x_with_animation(t_ctx *ctx, int x, int y);
 void paint_toxic_with_animation(t_ctx *ctx, int x, int y);
+void paint_player_with_animation(t_ctx *ctx, int x, int y);
+
 t_img	*get_enemy_r_frame(t_img *frame);
 t_img	*get_enemy_l_frame(t_img *frame);
+
+t_img	*get_player_front_frame(t_img *frame);
+t_img	*get_player_back_frame(t_img *frame);
+t_img	*get_player_left_frame(t_img *frame);
+t_img	*get_player_right_frame(t_img *frame);
 
 t_img	*get_coin_frame(t_img *frame);
 t_img	*get_wall_frame(t_img *frame);

@@ -6,7 +6,7 @@
 /*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 17:07:30 by aozkaya           #+#    #+#             */
-/*   Updated: 2025/05/25 20:44:16 by aozkaya          ###   ########.fr       */
+/*   Updated: 2025/05/25 21:58:08 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,50 @@ void	init_all_of_animations(t_ctx *ctx)
 		WANDER_ENEMY_R_XPM2,
 		WANDER_ENEMY_R_XPM3,
 		WANDER_ENEMY_R_XPM4,
+		NULL);
+
+	init_animation(ctx, ctx->player_front,
+		PLAYER_FRONT_XPM1,
+		PLAYER_FRONT_XPM2,
+		PLAYER_FRONT_XPM3,
+		PLAYER_FRONT_XPM4,
+		PLAYER_FRONT_XPM5,
+		PLAYER_FRONT_XPM6,
+		PLAYER_FRONT_XPM7,
+		PLAYER_FRONT_XPM8,
+		NULL);
+	
+	init_animation(ctx, ctx->player_left,
+		PLAYER_LEFT_XPM1,
+		PLAYER_LEFT_XPM2,
+		PLAYER_LEFT_XPM3,
+		PLAYER_LEFT_XPM4,
+		PLAYER_LEFT_XPM5,
+		PLAYER_LEFT_XPM6,
+		PLAYER_LEFT_XPM7,
+		PLAYER_LEFT_XPM8,
+		NULL);
+	
+	init_animation(ctx, ctx->player_right,
+		PLAYER_RIGHT_XPM1,
+		PLAYER_RIGHT_XPM2,
+		PLAYER_RIGHT_XPM3,
+		PLAYER_RIGHT_XPM4,
+		PLAYER_RIGHT_XPM5,
+		PLAYER_RIGHT_XPM6,
+		PLAYER_RIGHT_XPM7,
+		PLAYER_RIGHT_XPM8,
+		NULL);
+
+	init_animation(ctx, ctx->player_back,
+		PLAYER_BACK_XPM1,
+		PLAYER_BACK_XPM2,
+		PLAYER_BACK_XPM3,
+		PLAYER_BACK_XPM4,
+		PLAYER_BACK_XPM5,
+		PLAYER_BACK_XPM6,
+		PLAYER_BACK_XPM7,
+		PLAYER_BACK_XPM8,
 		NULL);
 }
 

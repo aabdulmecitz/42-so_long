@@ -72,7 +72,7 @@ void	put_texture(t_ctx *ctx, int x, int y)
 	else if (ctx->map.map_matris[y][x] == STAT_ENEMY)
 		paint_toxic_with_animation(ctx, x, y);
 	else if (ctx->map.map_matris[y][x] == PLAYER)
-		put_player(ctx, x, y);
+		paint_player_with_animation(ctx, x, y);
 	else if (ctx->map.map_matris[y][x] == MAP_EXIT)
 	{
 		if (ctx->map.coins == 0)
@@ -84,18 +84,3 @@ void	put_texture(t_ctx *ctx, int x, int y)
 	}
 }
 
-void	put_player(t_ctx *ctx, int x, int y)
-{
-	if (ctx->player_dir == FRONT)
-		mlx_put_image_to_window(ctx->mlx_ptr, ctx->win_ptr, \
-				ctx->player_front->xpm_ptr, x * IMG_WIDTH, y * IMG_HEIGHT);
-	else if (ctx->player_dir == BACK)
-		mlx_put_image_to_window(ctx->mlx_ptr, ctx->win_ptr, \
-				ctx->player_back->xpm_ptr, x * IMG_WIDTH, y * IMG_HEIGHT);
-	else if (ctx->player_dir == LEFT)
-		mlx_put_image_to_window(ctx->mlx_ptr, ctx->win_ptr, \
-				ctx->player_left->xpm_ptr, x * IMG_WIDTH, y * IMG_HEIGHT);
-	else if (ctx->player_dir == RIGHT)
-		mlx_put_image_to_window(ctx->mlx_ptr, ctx->win_ptr, \
-				ctx->player_right->xpm_ptr, x * IMG_WIDTH, y * IMG_HEIGHT);
-}
