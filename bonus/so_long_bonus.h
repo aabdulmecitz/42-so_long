@@ -6,7 +6,7 @@
 /*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 17:09:11 by aozkaya           #+#    #+#             */
-/*   Updated: 2025/05/25 20:38:06 by aozkaya          ###   ########.fr       */
+/*   Updated: 2025/05/25 21:09:13 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,14 @@
 # define PLAYER_BACK_XPM "assets/sprites/player/back/player25.xpm"
 # define OPEN_EXIT_XPM "assets/sprites/door/opened_door/opened_door.xpm"
 # define EXIT_CLOSED_XPM "assets/sprites/door/dungeon_door.xpm"
-# define WANDER_ENEMY_XPM "assets/sprites/enemy/left/enemy1.xpm"
+# define WANDER_ENEMY_L_XPM1 "assets/sprites/enemy/left/enemy1.xpm"
+# define WANDER_ENEMY_L_XPM2 "assets/sprites/enemy/left/enemy2.xpm"
+# define WANDER_ENEMY_L_XPM3 "assets/sprites/enemy/left/enemy3.xpm"
+# define WANDER_ENEMY_L_XPM4 "assets/sprites/enemy/left/enemy4.xpm"
+# define WANDER_ENEMY_R_XPM1 "assets/sprites/enemy/right/enemy1.xpm"
+# define WANDER_ENEMY_R_XPM2 "assets/sprites/enemy/right/enemy2.xpm"
+# define WANDER_ENEMY_R_XPM3 "assets/sprites/enemy/right/enemy3.xpm"
+# define WANDER_ENEMY_R_XPM4 "assets/sprites/enemy/right/enemy4.xpm"
 # define TOXIC_XPM1 "assets/sprites/toxic_river/toxic-river.xpm"
 # define TOXIC_XPM2 "assets/sprites/toxic_river/toxic-river2.xpm"
 # define TOXIC_XPM3 "assets/sprites/toxic_river/toxic-river3.xpm"
@@ -153,7 +160,8 @@ typedef struct s_ctx
 	t_img			*player_back;
 	t_enemy			*enemy;
 	t_img			*enemy_k;
-	t_img			*enemy_x;
+	t_img			*enemy_x_l;
+	t_img			*enemy_x_r;
 }					t_ctx;
 
 void				check_cmd_args(int argc, char const *argv[],
@@ -203,6 +211,10 @@ void				load_all_sprites(t_ctx *ctx);
 void				free_img_list(t_img *head, void *mlx_ptr);
 int					print_space_line(t_ctx *ctx);
 void paint_wall_with_animation(t_ctx *ctx, int x, int y);
+void paint_enemy_x_with_animation(t_ctx *ctx, int x, int y);
+void paint_toxic_with_animation(t_ctx *ctx, int x, int y);
+t_img	*get_enemy_r_frame(t_img *frame);
+t_img	*get_enemy_l_frame(t_img *frame);
 
 t_img	*get_coin_frame(t_img *frame);
 t_img	*get_wall_frame(t_img *frame);

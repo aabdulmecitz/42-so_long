@@ -12,7 +12,6 @@
 
 #include "so_long_bonus.h"
 
-void	put_texture(t_ctx *ctx, int x, int y);
 void	put_player(t_ctx *ctx, int x, int y);
 
 int	render_a_frame(t_ctx *ctx)
@@ -69,8 +68,7 @@ void	put_texture(t_ctx *ctx, int x, int y)
 	else if (ctx->map.map_matris[y][x] == COINS)
 		paint_coin_with_animation(ctx, x, y);
 	else if (ctx->map.map_matris[y][x] == WANDER_ENEMY)
-		mlx_put_image_to_window(ctx->mlx_ptr, ctx->win_ptr, \
-				ctx->enemy_x->xpm_ptr, x * IMG_WIDTH, y * IMG_HEIGHT);
+		paint_enemy_x_with_animation(ctx, x, y);
 	else if (ctx->map.map_matris[y][x] == STAT_ENEMY)
 		paint_toxic_with_animation(ctx, x, y);
 	else if (ctx->map.map_matris[y][x] == PLAYER)

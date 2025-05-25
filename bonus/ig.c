@@ -6,7 +6,7 @@
 /*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 17:09:04 by aozkaya           #+#    #+#             */
-/*   Updated: 2025/05/25 20:38:33 by aozkaya          ###   ########.fr       */
+/*   Updated: 2025/05/25 21:10:00 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ void	conf_null(t_ctx *ctx)
 	ctx->player_back = NULL;
 	ctx->open_exit = NULL;
 	ctx->exit_closed = NULL;
-	ctx->enemy_x = NULL;
+	ctx->enemy_x_l = NULL;
+	ctx->enemy_x_r = NULL;
 	ctx->enemy_k = NULL;
 }
 
@@ -42,6 +43,7 @@ void	load_all_sprites(t_ctx *ctx)
 	load_sprite(ctx->player_back, mlx, PLAYER_BACK_XPM, ctx);
 	load_sprite(ctx->open_exit, mlx, OPEN_EXIT_XPM, ctx);
 	load_sprite(ctx->exit_closed, mlx, EXIT_CLOSED_XPM, ctx);
-	load_sprite(ctx->enemy_x, mlx, WANDER_ENEMY_XPM, ctx);
+	load_sprite(ctx->enemy_x_l, mlx, WANDER_ENEMY_L_XPM1, ctx);
+	load_sprite(ctx->enemy_x_r, mlx, WANDER_ENEMY_R_XPM1, ctx);
 	load_sprite(ctx->enemy_k, mlx, TOXIC_XPM1, ctx);
 }

@@ -6,7 +6,7 @@
 /*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 17:07:30 by aozkaya           #+#    #+#             */
-/*   Updated: 2025/05/25 20:38:10 by aozkaya          ###   ########.fr       */
+/*   Updated: 2025/05/25 20:44:16 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,20 @@ void	init_all_of_animations(t_ctx *ctx)
 		TOXIC_XPM2,
 		TOXIC_XPM3,
 		TOXIC_XPM4,
+		NULL);
+
+	init_animation(ctx, ctx->enemy_x_l,
+		WANDER_ENEMY_L_XPM1,
+		WANDER_ENEMY_L_XPM2,
+		WANDER_ENEMY_L_XPM3,
+		WANDER_ENEMY_L_XPM4,
+		NULL);
+	
+	init_animation(ctx, ctx->enemy_x_r,
+		WANDER_ENEMY_R_XPM1,
+		WANDER_ENEMY_R_XPM2,
+		WANDER_ENEMY_R_XPM3,
+		WANDER_ENEMY_R_XPM4,
 		NULL);
 }
 

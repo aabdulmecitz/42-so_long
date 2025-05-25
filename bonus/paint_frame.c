@@ -6,83 +6,49 @@
 /*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 20:31:21 by aozkaya           #+#    #+#             */
-/*   Updated: 2025/05/25 20:31:47 by aozkaya          ###   ########.fr       */
+/*   Updated: 2025/05/25 21:08:06 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long_bonus.h"
 
-t_img	*get_coin_frame(t_img *frame)
+void	paint_coin_with_animation(t_ctx *ctx, int x, int y)
 {
-	static clock_t	last_time = 0;
-	static t_img	*current_frame = NULL;
-	static t_img	*frame_head = NULL;
-	clock_t			current_time;
-	double			elapsed_time;
+	t_img	*current_coin_frame;
 
-	if (frame_head != frame)
-	{
-		frame_head = frame;
-		current_frame = frame;
-	}
-	current_time = clock();
-	elapsed_time = (double)(current_time - last_time) / CLOCKS_PER_SEC * 2000.0;
-	if (elapsed_time >= DELAY)
-	{
-		current_frame = current_frame->next;
-		if (current_frame == NULL)
-			current_frame = frame_head;
-		last_time = current_time;
-	}
-	return (current_frame);
+	current_coin_frame = get_coin_frame(ctx->coins);
+	mlx_put_image_to_window(ctx->mlx_ptr, ctx->win_ptr, \
+		current_coin_frame->xpm_ptr, x * IMG_WIDTH, y * IMG_HEIGHT);
 }
 
-t_img	*get_wall_frame(t_img *frame)
+void paint_wall_with_animation(t_ctx *ctx, int x, int y)
 {
-	static clock_t	last_time = 0;
-	static t_img	*current_frame = NULL;
-	static t_img	*frame_head = NULL;
-	clock_t			current_time;
-	double			elapsed_time;
+	t_img	*current_wall_frame;
 
-	if (frame_head != frame)
-	{
-		frame_head = frame;
-		current_frame = frame;
-	}
-	current_time = clock();
-	elapsed_time = (double)(current_time - last_time) / CLOCKS_PER_SEC * 2000.0;
-	if (elapsed_time >= DELAY)
-	{
-		current_frame = current_frame->next;
-		if (current_frame == NULL)
-			current_frame = frame_head;
-		last_time = current_time;
-	}
-	return (current_frame);
+	current_wall_frame = get_wall_frame(ctx->wall);
+	mlx_put_image_to_window(ctx->mlx_ptr, ctx->win_ptr, \
+		current_wall_frame->xpm_ptr, x * IMG_WIDTH, y * IMG_HEIGHT);
 }
 
-t_img	*get_toxic_frame(t_img *frame)
+void paint_toxic_with_animation(t_ctx *ctx, int x, int y)
 {
-	static clock_t	last_time = 0;
-	static t_img	*current_frame = NULL;
-	static t_img	*frame_head = NULL;
-	clock_t			current_time;
-	double			elapsed_time;
+	t_img	*current_toxic_frame;
 
-	if (frame_head != frame)
-	{
-		frame_head = frame;
-		current_frame = frame;
-	}
-	current_time = clock();
-	elapsed_time = (double)(current_time - last_time) / CLOCKS_PER_SEC * 2000.0;
-	if (elapsed_time >= DELAY)
-	{
-		current_frame = current_frame->next;
-		if (current_frame == NULL)
-			current_frame = frame_head;
-		last_time = current_time;
-	}
-	return (current_frame);
+	current_toxic_frame = get_toxic_frame(ctx->enemy_k);
+	mlx_put_image_to_window(ctx->mlx_ptr, ctx->win_ptr, \
+		current_toxic_frame->xpm_ptr, x * IMG_WIDTH, y * IMG_HEIGHT);
+}
+
+void paint_enemy_x_with_animation(t_ctx *ctx, int x, int y)
+{
+	t_img	*current_enemy_x_frame = NULL;
+
+	if (ctx->enemy->dir == LEFT || ctx->enemy->dir == BACK)
+		current_enemy_x_frame = get_enemy_l_frame(ctx->enemy_x_l);
+	else if (ctx->enemy->dir == RIGHT || ctx->enemy->dir == FRONT)
+		current_enemy_x_frame = get_enemy_r_frame(ctx->enemy_x_r);
+
+	if (current_enemy_x_frame)
+		mlx_put_image_to_window(ctx->mlx_ptr, ctx->win_ptr,
+			current_enemy_x_frame->xpm_ptr, x * IMG_WIDTH, y * IMG_HEIGHT);
 }

@@ -6,36 +6,133 @@
 /*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 17:07:24 by aozkaya           #+#    #+#             */
-/*   Updated: 2025/05/25 20:31:43 by aozkaya          ###   ########.fr       */
+/*   Updated: 2025/05/25 20:47:59 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long_bonus.h"
 
-void	paint_coin_with_animation(t_ctx *ctx, int x, int y)
+t_img	*get_coin_frame(t_img *frame)
 {
-	t_img	*current_coin_frame;
+	static clock_t	last_time = 0;
+	static t_img	*current_frame = NULL;
+	static t_img	*frame_head = NULL;
+	clock_t			current_time;
+	double			elapsed_time;
 
-	current_coin_frame = get_coin_frame(ctx->coins);
-	mlx_put_image_to_window(ctx->mlx_ptr, ctx->win_ptr, \
-		current_coin_frame->xpm_ptr, x * IMG_WIDTH, y * IMG_HEIGHT);
+	if (frame_head != frame)
+	{
+		frame_head = frame;
+		current_frame = frame;
+	}
+	current_time = clock();
+	elapsed_time = (double)(current_time - last_time) / CLOCKS_PER_SEC * 2000.0;
+	if (elapsed_time >= DELAY)
+	{
+		current_frame = current_frame->next;
+		if (current_frame == NULL)
+			current_frame = frame_head;
+		last_time = current_time;
+	}
+	return (current_frame);
 }
 
-void paint_wall_with_animation(t_ctx *ctx, int x, int y)
+t_img	*get_wall_frame(t_img *frame)
 {
-	t_img	*current_wall_frame;
+	static clock_t	last_time = 0;
+	static t_img	*current_frame = NULL;
+	static t_img	*frame_head = NULL;
+	clock_t			current_time;
+	double			elapsed_time;
 
-	current_wall_frame = get_wall_frame(ctx->wall);
-	mlx_put_image_to_window(ctx->mlx_ptr, ctx->win_ptr, \
-		current_wall_frame->xpm_ptr, x * IMG_WIDTH, y * IMG_HEIGHT);
+	if (frame_head != frame)
+	{
+		frame_head = frame;
+		current_frame = frame;
+	}
+	current_time = clock();
+	elapsed_time = (double)(current_time - last_time) / CLOCKS_PER_SEC * 2000.0;
+	if (elapsed_time >= DELAY)
+	{
+		current_frame = current_frame->next;
+		if (current_frame == NULL)
+			current_frame = frame_head;
+		last_time = current_time;
+	}
+	return (current_frame);
 }
 
-void paint_toxic_with_animation(t_ctx *ctx, int x, int y)
+t_img	*get_toxic_frame(t_img *frame)
 {
-	t_img	*current_toxic_frame;
+	static clock_t	last_time = 0;
+	static t_img	*current_frame = NULL;
+	static t_img	*frame_head = NULL;
+	clock_t			current_time;
+	double			elapsed_time;
 
-	current_toxic_frame = get_toxic_frame(ctx->enemy_k);
-	mlx_put_image_to_window(ctx->mlx_ptr, ctx->win_ptr, \
-		current_toxic_frame->xpm_ptr, x * IMG_WIDTH, y * IMG_HEIGHT);
+	if (frame_head != frame)
+	{
+		frame_head = frame;
+		current_frame = frame;
+	}
+	current_time = clock();
+	elapsed_time = (double)(current_time - last_time) / CLOCKS_PER_SEC * 2000.0;
+	if (elapsed_time >= DELAY)
+	{
+		current_frame = current_frame->next;
+		if (current_frame == NULL)
+			current_frame = frame_head;
+		last_time = current_time;
+	}
+	return (current_frame);
 }
 
+t_img	*get_enemy_r_frame(t_img *frame)
+{
+	static clock_t	last_time = 0;
+	static t_img	*current_frame = NULL;
+	static t_img	*frame_head = NULL;
+	clock_t			current_time;
+	double			elapsed_time;
+
+	if (frame_head != frame)
+	{
+		frame_head = frame;
+		current_frame = frame;
+	}
+	current_time = clock();
+	elapsed_time = (double)(current_time - last_time) / CLOCKS_PER_SEC * 2000.0;
+	if (elapsed_time >= DELAY)
+	{
+		current_frame = current_frame->next;
+		if (current_frame == NULL)
+			current_frame = frame_head;
+		last_time = current_time;
+	}
+	return (current_frame);
+}
+
+t_img	*get_enemy_l_frame(t_img *frame)
+{
+	static clock_t	last_time = 0;
+	static t_img	*current_frame = NULL;
+	static t_img	*frame_head = NULL;
+	clock_t			current_time;
+	double			elapsed_time;
+
+	if (frame_head != frame)
+	{
+		frame_head = frame;
+		current_frame = frame;
+	}
+	current_time = clock();
+	elapsed_time = (double)(current_time - last_time) / CLOCKS_PER_SEC * 2000.0;
+	if (elapsed_time >= DELAY)
+	{
+		current_frame = current_frame->next;
+		if (current_frame == NULL)
+			current_frame = frame_head;
+		last_time = current_time;
+	}
+	return (current_frame);
+}

@@ -74,13 +74,14 @@ void	ft_init_sprites(t_ctx *ctx)
 	ctx->player_back = malloc(sizeof(t_img));
 	ctx->open_exit = malloc(sizeof(t_img));
 	ctx->exit_closed = malloc(sizeof(t_img));
-	ctx->enemy_x = malloc(sizeof(t_img));
+	ctx->enemy_x_l = malloc(sizeof(t_img));
+	ctx->enemy_x_r = malloc(sizeof(t_img));
 	ctx->enemy_k = malloc(sizeof(t_img));
 	if (!ctx->wall || !ctx->floor || !ctx->coins
 		|| !ctx->player_front || !ctx->player_left
 		|| !ctx->player_right || !ctx->player_back
 		|| !ctx->open_exit || !ctx->exit_closed
-		|| !ctx->enemy_x || !ctx->enemy_k)
+		|| !ctx->enemy_x_l || !ctx->enemy_x_r || !ctx->enemy_k)
 		error("Memory allocation failed for one of the sprites.", ctx);
 	load_all_sprites(ctx);
 }
