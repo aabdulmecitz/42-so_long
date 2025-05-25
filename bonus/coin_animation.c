@@ -6,7 +6,7 @@
 /*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 17:07:24 by aozkaya           #+#    #+#             */
-/*   Updated: 2025/05/24 21:52:54 by aozkaya          ###   ########.fr       */
+/*   Updated: 2025/05/25 14:54:57 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,6 @@ void	paint_coin_with_animation(t_ctx *ctx, int x, int y)
 	t_img	*current_coin_frame;
 
 	current_coin_frame = get_current_coin_frame(ctx);
-	mlx_put_img_to_window(ctx->mlx_ptr, ctx->win_ptr, \
+	mlx_put_image_to_window(ctx->mlx_ptr, ctx->win_ptr, \
 current_coin_frame->xpm_ptr, x * IMG_WIDTH, y * IMG_HEIGHT);
 }

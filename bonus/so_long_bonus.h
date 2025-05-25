@@ -6,7 +6,7 @@
 /*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 17:09:11 by aozkaya           #+#    #+#             */
-/*   Updated: 2025/05/24 21:52:54 by aozkaya          ###   ########.fr       */
+/*   Updated: 2025/05/25 14:56:58 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -179,7 +179,7 @@ void				ft_enemies(t_ctx *ctx);
 void				enemy_movement(t_ctx *ctx, t_enemy *enemy);
 int					is_valid_location(t_ctx *ctx, int x, int y);
 void				update_enemies(t_ctx *ctx);
-void				write_steps(t_ctx *ctx, int x, int y);
+void	write_steps(t_ctx *ctx, int x, int y);
 void				init_coin_animation(t_ctx *ctx);
 void				ft_update_coin_animation(t_ctx *ctx);
 void				free_coin_animation(t_ctx *ctx);

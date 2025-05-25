@@ -26,12 +26,10 @@ SRCS 			= $(addprefix $(SRCS_DIR),\
 				game_initializer.c map_initializer.c msg.c so_long.c)
 
 BONUS_SRC 		= $(addprefix $(BONUS_SRCS_DIR),\
-				ft_check_command_line_args.c ft_enemy.c \
-				ft_msg.c ft_init_game.c ft_enemy_movement.c\
-				ft_check_map.c ft_init_map.c write_steps.c ig.c\
-				so_long_bonus.c ft_mem_free.c ft_render_frame.c\
-				ft_flood_fill.c ft_handle_buttons.c coin_animation.c\
-				animation_creator.c free.c)
+				animation_creator.c button_acts.c check_cmd_args.c \
+				check_map.c coin_animation.c enemy_acts.c flood_fill.c \
+				enemy_init.c frame_mount.c free_all.c free.c ig.c write_steps.c\
+				game_initializer.c map_initializer.c msg.c so_long_bonus.c)
 
 
 all:			${LIBFT} ${MLX} ${NAME} 

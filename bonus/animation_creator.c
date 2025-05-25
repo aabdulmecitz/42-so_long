@@ -6,7 +6,7 @@
 /*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 17:07:30 by aozkaya           #+#    #+#             */
-/*   Updated: 2025/05/24 21:52:54 by aozkaya          ###   ########.fr       */
+/*   Updated: 2025/05/25 14:52:36 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	run_animation(t_ctx *ctx, t_img *img_list)
 			current_img = img_list;
 		if (current_img && current_img->xpm_ptr)
 		{
-			mlx_put_img_to_window(ctx->mlx_ptr, ctx->win_ptr, \
+			mlx_put_image_to_window(ctx->mlx_ptr, ctx->win_ptr, \
 					current_img->xpm_ptr, current_img->x, current_img->y);
 		}
 		current_img = current_img->next;

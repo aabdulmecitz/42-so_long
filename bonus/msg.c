@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_msg.c                                           :+:      :+:    :+:   */
+/*   msg.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 17:08:55 by aozkaya           #+#    #+#             */
-/*   Updated: 2025/05/24 21:52:54 by aozkaya          ###   ########.fr       */
+/*   Updated: 2025/05/25 14:58:39 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	congrats_msg(void)
                 \n" RESET);
 	ft_printf(GREEN "------------------------------------------\
 -----------------\n" RESET);
-	ft_printf(GREEN " You've successmap_matrisy completed the ctx! \
+	ft_printf(GREEN " You've successmap_matrisy completed the game! \
 🏆               \n" RESET);
 	ft_printf(GREEN " Thanks for playing and being an awesome h\
 ero. 👑          \n" RESET);
@@ -55,7 +55,7 @@ void	failed_msg(void)
  \n" RESET);
 	ft_printf(RED "----------------------------------------------\
 -------------\n" RESET);
-	ft_printf(RED " You've failed completed the ctx! \n" RESET);
+	ft_printf(RED " You've failed completed the game! \n" RESET);
 	ft_printf(RED " Thanks for playing. You should try again. \n" RESET);
 	ft_printf(RED " Remember: have enjoy!            \n" RESET);
 	ft_printf(RED "==============================================\
