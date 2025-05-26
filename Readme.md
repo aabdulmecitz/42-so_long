@@ -72,16 +72,10 @@ void init_animation(t_ctx *ctx, t_img *img, ...)
 }
 ```
 
-# Haunted Dungeon Escape - So_Long
-
-<div align="center">
-  <img src="assets/readme/so_long_logo.png" alt="So Long" width="150" height="150"/>
-</div>
-
 <h1 align="center">42 SO_LONG</h1>
 
 <p align="center">
-  A haunting tale of escape, built with advanced animation systems
+  A haunting tale of escape, built with advanced primitive animation systems
 </p>
 
 <div align="center">
@@ -99,7 +93,7 @@ void init_animation(t_ctx *ctx, t_img *img, ...)
 ## 🎮 Game Preview
 
 <div align="center">
-  <img src="assets/readme/gameplay.png" alt="Gameplay Screenshot" width="800"/>
+  <img src="img/so_long_mandatory.gif" alt="Gameplay Screenshot" width="800"/>
 </div>
 
 ## 🌟 What Makes This Project Unique
