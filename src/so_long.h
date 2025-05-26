@@ -6,7 +6,7 @@
 /*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 15:16:28 by aozkaya           #+#    #+#             */
-/*   Updated: 2025/05/25 22:54:07 by aozkaya          ###   ########.fr       */
+/*   Updated: 2025/05/26 04:16:36 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,48 +45,13 @@
 # define KEY_Q 113
 # define KEY_ESC 65307
 
-# define WALL_XPM "assets/sprites/wall/dungeonwall.xpm"
-# define WALL_XPM2 "assets/sprites/wall/dungeonwall2.xpm"
-# define WALL_XPM3 "assets/sprites/wall/dungeonwall3.xpm"
-# define WALL_XPM4 "assets/sprites/wall/dungeonwall4.xpm"
-# define WALL_XPM5 "assets/sprites/wall/dungeonwall5.xpm"
+# define WALL_XPM "assets/sprites/wall/wall.xpm"
 # define FLOOR_XPM "assets/sprites/floor.xpm"
 # define COINS_XPM "assets/sprites/coin/coin1.xpm"
-# define COINS_XPM2 "assets/sprites/coin/coin2.xpm"
-# define COINS_XPM3 "assets/sprites/coin/coin3.xpm"
-# define COINS_XPM4 "assets/sprites/coin/coin4.xpm"
 # define PLAYER_FRONT_XPM "assets/sprites/player/front/player17.xpm"
-# define PLAYER_FRONT_XPM2 "assets/sprites/player/front/player18.xpm"
-# define PLAYER_FRONT_XPM3 "assets/sprites/player/front/player19.xpm"
-# define PLAYER_FRONT_XPM4 "assets/sprites/player/front/player20.xpm"
-# define PLAYER_FRONT_XPM5 "assets/sprites/player/front/player21.xpm"
-# define PLAYER_FRONT_XPM6 "assets/sprites/player/front/player22.xpm"
-# define PLAYER_FRONT_XPM7 "assets/sprites/player/front/player23.xpm"
-# define PLAYER_FRONT_XPM8 "assets/sprites/player/front/player24.xpm"
 # define PLAYER_LEFT_XPM "assets/sprites/player/left/player9.xpm"
-# define PLAYER_LEFT_XPM2 "assets/sprites/player/left/player10.xpm"
-# define PLAYER_LEFT_XPM3 "assets/sprites/player/left/player11.xpm"
-# define PLAYER_LEFT_XPM4 "assets/sprites/player/left/player12.xpm"
-# define PLAYER_LEFT_XPM5 "assets/sprites/player/left/player13.xpm"
-# define PLAYER_LEFT_XPM6 "assets/sprites/player/left/player14.xpm"
-# define PLAYER_LEFT_XPM7 "assets/sprites/player/left/player15.xpm"
-# define PLAYER_LEFT_XPM8 "assets/sprites/player/left/player18.xpm"
 # define PLAYER_RIGHT_XPM "assets/sprites/player/right/player1.xpm"
-# define PLAYER_RIGHT_XPM2 "assets/sprites/player/right/player2.xpm"
-# define PLAYER_RIGHT_XPM3 "assets/sprites/player/right/player3.xpm"
-# define PLAYER_RIGHT_XPM4 "assets/sprites/player/right/player4.xpm"
-# define PLAYER_RIGHT_XPM5 "assets/sprites/player/right/player5.xpm"
-# define PLAYER_RIGHT_XPM6 "assets/sprites/player/right/player6.xpm"
-# define PLAYER_RIGHT_XPM7 "assets/sprites/player/right/player7.xpm"
-# define PLAYER_RIGHT_XPM8 "assets/sprites/player/right/player8.xpm"
 # define PLAYER_BACK_XPM "assets/sprites/player/back/player25.xpm"
-# define PLAYER_BACK_XPM2 "assets/sprites/player/back/player26.xpm"
-# define PLAYER_BACK_XPM3 "assets/sprites/player/back/player27.xpm"
-# define PLAYER_BACK_XPM4 "assets/sprites/player/back/player28.xpm"
-# define PLAYER_BACK_XPM5 "assets/sprites/player/back/player29.xpm"
-# define PLAYER_BACK_XPM6 "assets/sprites/player/back/player30.xpm"
-# define PLAYER_BACK_XPM7 "assets/sprites/player/back/player31.xpm"
-# define PLAYER_BACK_XPM7 "assets/sprites/player/back/player32.xpm"
 # define OPEN_EXIT_XPM "assets/sprites/door/opened_door/opened_door.xpm"
 # define EXIT_CLOSED_XPM "assets/sprites/door/dungeon_door.xpm"
 

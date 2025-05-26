@@ -10,10 +10,7 @@ MLX 			= ./lib/minilibx-linux/libmlx.a
 
 CC 				= cc
 
-STANDARD_FLAGS 	= -Wall -Werror -Wextra
-MINILIBX_FLAGS	= -lXext -lX11
-
-VALGRIND		= @valgrind --leak-check=full --show-leak-kinds=all
+STANDARD_FLAGS 	= -Wall -Werror -Wextra -g 
 
 REMOVE 			= rm -f
 
@@ -36,13 +33,13 @@ all:			${LIBFT} ${MLX} ${NAME}
 bonus:			${LIBFT} ${MLX} ${NAME_BONUS} 
 
 ${NAME}: 		
-				${CC} ${SRCS} ${LIBFT} -L./lib/minilibx-linux ${MLX} ${MINILIBX_FLAGS} -g -fsanitize=address -o ${NAME}
+				${CC} ${STANDARD_FLAGS} ${SRCS} ${LIBFT} -L./lib/minilibx-linux ${MLX} ${MINILIBX_FLAGS} -o ${NAME}
 				make compile_libs
 				@echo "$(NAME): $(GREEN)$(NAME) was compiled.$(RESET)"
 				@echo
 
 ${NAME_BONUS}: 		
-				${CC} ${BONUS_SRC} ${LIBFT} -L./lib/minilibx-linux ${MLX} ${MINILIBX_FLAGS} -g -fsanitize=address -o ${NAME_BONUS}
+				${CC} ${STANDARD_FLAGS} ${BONUS_SRC} ${LIBFT} -L./lib/minilibx-linux ${MLX} ${MINILIBX_FLAGS} -o ${NAME_BONUS}
 				@echo "$(NAME_BONUS): $(GREEN)$(NAME_BONUS) was compiled.$(RESET)"
 				@echo
 
@@ -87,13 +84,7 @@ run:			re
 				./${NAME} assets/maps/valid/map2.ber 
 
 run_bonus:		re_bonus
-				./${NAME_BONUS} assets/maps/valid/bonus/map5.ber 
-
-valgrind: re
-	$(VALGRIND) ./${NAME} assets/maps/valid/map2.ber 
-
-valgrind_bonus:
-	$(VALGRIND)  --leak-check=full ./so_long_bonus assets/maps/valid/bonus/map5.ber
+				./${NAME_BONUS} assets/maps/valid/bonus/map5.ber
 
 norminette:
 	norminette ./src && norminette ./bonus
