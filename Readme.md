@@ -1,26 +1,17 @@
 <h1 align="center"> so_long - @42tr </h1>
 
 <div align="center">
-  <a href="#ghost-about">
-    <img src="img/so_long.png" alt="So Long" width="150"/>
-  </a>
 
   # Phantom's Escape - 42 So_Long
   
+  <p align="center"><a href="https://github.com/aabdulmecitz/42-so_long" target="_blank"><img align="center" alt="so_long" src="https://user-images.githubusercontent.com/81205527/179134510-48689e9e-f8e4-4165-be40-2e0ec8f5d60d.png"> </a></p>
+
   [![forthebadge](https://forthebadge.com/images/badges/made-with-c.svg)](https://forthebadge.com)
   [![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com)
 
   <p align="center"><a href="https://https://42istanbul.com.tr/" target="_blank"><img src="https://img.shields.io/static/v1?label=&message=SP&color=000&style=for-the-badge&logo=42""></a></p>
-  <p align="center"><a href="https://github.com/aabdulmecitz/42-so_long" target="_blank"><img align="center" alt="so_long" src="https://user-images.githubusercontent.com/81205527/179134510-48689e9e-f8e4-4165-be40-2e0ec8f5d60d.png"> </a></p>
-  <p align="center">123/100 :white_check_mark:</p>
-  
-  <p align="center">
-    <a href="#ghost-about">About</a> •
-    <a href="#sparkles-features">Features</a> •
-    <a href="#joystick-gameplay">Gameplay</a> •
-    <a href="#wrench-installation">Installation</a> •
-    <a href="#memo-license">License</a>
-  </p>
+
+  <p align="center">125/100 :white_check_mark:</p>
 
   <img src="img/so_long_bonus.gif" width="700"/>
   
