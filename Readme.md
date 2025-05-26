@@ -1,32 +1,31 @@
 # Phantom's Escape - So_Long
 
 <div align="center">
-  <img src="assets/readme/ghost_logo.png" alt="Ghost Logo" width="200">
+  <a href="#ghost-about">
+    <img src="img/so_long.png" alt="So Long" width="150"/>
+  </a>
+
+  # Phantom's Escape - 42 So_Long
+  
+  [![forthebadge](https://forthebadge.com/images/badges/made-with-c.svg)](https://forthebadge.com)
+  [![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com)
+
+  <p align="center">
+    <a href="#ghost-about">About</a> •
+    <a href="#sparkles-features">Features</a> •
+    <a href="#joystick-gameplay">Gameplay</a> •
+    <a href="#wrench-installation">Installation</a> •
+    <a href="#memo-license">License</a>
+  </p>
+
+  <img src="img/so_long_bonus.gif" width="700"/>
+  
+  *Animated Ghost Adventure with Dynamic Enemy AI*
+
+  <img src="img/so_long.gif" width="500"/>
+  
+  *Multiple Map Layouts and Challenges*
 </div>
-
-<h1 align="center">42 SO_LONG</h1>
-
-<p align="center">
-  <img src="https://img.shields.io/badge/School-42-blue?style=for-the-badge&logo=42" alt="42">
-  <img src="https://img.shields.io/badge/Score-125%2F100-success?style=for-the-badge" alt="Project Score">
-  <img src="https://img.shields.io/badge/Language-C-orange?style=for-the-badge&logo=c" alt="Language">
-</p>
-
-<p align="center">
-  <b>A haunting tale of escape, powered by advanced animation systems and variadic functions</b>
-</p>
-
-<div align="center">
-  <img src="assets/readme/gameplay_preview.gif" alt="Gameplay Preview" width="600"/>
-</div>
-
-<p align="center">
-  <a href="#ghost-about">About</a> •
-  <a href="#sparkles-unique-features">Features</a> •
-  <a href="#gear-technical-highlights">Technical</a> •
-  <a href="#video_game-gameplay">Gameplay</a> •
-  <a href="#computer-installation">Installation</a>
-</p>
 
 ## :ghost: About
 
