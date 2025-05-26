@@ -45,9 +45,7 @@ void	ft_move_dir(t_ctx *ctx, int dx, int dy)
 {
 	int	x;
 	int	y;
-	int	i;
 
-	i = 0;
 	x = ctx->map.player.x;
 	y = ctx->map.player.y;
 	if (ctx->map.map_matris[y + dy][x + dx] != WALL

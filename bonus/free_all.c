@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_mem_free.c                                      :+:      :+:    :+:   */
+/*   free_all.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 17:08:51 by aozkaya           #+#    #+#             */
-/*   Updated: 2025/05/24 21:52:54 by aozkaya          ###   ########.fr       */
+/*   Updated: 2025/05/26 04:53:24 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,42 +19,50 @@ void	free_all_mem(t_ctx *ctx)
 	if (!ctx)
 		return ;
 	ft_destroy_imgs(ctx);
-	free_map(ctx);
-	if (ctx->win_ptr)
-		mlx_destroy_window(ctx->mlx_ptr, ctx->win_ptr);
+	if (ctx->map_alloc && ctx->map.map_matris)
+		free_map(ctx);
+	
+	// Free image structs
+	free_double(ctx->wall, ctx->floor, ctx->coins, ctx->player_front);
+	free_double(ctx->player_left, ctx->player_right, ctx->player_back, ctx->exit_closed);
+	free_double(ctx->open_exit, ctx->enemy_x_l, ctx->enemy_x_r, ctx->enemy_k);
+	
 	if (ctx->mlx_ptr)
 	{
+		if (ctx->win_ptr)
+		{
+			mlx_destroy_window(ctx->mlx_ptr, ctx->win_ptr);
+			ctx->win_ptr = NULL;
+		}
 		mlx_destroy_display(ctx->mlx_ptr);
 		free(ctx->mlx_ptr);
+		ctx->mlx_ptr = NULL;
 	}
-	if (ctx->enemy)
-		free(ctx->enemy);
 	free(ctx);
 }
 
 static void	ft_destroy_imgs(t_ctx *ctx)
 {
-	int		i;
-	t_img	*imgs[10];
-
-	i = 0;
-	imgs[0] = ctx->wall;
-	imgs[1] = ctx->floor;
-	imgs[2] = ctx->coins;
-	imgs[3] = ctx->player_front;
-	imgs[4] = ctx->player_left;
-	imgs[5] = ctx->player_right;
-	imgs[6] = ctx->player_back;
-	imgs[7] = ctx->exit_closed;
-	imgs[8] = ctx->open_exit;
-	imgs[9] = NULL;
-	while (imgs[i])
-	{
-		if (imgs[i]->xpm_ptr)
-			free_img_list(imgs[i], ctx->mlx_ptr);
-		free(imgs[i]);
-		i++;
-	}
+	if (!ctx || !ctx->mlx_ptr)
+		return ;
+	if (ctx->wall && ctx->wall->xpm_ptr)
+		mlx_destroy_image(ctx->mlx_ptr, ctx->wall->xpm_ptr);
+	if (ctx->floor && ctx->floor->xpm_ptr)
+		mlx_destroy_image(ctx->mlx_ptr, ctx->floor->xpm_ptr);
+	if (ctx->coins && ctx->coins->xpm_ptr)
+		mlx_destroy_image(ctx->mlx_ptr, ctx->coins->xpm_ptr);
+	if (ctx->player_front && ctx->player_front->xpm_ptr)
+		mlx_destroy_image(ctx->mlx_ptr, ctx->player_front->xpm_ptr);
+	if (ctx->player_left && ctx->player_left->xpm_ptr)
+		mlx_destroy_image(ctx->mlx_ptr, ctx->player_left->xpm_ptr);
+	if (ctx->player_right && ctx->player_right->xpm_ptr)
+		mlx_destroy_image(ctx->mlx_ptr, ctx->player_right->xpm_ptr);
+	if (ctx->player_back && ctx->player_back->xpm_ptr)
+		mlx_destroy_image(ctx->mlx_ptr, ctx->player_back->xpm_ptr);
+	if (ctx->exit_closed && ctx->exit_closed->xpm_ptr)
+		mlx_destroy_image(ctx->mlx_ptr, ctx->exit_closed->xpm_ptr);
+	if (ctx->open_exit && ctx->open_exit->xpm_ptr)
+		mlx_destroy_image(ctx->mlx_ptr, ctx->open_exit->xpm_ptr);
 }
 
 void	free_map(t_ctx *ctx)

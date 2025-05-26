@@ -6,7 +6,7 @@
 /*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 20:31:21 by aozkaya           #+#    #+#             */
-/*   Updated: 2025/05/25 22:47:50 by aozkaya          ###   ########.fr       */
+/*   Updated: 2025/05/26 04:49:38 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,6 @@ void	paint_enemy_x_with_animation(t_ctx *ctx, int x, int y)
 
 void	paint_door(t_ctx *ctx, int x, int y)
 {
-	t_img	*current_exit_frame;
-
 	if (ctx->map.coins == 0)
 		mlx_put_image_to_window(ctx->mlx_ptr, ctx->win_ptr, \
 				ctx->open_exit->xpm_ptr, x * IMG_WIDTH, y * IMG_HEIGHT);

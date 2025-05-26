@@ -6,7 +6,7 @@
 /*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 17:08:55 by aozkaya           #+#    #+#             */
-/*   Updated: 2025/05/25 14:58:39 by aozkaya          ###   ########.fr       */
+/*   Updated: 2025/05/26 04:53:26 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,20 @@ void	error(char *msg, t_ctx *ctx)
 {
 	if (ctx)
 	{
-		if (ctx->map_alloc)
+		if (ctx->map_alloc && ctx->map.map_matris)
 			free_map(ctx);
-		win_destroy(ctx);
+		if (ctx->mlx_ptr)
+		{
+			if (ctx->wall && ctx->wall->xpm_ptr)
+				mlx_destroy_image(ctx->mlx_ptr, ctx->wall->xpm_ptr);
+			if (ctx->win_ptr)
+				mlx_destroy_window(ctx->mlx_ptr, ctx->win_ptr);
+			mlx_destroy_display(ctx->mlx_ptr);
+			free(ctx->mlx_ptr);
+		}
+		if (ctx->wall)
+			free(ctx->wall);
 		free(ctx);
-		ctx = NULL;
 	}
 	ft_printf(RED "ERROR:\n%s\n" RESET, msg);
 	exit(EXIT_FAILURE);
