@@ -6,36 +6,36 @@
 /*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 17:09:07 by aozkaya           #+#    #+#             */
-/*   Updated: 2024/12/27 17:09:09 by aozkaya          ###   ########.fr       */
+/*   Updated: 2025/05/25 15:21:40 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long_bonus.h"
 
-int	ft_close_game(t_game *game)
+int	ft_close_ctx(t_ctx *ctx)
 {
-	ft_free_all_allocated_memory(game);
-	ft_printf(GREEN "Game closed successfully.\n" RESET);
+	free_all_mem(ctx);
+	ft_printf(GREEN "ctx closed successmap_matrisy.\n" RESET);
 	exit(0);
 	return (0);
 }
 
 int	main(int argc, const char *argv[])
 {
-	t_game	*game;
+	t_ctx	*ctx;
 
-	game = malloc(sizeof(t_game));
-	if (!game)
-		ft_error_msg("Memory allocation failed for game", game);
-	ft_check_command_line_args(argc, argv, game);
-	ft_init_map(game, (char *)argv[1]);
-	ft_init_game(game);
-	ft_check_map(game);
-	ft_init_enemy(game);
-	init_all_of_animations(game);
-	ft_handle_enemies(game);
-	mlx_loop_hook(game->mlx_ptr, ft_render_frame, game);
-	ft_handle_buttons(game);
-	mlx_loop(game->mlx_ptr);
+	ctx = malloc(sizeof(t_ctx));
+	if (!ctx)
+		error("Memory allocation failed for game", ctx);
+	check_cmd_args(argc, argv, ctx);
+	map_initializer(ctx, (char *)argv[1]);
+	so_long_init(ctx);
+	map_checker(ctx);
+	init_enemies(ctx);
+	init_all_of_animations(ctx);
+	handle_enemies(ctx);
+	mlx_loop_hook(ctx->mlx_ptr, render_a_frame, ctx);
+	handler(ctx);
+	mlx_loop(ctx->mlx_ptr);
 	return (0);
 }

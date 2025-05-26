@@ -1,31 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_enemy_movement.c                                :+:      :+:    :+:   */
+/*   enemy_movement.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 02:42:34 by aozkaya           #+#    #+#             */
-/*   Updated: 2024/12/21 18:19:58 by aozkaya          ###   ########.fr       */
+/*   Updated: 2025/05/24 21:36:05 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long_bonus.h"
 
-void	move_enemy(t_game *game, t_enemy *enemy, int new_x, int new_y);
+void	move_enemy(t_ctx *ctx, t_enemy *enemy, int new_x, int new_y);
 
-int	is_valid_position(t_game *game, int x, int y)
+int	is_valid_location(t_ctx *ctx, int x, int y)
 {
-	if (x < 0 || x >= game->map.columns || y < 0 || y >= game->map.rows)
+	if (x < 0 || x >= ctx->map.columns || y < 0 || y >= ctx->map.rows)
 		return (0);
-	if (game->map.full[y][x] == WALL || game->map.full[y][x] == STAT_ENEMY ||
-		game->map.full[y][x] == WANDER_ENEMY || game->map.full[y][x] == COINS ||
-		game->map.full[y][x] == MAP_EXIT)
+	if (ctx->map.map_matris[y][x] == WALL
+		|| ctx->map.map_matris[y][x] == STAT_ENEMY
+		|| ctx->map.map_matris[y][x] == WANDER_ENEMY
+		|| ctx->map.map_matris[y][x] == COINS
+		|| ctx->map.map_matris[y][x] == MAP_EXIT)
 		return (0);
 	return (1);
 }
 
-void	ft_enemy_movement(t_game *game, t_enemy *enemy)
+void	enemy_movement(t_ctx *ctx, t_enemy *enemy)
 {
 	time_t	current_time;
 	int		new_x;
@@ -44,23 +46,23 @@ void	ft_enemy_movement(t_game *game, t_enemy *enemy)
 		new_x++;
 	else if (enemy->dir == LEFT)
 		new_x--;
-	move_enemy(game, enemy, new_x, new_y);
+	move_enemy(ctx, enemy, new_x, new_y);
 	enemy->last_move_time = current_time;
 }
 
-void	move_enemy(t_game *game, t_enemy *enemy, int new_x, int new_y)
+void	move_enemy(t_ctx *ctx, t_enemy *enemy, int new_x, int new_y)
 {
-	if (is_valid_position(game, new_x, new_y))
+	if (is_valid_location(ctx, new_x, new_y))
 	{
-		if (game->map.full[new_y][new_x] == PLAYER)
+		if (ctx->map.map_matris[new_y][new_x] == PLAYER)
 		{
-			ft_failed_msg();
-			ft_destroy_window(game);
+			failed_msg();
+			win_destroy(ctx);
 		}
-		game->map.full[enemy->y][enemy->x] = FLOOR;
+		ctx->map.map_matris[enemy->y][enemy->x] = FLOOR;
 		enemy->x = new_x;
 		enemy->y = new_y;
-		game->map.full[new_y][new_x] = WANDER_ENEMY;
+		ctx->map.map_matris[new_y][new_x] = WANDER_ENEMY;
 	}
 	else
 	{
@@ -76,14 +78,14 @@ void	move_enemy(t_game *game, t_enemy *enemy, int new_x, int new_y)
 	}
 }
 
-void	ft_handle_enemies(t_game *game)
+void	handle_enemies(t_ctx *ctx)
 {
 	t_enemy	*current;
 
-	current = game->enemy;
+	current = ctx->enemy;
 	while (current)
 	{
-		ft_enemy_movement(game, current);
+		enemy_movement(ctx, current);
 		current = current->next;
 	}
 }

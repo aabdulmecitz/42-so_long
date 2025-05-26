@@ -6,42 +6,44 @@
 /*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 17:09:04 by aozkaya           #+#    #+#             */
-/*   Updated: 2024/12/27 17:09:05 by aozkaya          ###   ########.fr       */
+/*   Updated: 2025/05/25 21:58:37 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long_bonus.h"
 
-void	conf_null(t_game *game)
+void	conf_null(t_ctx *ctx)
 {
-	game->enemy = NULL;
-	game->wall = NULL;
-	game->floor = NULL;
-	game->coins = NULL;
-	game->player_front = NULL;
-	game->player_left = NULL;
-	game->player_right = NULL;
-	game->player_back = NULL;
-	game->open_exit = NULL;
-	game->exit_closed = NULL;
-	game->enemy_x = NULL;
-	game->enemy_k = NULL;
+	ctx->enemy = NULL;
+	ctx->wall = NULL;
+	ctx->floor = NULL;
+	ctx->coins = NULL;
+	ctx->player_front = NULL;
+	ctx->player_left = NULL;
+	ctx->player_right = NULL;
+	ctx->player_back = NULL;
+	ctx->open_exit = NULL;
+	ctx->exit_closed = NULL;
+	ctx->enemy_x_l = NULL;
+	ctx->enemy_x_r = NULL;
+	ctx->enemy_k = NULL;
 }
 
-void	load_all_sprites(t_game *game)
+void	load_all_sprites(t_ctx *ctx)
 {
 	void	*mlx;
 
-	mlx = game->mlx_ptr;
-	ft_load_sprite(game->wall, mlx, WALL_XPM, game);
-	ft_load_sprite(game->floor, mlx, FLOOR_XPM, game);
-	ft_load_sprite(game->coins, mlx, COINS_XPM, game);
-	ft_load_sprite(game->player_front, mlx, PLAYER_FRONT_XPM, game);
-	ft_load_sprite(game->player_left, mlx, PLAYER_LEFT_XPM, game);
-	ft_load_sprite(game->player_right, mlx, PLAYER_RIGHT_XPM, game);
-	ft_load_sprite(game->player_back, mlx, PLAYER_BACK_XPM, game);
-	ft_load_sprite(game->open_exit, mlx, OPEN_EXIT_XPM, game);
-	ft_load_sprite(game->exit_closed, mlx, EXIT_CLOSED_XPM, game);
-	ft_load_sprite(game->enemy_x, mlx, WANDER_ENEMY_XPM, game);
-	ft_load_sprite(game->enemy_k, mlx, STAT_ENEMY_XPM, game);
+	mlx = ctx->mlx_ptr;
+	load_sprite(ctx->wall, mlx, WALL_XPM1, ctx);
+	load_sprite(ctx->floor, mlx, FLOOR_XPM, ctx);
+	load_sprite(ctx->coins, mlx, COINS_XPM1, ctx);
+	load_sprite(ctx->player_front, mlx, PLAYER_FRONT_XPM1, ctx);
+	load_sprite(ctx->player_left, mlx, PLAYER_LEFT_XPM2, ctx);
+	load_sprite(ctx->player_right, mlx, PLAYER_RIGHT_XPM3, ctx);
+	load_sprite(ctx->player_back, mlx, PLAYER_BACK_XPM4, ctx);
+	load_sprite(ctx->open_exit, mlx, OPEN_EXIT_XPM, ctx);
+	load_sprite(ctx->exit_closed, mlx, EXIT_CLOSED_XPM, ctx);
+	load_sprite(ctx->enemy_x_l, mlx, WANDER_ENEMY_L_XPM1, ctx);
+	load_sprite(ctx->enemy_x_r, mlx, WANDER_ENEMY_R_XPM1, ctx);
+	load_sprite(ctx->enemy_k, mlx, TOXIC_XPM1, ctx);
 }
