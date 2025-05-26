@@ -6,7 +6,7 @@
 /*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 17:07:24 by aozkaya           #+#    #+#             */
-/*   Updated: 2025/05/25 22:45:39 by aozkaya          ###   ########.fr       */
+/*   Updated: 2025/05/26 04:00:34 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ t_img	*get_wall_frame(t_img *frame)
 		current_frame = frame;
 	}
 	current_time = clock();
-	elapsed_time = (double)(current_time - last_time) / CLOCKS_PER_SEC * 2000.0;
+	elapsed_time = (double)(current_time - last_time) / CLOCKS_PER_SEC * 1000;
 	if (elapsed_time >= DELAY)
 	{
 		current_frame = current_frame->next;
