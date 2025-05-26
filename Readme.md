@@ -1,3 +1,79 @@
+# Phantom's Escape - So_Long
+
+<div align="center">
+  <img src="assets/readme/ghost_logo.png" alt="Ghost Logo" width="200">
+</div>
+
+<h1 align="center">42 SO_LONG</h1>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/School-42-blue?style=for-the-badge&logo=42" alt="42">
+  <img src="https://img.shields.io/badge/Score-125%2F100-success?style=for-the-badge" alt="Project Score">
+  <img src="https://img.shields.io/badge/Language-C-orange?style=for-the-badge&logo=c" alt="Language">
+</p>
+
+<p align="center">
+  <b>A haunting tale of escape, powered by advanced animation systems and variadic functions</b>
+</p>
+
+<div align="center">
+  <img src="assets/readme/gameplay_preview.gif" alt="Gameplay Preview" width="600"/>
+</div>
+
+<p align="center">
+  <a href="#ghost-about">About</a> •
+  <a href="#sparkles-unique-features">Features</a> •
+  <a href="#gear-technical-highlights">Technical</a> •
+  <a href="#video_game-gameplay">Gameplay</a> •
+  <a href="#computer-installation">Installation</a>
+</p>
+
+## :ghost: About
+
+Phantom's Escape is not just another So_Long project - it's a haunting adventure that pushes the boundaries of the MLX library with:
+- Advanced animation system using variadic functions
+- Fluid character movements with 8-directional animations
+- Dynamic enemy AI with pathfinding
+- Atmospheric visual effects
+
+<div align="center">
+  <img src="assets/readme/features_showcase.png" alt="Features Showcase" width="800"/>
+</div>
+
+## :sparkles: Unique Features
+
+### Animation System
+- **Variadic Function Innovation**: Custom animation engine that handles multiple sprite sequences
+- **Smooth Transitions**: Frame-perfect animation timing
+- **Memory Efficient**: Linked list-based sprite management
+- **Dynamic Updates**: Real-time frame calculations
+
+### Enemy AI
+- **Wandering Spirits**: Intelligent pathfinding system
+- **Toxic Rivers**: Strategic obstacle placement
+- **Pattern Recognition**: Predictable yet challenging enemy movements
+
+<div align="center">
+  <img src="assets/readme/enemy_preview.gif" alt="Enemy Preview" width="400"/>
+</div>
+
+## :gear: Technical Highlights
+
+```c
+void init_animation(t_ctx *ctx, t_img *img, ...)
+{
+    va_list args;
+    const char *current_path;
+    
+    va_start(args, img);
+    while ((current_path = va_arg(args, const char *)))
+    {
+        // Dynamic sprite loading
+    }
+    va_end(args);
+}
+```
+
 # Haunted Dungeon Escape - So_Long
 
 <div align="center">
