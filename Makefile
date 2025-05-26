@@ -62,6 +62,16 @@ fclean: clean
 
 re: fclean all
 
+get_libs:
+	git submodule update --init --recursive
+
+compile_libs: get_libs
+	@make -C $(LIBFT_DIR)
+	@make -C $(MLX_DIR)
+
+run_bonus: re bonus
+	./$(NAME_BONUS) ./assets/maps/valid/bonus/map5.ber
+
 run: all
 	./$(NAME) ./assets/maps/valid/map2.ber
 
