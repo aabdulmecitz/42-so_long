@@ -1,5 +1,3 @@
-<h1 align="center"> so_long - @42tr </h1>
-
 <div align="center">
 
   # Phantom's Escape - 42 So_Long
@@ -20,8 +18,6 @@
   <img src="img/so_long_bonus.gif" width="700"/>
   
   *Animated Ghost Adventure with Dynamic Enemy AI*
-
-  <img src="img/so_long.gif" width="500"/>
   
   *Multiple Map Layouts and Challenges*
 </div>
@@ -33,10 +29,6 @@ Phantom's Escape is not just another So_Long project - it's a haunting adventure
 - Fluid character movements with 8-directional animations
 - Dynamic enemy AI with pathfinding
 - Atmospheric visual effects
-
-<div align="center">
-  <img src="assets/readme/features_showcase.png" alt="Features Showcase" width="800"/>
-</div>
 
 ## :sparkles: Unique Features
 
@@ -50,10 +42,6 @@ Phantom's Escape is not just another So_Long project - it's a haunting adventure
 - **Wandering Spirits**: Intelligent pathfinding system
 - **Toxic Rivers**: Strategic obstacle placement
 - **Pattern Recognition**: Predictable yet challenging enemy movements
-
-<div align="center">
-  <img src="assets/readme/enemy_preview.gif" alt="Enemy Preview" width="400"/>
-</div>
 
 ## :gear: Technical Highlights
 
