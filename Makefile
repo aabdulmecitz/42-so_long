@@ -12,7 +12,7 @@ MLX_A           = $(MLX_DIR)/libmlx.a
 
 # Compiler
 CC              = cc
-CFLAGS          = -Wall -Wextra -Werror -g
+CFLAGS          = -Wall -Wextra -Werror -g -fsanitize=address -O2
 INCLUDES        = -I$(LIBFT_DIR) -I$(MLX_DIR)
 LIBS            = -L$(MLX_DIR) -lmlx -lX11 -lXext -lm -lbsd
 

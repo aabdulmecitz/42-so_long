@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_mem_free.c                                      :+:      :+:    :+:   */
+/*   free_all.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 17:10:09 by aozkaya           #+#    #+#             */
-/*   Updated: 2025/05/25 14:22:27 by aozkaya          ###   ########.fr       */
+/*   Updated: 2025/05/26 04:42:26 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,38 +19,39 @@ void	free_all_mem(t_ctx *ctx)
 	if (!ctx)
 		return ;
 	ft_destroy_imgs(ctx);
-	free_map(ctx);
-	if (ctx->win_ptr)
-		mlx_destroy_window(ctx->mlx_ptr, ctx->win_ptr);
+	if (ctx->map_alloc)
+		free_map(ctx);
 	if (ctx->mlx_ptr)
 	{
+		if (ctx->win_ptr)
+			mlx_destroy_window(ctx->mlx_ptr, ctx->win_ptr);
 		mlx_destroy_display(ctx->mlx_ptr);
 		free(ctx->mlx_ptr);
+		ctx->mlx_ptr = NULL;
 	}
 	free(ctx);
 }
 
 static void	ft_destroy_imgs(t_ctx *ctx)
 {
-	int			i;
-	t_img		*imgs[10];
+	int i;
 
+	if (!ctx || !ctx->mlx_ptr)
+		return ;
+	t_img	*imgs[] = {
+		&ctx->wall, &ctx->floor, &ctx->coins,
+		&ctx->player_front, &ctx->player_left,
+		&ctx->player_right, &ctx->player_back,
+		&ctx->exit_closed, &ctx->open_exit, NULL
+	};
 	i = 0;
-	imgs[0] = &ctx->wall;
-	imgs[1] = &ctx->floor;
-	imgs[2] = &ctx->coins;
-	imgs[3] = &ctx->player_front;
-	imgs[4] = &ctx->player_left;
-	imgs[5] = &ctx->player_right;
-	imgs[6] = &ctx->player_back;
-	imgs[7] = &ctx->exit_closed;
-	imgs[8] = &ctx->open_exit;
-	imgs[9] = NULL;
 	while (imgs[i])
 	{
 		if (imgs[i]->xpm_ptr)
+		{
 			mlx_destroy_image(ctx->mlx_ptr, imgs[i]->xpm_ptr);
-		free(imgs[i]);
+			imgs[i]->xpm_ptr = NULL;
+		}
 		i++;
 	}
 }

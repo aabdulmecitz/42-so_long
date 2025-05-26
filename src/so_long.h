@@ -6,7 +6,7 @@
 /*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 15:16:28 by aozkaya           #+#    #+#             */
-/*   Updated: 2025/05/26 04:16:36 by aozkaya          ###   ########.fr       */
+/*   Updated: 2025/05/26 04:38:45 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,5 +135,6 @@ void			free_all_mem(t_ctx *ctx);
 void			free_map(t_ctx *ctx);
 void			free_map_inside(t_map *map);
 void			print_map_matris(t_ctx *ctx);
+void	error_cover(char *msg, t_ctx *ctx);
 
 #endif
