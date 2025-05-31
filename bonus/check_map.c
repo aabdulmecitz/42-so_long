@@ -6,7 +6,7 @@
 /*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 17:07:08 by aozkaya           #+#    #+#             */
-/*   Updated: 2025/05/31 18:27:09 by aozkaya          ###   ########.fr       */
+/*   Updated: 2025/05/31 18:53:58 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	ft_check_rectanglular(t_ctx *ctx)
 			ft_printf(RED "%s , current row len: %d , first row len: \
 				%d\n" RESET, ctx->map.map_matris[i], current_row_len, \
 				first_row_len);
-			error("Map is not rectangular!", ctx);
+			free_all_mem(ctx), error("Map is not rectangular!", ctx);
 			return ;
 		}
 		i++;
@@ -55,12 +55,21 @@ void	ft_check_elements(t_ctx *ctx)
 {
 	ft_search_elements(ctx);
 	if (ctx->map.players != 1)
+	{
+		free_all_mem(ctx);
 		error("Map must contain exactly one starting location ('P')", \
 			ctx);
+	}
 	if (ctx->map.exit != 1)
+	{
+		free_all_mem(ctx);
 		error("Map must contain exactly one exit ('E')", ctx);
+	}
 	if (ctx->map.coins < 1)
+	{
+		free_all_mem(ctx);
 		error("Map must contain at least one collectible ('C')", ctx);
+	}
 }
 
 void	ft_search_elements(t_ctx *ctx)
@@ -87,7 +96,7 @@ void	ft_count_elements(t_ctx *ctx, int x, int y)
 {
 	if ((y == 0 || y == ctx->map.rows - 1 || x == 0 || \
 x == ctx->map.columns - 1) && ctx->map.map_matris[y][x] != WALL)
-		error("Invalid Map.", ctx);
+		(ft_destroy_imgs(ctx), error("Invalid Map.", ctx));
 	if (ctx->map.map_matris[y][x] == PLAYER)
 	{
 		ctx->map.players++;
@@ -109,5 +118,5 @@ x == ctx->map.columns - 1) && ctx->map.map_matris[y][x] != WALL)
 				ctx->map.map_matris[y][x] != COINS
 					&& ctx->map.map_matris[y][x] != WANDER_ENEMY &&
 				ctx->map.map_matris[y][x] != STAT_ENEMY)
-		error("Invalid character in map", ctx);
+	(ft_destroy_imgs(ctx), error("Invalid character in map", ctx));
 }

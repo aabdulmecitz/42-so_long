@@ -6,7 +6,7 @@
 /*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 17:08:51 by aozkaya           #+#    #+#             */
-/*   Updated: 2025/05/26 04:53:24 by aozkaya          ###   ########.fr       */
+/*   Updated: 2025/05/31 18:46:38 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,9 @@ void	free_all_mem(t_ctx *ctx)
 	ft_destroy_imgs(ctx);
 	if (ctx->map_alloc && ctx->map.map_matris)
 		free_map(ctx);
-	
-	// Free image structs
-	free_double(ctx->wall, ctx->floor, ctx->coins, ctx->player_front);
+		free_double(ctx->wall, ctx->floor, ctx->coins, ctx->player_front);
 	free_double(ctx->player_left, ctx->player_right, ctx->player_back, ctx->exit_closed);
 	free_double(ctx->open_exit, ctx->enemy_x_l, ctx->enemy_x_r, ctx->enemy_k);
-	
 	if (ctx->mlx_ptr)
 	{
 		if (ctx->win_ptr)
