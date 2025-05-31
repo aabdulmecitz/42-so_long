@@ -17,10 +17,9 @@ void	check_cmd_args(int argc, char const *argv[], t_ctx *ctx)
 	int	map_len;
 
 	if (argc < 2)
-		error("Where is the map bro? Please Enter a map!", ctx);
+		error("Please Enter a map!", ctx);
 	if (argc > 2)
-		error("You entered alot of argument. \
-            You must enter one map file without ctx", ctx);
+		error("You entered alot of argument. ", ctx);
 	map_len = ft_strlen(argv[1]);
 	if (!ft_strnstr(&argv[1][map_len - 4], ".ber", 4))
 		error("Map file is not valid. You can enter just .ber file.", \
