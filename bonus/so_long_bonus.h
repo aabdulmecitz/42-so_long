@@ -6,7 +6,7 @@
 /*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 17:09:11 by aozkaya           #+#    #+#             */
-/*   Updated: 2025/05/26 03:53:38 by aozkaya          ###   ########.fr       */
+/*   Updated: 2025/05/31 18:55:59 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -243,6 +243,7 @@ void				paint_enemy_x_with_animation(t_ctx *ctx, int x, int y);
 void				paint_toxic_with_animation(t_ctx *ctx, int x, int y);
 void				paint_player_with_animation(t_ctx *ctx, int x, int y);
 void				paint_door(t_ctx *ctx, int x, int y);
+void				ft_destroy_imgs(t_ctx *ctx);
 
 t_img				*get_enemy_r_frame(t_img *frame);
 t_img				*get_enemy_l_frame(t_img *frame);

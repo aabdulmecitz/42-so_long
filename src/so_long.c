@@ -6,7 +6,7 @@
 /*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 17:10:28 by aozkaya           #+#    #+#             */
-/*   Updated: 2025/05/26 04:41:50 by aozkaya          ###   ########.fr       */
+/*   Updated: 2025/05/31 19:02:21 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,8 @@ int	main(int argc, const char *argv[])
 	}
 	ft_memset(ctx, 0, sizeof(t_ctx));
 	ctx->map_alloc = 0;
-    ctx->mlx_ptr = NULL;
-    ctx->win_ptr = NULL;
+	ctx->mlx_ptr = NULL;
+	ctx->win_ptr = NULL;
 	check_cmd_args(argc, argv, ctx);
 	map_initializer(ctx, (char *)argv[1]);
 	so_long_init(ctx);

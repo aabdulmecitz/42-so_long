@@ -81,9 +81,8 @@ void	ft_check_rectanglular(t_ctx *ctx)
 		if (current_row_len != first_row_len)
 		{
 			ft_printf(RED "%s , current row len: %d , first row len:\
-				%d\n" RESET, ctx->map.map_matris[i], current_row_len,
-				first_row_len);
-			free_all_mem(ctx), error("Map is not rectangular!", ctx);
+%d\n" RESET, ctx->map.map_matris[i], current_row_len, first_row_len);
+			(free_all_mem(ctx), error("Map is not rectangular!", ctx));
 			return ;
 		}
 		i++;
@@ -116,5 +115,4 @@ void	ft_count_elements(t_ctx *ctx, int x, int y)
 		ft_destroy_imgs(ctx);
 		error("Invalid character in map", ctx);
 	}
-	
 }

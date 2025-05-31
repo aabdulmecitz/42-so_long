@@ -6,7 +6,7 @@
 /*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 17:10:09 by aozkaya           #+#    #+#             */
-/*   Updated: 2025/05/31 18:18:31 by aozkaya          ###   ########.fr       */
+/*   Updated: 2025/05/31 19:01:55 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,16 +32,21 @@ void	free_all_mem(t_ctx *ctx)
 
 void	ft_destroy_imgs(t_ctx *ctx)
 {
-	int i;
+	int		i;
+	t_img	*imgs[10];
 
+	imgs[0] = &ctx->wall;
+	imgs[1] = &ctx->floor;
+	imgs[2] = &ctx->coins;
+	imgs[3] = &ctx->player_front;
+	imgs[4] = &ctx->player_left;
+	imgs[5] = &ctx->player_right;
+	imgs[6] = &ctx->player_back;
+	imgs[7] = &ctx->exit_closed;
+	imgs[8] = &ctx->open_exit;
+	imgs[9] = NULL;
 	if (!ctx || !ctx->mlx_ptr)
 		return ;
-	t_img	*imgs[] = {
-		&ctx->wall, &ctx->floor, &ctx->coins,
-		&ctx->player_front, &ctx->player_left,
-		&ctx->player_right, &ctx->player_back,
-		&ctx->exit_closed, &ctx->open_exit, NULL
-	};
 	i = 0;
 	while (imgs[i])
 	{
