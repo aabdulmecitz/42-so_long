@@ -6,7 +6,7 @@
 /*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 17:08:55 by aozkaya           #+#    #+#             */
-/*   Updated: 2025/05/26 04:53:26 by aozkaya          ###   ########.fr       */
+/*   Updated: 2025/05/31 18:08:04 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,36 +38,25 @@ void	error(char *msg, t_ctx *ctx)
 void	congrats_msg(void)
 {
 	ft_printf(GREEN "\n");
-	ft_printf(GREEN "==========================================\
-=================\n" RESET);
-	ft_printf(GREEN "                   🎉 CONGRATULATIONS! 🎉 \
-                \n" RESET);
-	ft_printf(GREEN "------------------------------------------\
------------------\n" RESET);
-	ft_printf(GREEN " You've successmap_matrisy completed the game! \
-🏆               \n" RESET);
-	ft_printf(GREEN " Thanks for playing and being an awesome h\
-ero. 👑          \n" RESET);
-	ft_printf(GREEN " Remember: the real treasure was the journ\
-ey all along! 💎 \n" RESET);
-	ft_printf(GREEN "==========================================\
-=================\n" RESET);
+	ft_printf(GREEN "==============================================\n" RESET);
+	ft_printf(GREEN "           🎉 CONGRATULATIONS! 🎉\n" RESET);
+	ft_printf(GREEN "----------------------------------------------\n" RESET);
+	ft_printf(GREEN " You finished the game! Well done! 🏆\n" RESET);
+	ft_printf(GREEN " Thank you for playing so_long. 👾\n" RESET);
+	ft_printf(GREEN " Hope you enjoyed the adventure!\n" RESET);
+	ft_printf(GREEN "==============================================\n" RESET);
 	ft_printf(GREEN "\n");
 }
 
 void	failed_msg(void)
 {
 	ft_printf(RED "\n");
-	ft_printf(RED "==============================================\
-=============\n" RESET);
-	ft_printf(RED "                     OH NOO!                  \
- \n" RESET);
-	ft_printf(RED "----------------------------------------------\
--------------\n" RESET);
-	ft_printf(RED " You've failed completed the game! \n" RESET);
-	ft_printf(RED " Thanks for playing. You should try again. \n" RESET);
-	ft_printf(RED " Remember: have enjoy!            \n" RESET);
-	ft_printf(RED "==============================================\
-=============\n" RESET);
+	ft_printf(RED "==============================================\n" RESET);
+	ft_printf(RED "                GAME OVER! 😢\n" RESET);
+	ft_printf(RED "----------------------------------------------\n" RESET);
+	ft_printf(RED " You didn't complete the game this time.\n" RESET);
+	ft_printf(RED " Don't give up! Try again and beat the challenge.\n" RESET);
+	ft_printf(RED " Good luck on your next attempt!\n" RESET);
+	ft_printf(RED "==============================================\n" RESET);
 	ft_printf(RED "\n");
 }

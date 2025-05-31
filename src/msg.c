@@ -6,7 +6,7 @@
 /*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 17:10:17 by aozkaya           #+#    #+#             */
-/*   Updated: 2025/05/26 04:41:50 by aozkaya          ###   ########.fr       */
+/*   Updated: 2025/05/31 18:07:24 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,17 +48,12 @@ void	error_cover(char *msg, t_ctx *ctx)
 void	congrats_msg(void)
 {
 	ft_printf(GREEN "\n");
-	ft_printf(GREEN "==============================================\
-=============\n" RESET);
-	ft_printf(GREEN "                   🎉 CONGRATULATIONS! 🎉 \n" RESET);
-	ft_printf(GREEN "-----------------------------------------------\
-------------\n" RESET);
-	ft_printf(GREEN " You've successmap_matrisy completed the game! 🏆 \n" RESET);
-	ft_printf(GREEN " Thanks for playing and being an awesome hero. \
-👑\n" RESET);
-	ft_printf(GREEN " Remember: the real treasure was the journey al\
-l along! 💎 \n" RESET);
-	ft_printf(GREEN "===============================================\
-============\n" RESET);
+	ft_printf(GREEN "==============================================\n" RESET);
+	ft_printf(GREEN "           🎉 CONGRATULATIONS! 🎉\n" RESET);
+	ft_printf(GREEN "----------------------------------------------\n" RESET);
+	ft_printf(GREEN " You finished the game! Well done! 🏆\n" RESET);
+	ft_printf(GREEN " Thank you for playing so_long. 👾\n" RESET);
+	ft_printf(GREEN " Hope you enjoyed the adventure!\n" RESET);
+	ft_printf(GREEN "==============================================\n" RESET);
 	ft_printf(GREEN "\n");
 }

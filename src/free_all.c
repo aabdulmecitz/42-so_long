@@ -6,13 +6,11 @@
 /*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 17:10:09 by aozkaya           #+#    #+#             */
-/*   Updated: 2025/05/26 04:42:26 by aozkaya          ###   ########.fr       */
+/*   Updated: 2025/05/31 18:18:31 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-static void	ft_destroy_imgs(t_ctx *ctx);
 
 void	free_all_mem(t_ctx *ctx)
 {
@@ -32,7 +30,7 @@ void	free_all_mem(t_ctx *ctx)
 	free(ctx);
 }
 
-static void	ft_destroy_imgs(t_ctx *ctx)
+void	ft_destroy_imgs(t_ctx *ctx)
 {
 	int i;
 

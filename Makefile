@@ -1,7 +1,6 @@
 NAME            = so_long
 NAME_BONUS      = so_long_bonus
 
-# Paths
 SRCS_DIR        = ./src/
 BONUS_SRCS_DIR  = ./bonus/
 LIBFT_DIR       = ./lib/libft
@@ -10,13 +9,11 @@ MLX_DIR         = ./lib/minilibx-linux
 LIBFT_A         = $(LIBFT_DIR)/libft.a
 MLX_A           = $(MLX_DIR)/libmlx.a
 
-# Compiler
 CC              = cc
-CFLAGS          = -Wall -Wextra -Werror -g -fsanitize=address -O2
+CFLAGS          = -Wall -Wextra -Werror -g # -fsanitize=address -O2
 INCLUDES        = -I$(LIBFT_DIR) -I$(MLX_DIR)
 LIBS            = -L$(MLX_DIR) -lmlx -lX11 -lXext -lm -lbsd
 
-# Files
 SRCS = $(addprefix $(SRCS_DIR),\
         button_acts.c check_cmd_args.c check_map.c \
         flood_fill.c frame_mount.c free.c free_all.c\
@@ -28,11 +25,9 @@ BONUS_SRCS = $(addprefix $(BONUS_SRCS_DIR),\
         enemy_init.c frame_mount.c free_all.c free.c ig.c write_steps.c\
         game_initializer.c map_initializer.c msg.c so_long_bonus.c)
 
-# Object files
 OBJS        = $(SRCS:.c=.o)
 BONUS_OBJS  = $(BONUS_SRCS:.c=.o)
 
-# Rules
 all: $(NAME)
 
 $(NAME): $(LIBFT_A) $(MLX_A)
