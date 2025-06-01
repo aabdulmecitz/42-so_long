@@ -82,7 +82,7 @@ void	ft_check_rectanglular(t_ctx *ctx)
 		{
 			ft_printf(RED "%s , current row len: %d , first row len:\
 %d\n" RESET, ctx->map.map_matris[i], current_row_len, first_row_len);
-			(free_all_mem(ctx), error("Map is not rectangular!", ctx));
+			(ft_destroy_imgs(ctx), error("Map is not rectangular!", ctx));
 			return ;
 		}
 		i++;

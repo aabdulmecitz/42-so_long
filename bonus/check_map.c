@@ -6,7 +6,7 @@
 /*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 17:07:08 by aozkaya           #+#    #+#             */
-/*   Updated: 2025/05/31 19:04:42 by aozkaya          ###   ########.fr       */
+/*   Updated: 2025/06/01 14:29:49 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	ft_check_rectanglular(t_ctx *ctx)
 			ft_printf(RED "%s , current row len: %d , first row len: \
 				%d\n" RESET, ctx->map.map_matris[i], current_row_len, \
 				first_row_len);
-			(free_all_mem(ctx), error("Map is not rectangular!", ctx));
+			(ft_destroy_imgs(ctx), error("Map is not rectangular!", ctx));
 			return ;
 		}
 		i++;
