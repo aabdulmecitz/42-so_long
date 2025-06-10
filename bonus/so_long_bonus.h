@@ -6,7 +6,7 @@
 /*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 17:09:11 by aozkaya           #+#    #+#             */
-/*   Updated: 2025/05/31 18:55:59 by aozkaya          ###   ########.fr       */
+/*   Updated: 2025/06/10 18:03:47 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -235,7 +235,6 @@ void				run_animation(t_ctx *ctx, t_img *img_list);
 void				paint_coin_with_animation(t_ctx *ctx, int x, int y);
 void				free_double(void *ptr1, void *ptr2, void *ptr3, void *ptr4);
 void				conf_null(t_ctx *ctx);
-void				load_all_sprites(t_ctx *ctx);
 void				free_img_list(t_img *head, void *mlx_ptr);
 int					print_space_line(t_ctx *ctx);
 void				paint_wall_with_animation(t_ctx *ctx, int x, int y);

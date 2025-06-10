@@ -85,4 +85,22 @@ test_invalid_maps: all bonus
 		./$(NAME_BONUS) $$map || echo "Error handled correctly for $$map"; \
 	done
 
-.PHONY: all clean fclean re bonus test test_invalid_maps
+test_valgrind: all bonus
+	@echo "\033[1;34m=== Testing $(NAME) with Valgrind ===\033[0m"
+	@valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./$(NAME) ./assets/maps/valid/map2.ber
+	@echo "\033[1;34m=== Testing $(NAME_BONUS) with Valgrind ===\033[0m"
+	@valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./$(NAME_BONUS) ./assets/maps/valid/bonus/map5.ber
+
+test_valgrind_invalid_maps: all bonus
+	@echo "\033[1;34m=== Testing invalid maps with $(NAME) using Valgrind ===\033[0m"
+	@for map in $(INVALID_MAPS); do \
+		echo "\nTesting $$map with $(NAME):"; \
+		valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./$(NAME) $$map || echo "Error handled correctly for $$map"; \
+	done
+	@echo "\033[1;34m=== Testing invalid maps with $(NAME_BONUS) using Valgrind ===\033[0m"
+	@for map in $(INVALID_MAPS); do \
+		echo "\nTesting $$map with $(NAME_BONUS):"; \
+		valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./$(NAME_BONUS) $$map || echo "Error handled correctly for $$map"; \
+	done
+
+.PHONY: all clean fclean re bonus test test_invalid_maps test_valgrind test_valgrind_invalid_maps
