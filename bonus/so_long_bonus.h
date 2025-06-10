@@ -6,7 +6,7 @@
 /*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 17:09:11 by aozkaya           #+#    #+#             */
-/*   Updated: 2025/06/10 18:03:47 by aozkaya          ###   ########.fr       */
+/*   Updated: 2025/06/10 18:51:20 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -221,6 +221,7 @@ void				handle_enemies(t_ctx *ctx);
 void				allocate_enemy_memory(t_ctx *ctx);
 void				load_sprite(t_img *sprite, void *mlx, char *path,
 						t_ctx *ctx);
+void				load_all_sprites(t_ctx *ctx);
 void				ft_enemies(t_ctx *ctx);
 void				enemy_movement(t_ctx *ctx, t_enemy *enemy);
 int					is_valid_location(t_ctx *ctx, int x, int y);

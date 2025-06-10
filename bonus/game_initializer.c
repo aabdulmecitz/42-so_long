@@ -53,7 +53,7 @@ void	ft_init_mlx(t_ctx *ctx)
 void	load_sprite(t_img *sprite, void *mlx, char *path, t_ctx *ctx)
 {
 	if (!sprite)
-		error(" ", ctx);
+		error("Sprite pointer is NULL.", ctx);
 	sprite->xpm_ptr = mlx_xpm_file_to_image(mlx, path, &sprite->x, &sprite->y);
 	ft_printf(CYAN "Loading sprite from path: %s\n" RESET, path);
 	if (!sprite->xpm_ptr)
@@ -65,20 +65,23 @@ void	load_sprite(t_img *sprite, void *mlx, char *path, t_ctx *ctx)
 
 void	ft_init_sprites(t_ctx *ctx)
 {
-
-	void	*mlx;
-
-	mlx = ctx->mlx_ptr;
-	load_sprite(ctx->wall, mlx, WALL_XPM1, ctx);
-	load_sprite(ctx->floor, mlx, FLOOR_XPM, ctx);
-	load_sprite(ctx->coins, mlx, COINS_XPM1, ctx);
-	load_sprite(ctx->player_front, mlx, PLAYER_FRONT_XPM1, ctx);
-	load_sprite(ctx->player_left, mlx, PLAYER_LEFT_XPM2, ctx);
-	load_sprite(ctx->player_right, mlx, PLAYER_RIGHT_XPM3, ctx);
-	load_sprite(ctx->player_back, mlx, PLAYER_BACK_XPM4, ctx);
-	load_sprite(ctx->open_exit, mlx, OPEN_EXIT_XPM, ctx);
-	load_sprite(ctx->exit_closed, mlx, EXIT_CLOSED_XPM, ctx);
-	load_sprite(ctx->enemy_x_l, mlx, WANDER_ENEMY_L_XPM1, ctx);
-	load_sprite(ctx->enemy_x_r, mlx, WANDER_ENEMY_R_XPM1, ctx);
-	load_sprite(ctx->enemy_k, mlx, TOXIC_XPM1, ctx);
+	ctx->wall = malloc(sizeof(t_img));
+	ctx->floor = malloc(sizeof(t_img));
+	ctx->coins = malloc(sizeof(t_img));
+	ctx->player_front = malloc(sizeof(t_img));
+	ctx->player_left = malloc(sizeof(t_img));
+	ctx->player_right = malloc(sizeof(t_img));
+	ctx->player_back = malloc(sizeof(t_img));
+	ctx->open_exit = malloc(sizeof(t_img));
+	ctx->exit_closed = malloc(sizeof(t_img));
+	ctx->enemy_x_l = malloc(sizeof(t_img));
+	ctx->enemy_x_r = malloc(sizeof(t_img));
+	ctx->enemy_k = malloc(sizeof(t_img));
+	if (!ctx->wall || !ctx->floor || !ctx->coins
+		|| !ctx->player_front || !ctx->player_left
+		|| !ctx->player_right || !ctx->player_back
+		|| !ctx->open_exit || !ctx->exit_closed
+		|| !ctx->enemy_x_l || !ctx->enemy_x_r || !ctx->enemy_k)
+		error("Memory allocation failed for one of the sprites.", ctx);
+	load_all_sprites(ctx);
 }
