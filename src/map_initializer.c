@@ -6,7 +6,7 @@
 /*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 22:53:48 by aozkaya           #+#    #+#             */
-/*   Updated: 2025/05/25 22:53:50 by aozkaya          ###   ########.fr       */
+/*   Updated: 2025/06/10 19:23:51 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,22 +51,22 @@ void	check_empty_lines(char *map, t_ctx *ctx)
 	if (map[0] == '\n')
 	{
 		free(map);
-		error("Invalid map. The map have an empty line right at\
-			the beginning.", ctx);
+		error("Invalid map. The map have an empty line right at \
+the beginning.", ctx);
 	}
 	else if (map[ft_strlen(map) - 1] == '\n')
 	{
 		free(map);
 		error("Invalid map. \
-		The map have an empty line at the end.", ctx);
+The map have an empty line at the end.", ctx);
 	}
 	while (map[i + 1])
 	{
 		if (map[i] == '\n' && map[i + 1] == '\n')
 		{
 			free(map);
-			error("Invalid map. The map have an empty\
-				line at the middle.", ctx);
+			error("Invalid map. The map have an empty \
+line at the middle.", ctx);
 		}
 		i++;
 	}

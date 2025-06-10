@@ -8,7 +8,7 @@
         "type": "cppdbg",
         "request": "launch",
         "program": "${file}",
-        "args": ["./assets/maps/invalid/map-missing-P.ber"],
+        "args": ["./assets/maps/invalid/map-missing-C.ber"],
         "stopAtEntry": false,
         "cwd": "${fileDirname}",
         "environment": [],

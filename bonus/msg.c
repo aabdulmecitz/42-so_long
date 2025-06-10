@@ -6,7 +6,7 @@
 /*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 17:08:55 by aozkaya           #+#    #+#             */
-/*   Updated: 2025/06/10 18:08:33 by aozkaya          ###   ########.fr       */
+/*   Updated: 2025/06/10 19:19:47 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,6 @@ void	error(char *msg, t_ctx *ctx)
 			free_map(ctx);
 		if (ctx->mlx_ptr)
 		{
-			if (ctx->wall && ctx->wall->xpm_ptr)
-				mlx_destroy_image(ctx->mlx_ptr, ctx->wall->xpm_ptr);
 			if (ctx->win_ptr)
 				mlx_destroy_window(ctx->mlx_ptr, ctx->win_ptr);
 			mlx_destroy_display(ctx->mlx_ptr);
