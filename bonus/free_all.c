@@ -6,7 +6,7 @@
 /*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 17:08:51 by aozkaya           #+#    #+#             */
-/*   Updated: 2025/06/10 17:49:06 by aozkaya          ###   ########.fr       */
+/*   Updated: 2025/06/10 19:11:53 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	free_all_mem(t_ctx *ctx)
 void	ft_destroy_imgs(t_ctx *ctx)
 {
 	int		i;
-	t_img	*imgs[9];
+	t_img	*imgs[12];
 
 	if (!ctx || !ctx->mlx_ptr)
 		return ;
@@ -50,8 +50,12 @@ void	ft_destroy_imgs(t_ctx *ctx)
 	imgs[6] = ctx->player_back;
 	imgs[7] = ctx->exit_closed;
 	imgs[8] = ctx->open_exit;
+	imgs[9] = ctx->enemy_k;
+	imgs[10] = ctx->enemy_x_l;
+	imgs[11] = ctx->enemy_x_r;
+
 	i = 0;
-	while (i < 9)
+	while (i < 12)
 	{
 		if (imgs[i] && imgs[i]->xpm_ptr)
 		{
@@ -60,6 +64,7 @@ void	ft_destroy_imgs(t_ctx *ctx)
 		}
 		i++;
 	}
+	destroy_sprites(ctx);
 }
 
 void	free_map(t_ctx *ctx)
