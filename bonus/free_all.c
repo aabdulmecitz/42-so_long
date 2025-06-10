@@ -6,7 +6,7 @@
 /*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 17:08:51 by aozkaya           #+#    #+#             */
-/*   Updated: 2025/06/10 19:11:53 by aozkaya          ###   ########.fr       */
+/*   Updated: 2025/06/10 19:13:42 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,28 +77,4 @@ void	free_map(t_ctx *ctx)
 	while (i < ctx->map.rows)
 		free(ctx->map.map_matris[i++]);
 	free(ctx->map.map_matris);
-}
-
-void	free_map_inside(t_map *map)
-{
-	int	i;
-
-	i = 0;
-	while (i < map->rows)
-	{
-		free(map->map_matris[i]);
-		i++;
-	}
-	free(map->map_matris);
-	free(map);
-}
-
-int	win_destroy(t_ctx *ctx)
-{
-	if (!ctx)
-	{
-		free_all_mem(ctx);
-	}
-	exit(0);
-	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 17:07:20 by aozkaya           #+#    #+#             */
-/*   Updated: 2025/06/10 19:10:02 by aozkaya          ###   ########.fr       */
+/*   Updated: 2025/06/10 19:13:50 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,4 +54,28 @@ void destroy_sprites(t_ctx *ctx)
 	free(ctx->enemy_x_l);
 	free(ctx->enemy_x_r);
 	free(ctx->enemy_k);
+}
+
+void	free_map_inside(t_map *map)
+{
+	int	i;
+
+	i = 0;
+	while (i < map->rows)
+	{
+		free(map->map_matris[i]);
+		i++;
+	}
+	free(map->map_matris);
+	free(map);
+}
+
+int	win_destroy(t_ctx *ctx)
+{
+	if (!ctx)
+	{
+		free_all_mem(ctx);
+	}
+	exit(0);
+	return (0);
 }
