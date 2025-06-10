@@ -95,7 +95,7 @@ void	ft_count_elements(t_ctx *ctx, int x, int y)
 {
 	if ((y == 0 || y == ctx->map.rows - 1 || x == 0 || x == ctx->map.columns
 			- 1) && ctx->map.map_matris[y][x] != WALL)
-		(free_all_mem(ctx), error("Invalid Map.", ctx));
+		(ft_destroy_imgs(ctx), error("Invalid Map.", ctx));
 	if (ctx->map.map_matris[y][x] == PLAYER)
 	{
 		ctx->map.players++;

@@ -70,4 +70,19 @@ run_bonus: re bonus
 run: all
 	./$(NAME) ./assets/maps/valid/map2.ber
 
-.PHONY: all clean fclean re bonus
+INVALID_MAPS_DIR = ./assets/maps/invalid/
+INVALID_MAPS = $(wildcard $(INVALID_MAPS_DIR)*.ber)
+
+test_invalid_maps: all bonus
+	@echo "\033[1;34m=== Testing invalid maps with $(NAME) ===\033[0m"
+	@for map in $(INVALID_MAPS); do \
+		echo "\n$(NAME) $$map \nTesting $$map with $(NAME):"; \
+		./$(NAME) $$map || echo "Error handled correctly for $$map"; \
+	done
+	@echo "\033[1;34m=== Testing invalid maps with $(NAME_BONUS) ===\033[0m"
+	@for map in $(INVALID_MAPS); do \
+		echo "\nTesting $$map with $(NAME_BONUS):"; \
+		./$(NAME_BONUS) $$map || echo "Error handled correctly for $$map"; \
+	done
+
+.PHONY: all clean fclean re bonus test test_invalid_maps

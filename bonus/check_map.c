@@ -6,7 +6,7 @@
 /*   By: aozkaya <aozkaya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 17:07:08 by aozkaya           #+#    #+#             */
-/*   Updated: 2025/06/01 14:29:49 by aozkaya          ###   ########.fr       */
+/*   Updated: 2025/06/10 17:45:53 by aozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,18 +56,18 @@ void	ft_check_elements(t_ctx *ctx)
 	ft_search_elements(ctx);
 	if (ctx->map.players != 1)
 	{
-		free_all_mem(ctx);
+		ft_destroy_imgs(ctx);
 		error("Map must contain exactly one starting location ('P')", \
 			ctx);
 	}
 	if (ctx->map.exit != 1)
 	{
-		free_all_mem(ctx);
+		ft_destroy_imgs(ctx);
 		error("Map must contain exactly one exit ('E')", ctx);
 	}
 	if (ctx->map.coins < 1)
 	{
-		free_all_mem(ctx);
+		ft_destroy_imgs(ctx);
 		error("Map must contain at least one collectible ('C')", ctx);
 	}
 }
